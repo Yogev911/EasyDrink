@@ -1,0 +1,84 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+main, nav, header, footer{
+    display: block;
+}
+
+nav{
+    background-color: #1a1a1a;
+    height: 50px;
+}
+
+.logo{
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: auto;
+    padding-left: 50px;
+    padding-top:20px;
+    width: 100px;
+    height: 50px;
+    background: url("../../images/logo.gif") left no-repeat;
+    color: #f2f2f2;
+}
+
+header{
+    height: 200px;
+}
+
+footer{
+    position: absolute;
+    bottom: 0px;
+    height: 100px;
+}
+
+.icon-bar{
+    background-color: white;
+}
+
+
+
+/* Nav bar buttons*/
+.navbar-toggle{
+    border: none;
+}
+@media (min-width: 768px) {
+    .navbar-toggle {
+        display: block;
+    }
+}
+
+.hamburger {
+    position: absolute;
+    left: 5px;
+}
+.search-toggle{
+    position: absolute;
+    right: 5px;
+    color: white;
+}
+
+.fbLink {
+    width: 50px;
+    height: 50px;
+    background: url("../../images/fbLogo.png");
+}
+
+.youtubeLink{
+    width: 50px;
+    height: 50px;
+    background: url("../../images/fbLogo.png");
+}
+
+.fbLink {
+    width: 50px;
+    height: 50px;
+    size: 50px;
+}
+
+
+
