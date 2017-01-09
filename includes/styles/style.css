@@ -2,18 +2,21 @@
     padding: 0;
     margin: 0;
 }
+body{
+    background-color: #262626;
+    color: white;
+}
 
-
-main, nav, header, footer{
+main, nav, header, footer, section{
     display: block;
 }
 
-nav{
-    background-color: #1a1a1a;
-    height: 50px;
+.navbar-inverse{
+    background-color: #262626;
+    border: none;
 }
 
-.logo{
+#logo{
     position: absolute;
     right: 0;
     left: 0;
@@ -22,6 +25,7 @@ nav{
     padding-top:20px;
     width: 100px;
     height: 50px;
+    text-decoration: none;
     background: url("../../images/logo.gif") left no-repeat;
     color: #f2f2f2;
 }
@@ -33,52 +37,62 @@ header{
 footer{
     position: absolute;
     bottom: 0px;
-    height: 100px;
+    height: 150px;
+    width: 100%;
+    background-color: #262626;
 }
 
-.icon-bar{
+nav .icon-bar{
     background-color: white;
 }
 
-
-
 /* Nav bar buttons*/
-.navbar-toggle{
+nav .navbar-toggle{
     border: none;
 }
 @media (min-width: 768px) {
-    .navbar-toggle {
+    nav .navbar-toggle {
         display: block;
     }
 }
 
-.hamburger {
+nav .hamburger {
     position: absolute;
     left: 5px;
 }
-.search-toggle{
+nav .search-toggle{
     position: absolute;
     right: 5px;
     color: white;
 }
 
+footer .contact{
+    margin: auto;
+    margin-top: 30px;
+    width: 105px;
+}
+
+footer .rights{
+    text-align: center;
+    font-size: small;
+    margin-top: 30px;
+    color: #a6a6a6;
+}
+
 .fbLink {
     width: 50px;
     height: 50px;
+    display: inline-block;
     background: url("../../images/fbLogo.png");
 }
 
 .youtubeLink{
     width: 50px;
     height: 50px;
-    background: url("../../images/fbLogo.png");
+    display: inline-block;
+    background: url("../../images/youtubeLogo.png");
 }
 
-.fbLink {
-    width: 50px;
-    height: 50px;
-    size: 50px;
-}
 
 
 
