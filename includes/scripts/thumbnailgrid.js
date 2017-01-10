@@ -9,10 +9,12 @@ $(document).ready(function () {
 
 
     $(".cell").click(function () {
-        $(this).removeClass("cell");
-        $(this).addClass("bigcell");
-        console.log($(this).children(":first").css("display","block"));
-        slidegrid.alignGrid($(".cell").width(),  $(".cell").height(), parseInt($(".cell").css("padding")), 0);
+        if($(this).hasClass("cell")) {
+            $(this).removeClass("cell");
+            $(this).addClass("bigcell");
+            $(this).children(":first").css("display", "block");
+            slidegrid.alignGrid($(".cell").width(), $(".cell").height(), parseInt($(".cell").css("padding")), 0);
+        }
     });
 
 
@@ -344,7 +346,6 @@ slidegrid = {
                 slidegrid.inResize = true;
                 setTimeout(function() {
                     slidegrid.alignGrid(slidegrid.cellWidth, slidegrid.cellHeight, slidegrid.padding, slidegrid.gridOffset);
-                    console.log( width);
                     slidegrid.windowWidth = width;
                     slidegrid.inResize = false;
                 }, 300);
