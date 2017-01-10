@@ -117,6 +117,8 @@ footer .rights{
     display: inline-block;
     *display:inline;/*for IE6 - IE7*/
     vertical-align:middle;
+    width: 200px;
+    height: 200px;
     box-sizing:border-box;
     font-size:18px;
     background-color: #1b6d85;
@@ -127,6 +129,8 @@ footer .rights{
 .bigcell{
     display: inline-block;
     *display:inline;/*for IE6 - IE7*/
+    width: 400px;
+    height: 400px;
     vertical-align:middle;
     box-sizing:border-box;
     font-size:18px;
@@ -134,47 +138,35 @@ footer .rights{
     border: 1px double;
     margin:0;
     padding:0;
-}
-
-.cellDescription{
 
 }
+.cellContent{
+    display: none;
+    margin: auto;
+    width: 350px;
+    height: 350px;
+    padding:10px;
+}
 
-/*
-@media (min-width: 1900px) {
+.cellContent .buttonsArea{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    width: 150px;
+    margin: auto;
+}
+
+
+
+@media (max-width: 400px) {
     .cell {
-        width:14.28%;
+        width:49%;
+    }
+    .bigcell{
+        width: 100%;
+    }
+    .cellContent{
+        width: 100%;
     }
 }
-
-@media (max-width: 1900px) {
-    .cell {
-        width:16.666%;
-    }
-}
-
-@media (max-width: 1600px) {
-    .cell {
-        width:20%;
-    }
-}
-
-@media (max-width: 1350px) {
-    .cell {
-        width:25.00%;
-    }
-}
-
-@media (max-width: 850px) {
-    .cell {
-        width:33.33%;
-    }
-}
-
-@media (max-width: 580px) {
-    .cell {
-        width:50%;
-    }
-}
-
-*/

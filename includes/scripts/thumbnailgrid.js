@@ -2,20 +2,17 @@
  * Created by Ori on 1/10/2017.
  */
 
-const  CELLWIDTH = 200;
-const CELLHEIGHT = 200;
-const CELLPADDING = 0;
 
 $(document).ready(function () {
 
-
-    slidegrid.alignGrid(CELLWIDTH, CELLHEIGHT, CELLPADDING, 0);
+    slidegrid.alignGrid($(".cell").width(), $(".cell").height(), parseInt($(".cell").css("padding")), 0);
 
 
     $(".cell").click(function () {
         $(this).removeClass("cell");
         $(this).addClass("bigcell");
-        slidegrid.alignGrid(CELLWIDTH, CELLHEIGHT, CELLPADDING, 0);
+        console.log($(this).children(":first").css("display","block"));
+        slidegrid.alignGrid($(".cell").width(),  $(".cell").height(), parseInt($(".cell").css("padding")), 0);
     });
 
 
