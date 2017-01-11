@@ -4,13 +4,50 @@
 }
 body{
     background-color: #262626;
-    color: white;
+    color: red;
 }
 
 main, nav, header, footer, section{
     display: block;
 }
 
+.scroll{
+    float: left;
+    width:90%
+}
+.tube{
+    float: right;
+    width:10%;
+}
+
+.alcoholSide{
+    float: left;
+    width: 20%;
+}
+
+.plusSide{
+    float: right;
+    width: 90%;
+}
+.testing{
+    float: left;
+    width: 20%;
+}
+.center{
+    width: 150px;
+
+}
+.clear{
+    clear: both;
+}
+
+.Pay{
+    background-color: #428bca;
+    height: 46px;
+    width: 112px;
+    position: relative;
+    margin: auto;
+}
 .navbar-inverse{
     background-color: #262626;
     border: none;
@@ -31,12 +68,12 @@ main, nav, header, footer, section{
 }
 
 header{
-    height: 200px;
+    margin-top: 100px;
+    text-align: center;
+    height: 50px;
 }
 
 footer{
-    position: absolute;
-    bottom: 0px;
     height: 150px;
     width: 100%;
     background-color: #262626;

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>EasyDrink</title>
+        <link rel="stylesheet" href="includes/styles/bootstrap.min.css">
+        <script src="includes/scripts/jquery-3.1.1.min.js"></script>
+        <script src="includes/scripts/scripts.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="includes/scripts/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="includes/styles/style.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed hamburger">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="index.html" id="logo">EasyDrink</a>
+                    <button class="navbar-toggle collapsed search-toggle">
+                        <span class="glyphicon glyphicon-search "></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <header>
+            <p>Make Your Own Poison</p>
+        </header>
+        <article>
+            <section class="scroll">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Glass
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <article>
+                                    <div class="testing">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-4">
+                                                <div class="thumbnail">
+                                                    <img src="images/Glass1.jpg" alt="...">
+                                                    <div class="caption">
+                                                        <h3>Lowball</h3>
+                                                        <p>140cc</p>
+                                                        <p><a href="#collapseTwo" class="btn btn-primary" role="button">Select</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="testing">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-4">
+                                                <div class="thumbnail">
+                                                    <img src="images/Glass2.jpg" alt="...">
+                                                    <div class="caption">
+                                                        <h3>Highball</h3>
+                                                        <p>250cc</p>
+                                                        <p><a href="#collapseTwo" class="btn btn-primary" role="button">Select</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="testing">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-4">
+                                                <div class="thumbnail">
+                                                    <img src="images/Glass3.jpg" alt="...">
+                                                    <div class="caption">
+                                                        <h3>chaser</h3>
+                                                        <p>30cc</p>
+                                                        <p><a href="#collapseTwo" class="btn btn-primary" role="button">Select</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </article>
+                            </div>
+                            </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Alcohol
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <article>
+                                    <section class="alcoholSide">
+                                        <div class="dropup">
+                                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Vodka
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                <li><a href="#">Van Gogh 1.6$</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Grey Goose 1.4$</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Absolute 1.7$</a></li>
+                                            </ul>
+                                        </div>
+                                    </section>
+                                    <section class="plusSide">
+                                        <div class="center">
+                                            <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                                                    <span class="glyphicon glyphicon-minus"></span>
+                                                </button>
+                                            </span>
+                                            <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+                                                    <span class="glyphicon glyphicon-plus"></span>
+                                                </button>
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <div class="clear"></div>
+                                    <section class="alcoholSide">
+                                        <div class="dropdown">
+                                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                Whiskey
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                <li><a href="#">Jack Daniels 1.6$</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Red Lable 1.4$</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Jamson 1.7$</a></li>
+                                            </ul>
+                                        </div>
+                                    </section>
+                                    <section class="plusSide">
+                                        <div class="center">
+                                            <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                                                    <span class="glyphicon glyphicon-minus"></span>
+                                                </button>
+                                            </span>
+                                                <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+                                                <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+                                                    <span class="glyphicon glyphicon-plus"></span>
+                                                </button>
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <div class="clear"></div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Ice
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-primary active">
+                                        <input type="radio" name="options" id="option1" autocomplete="off" checked> Yes
+                                    </label>
+                                    <label class="btn btn-primary">
+                                        <input type="radio" name="options" id="option2" autocomplete="off"> No
+                                    </label>
+                                    <label class="btn btn-primary">
+                                        <input type="radio" name="options" id="option3" autocomplete="off"> Crashed!
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingFour">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                    Juice
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                            <div class="panel-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="tube">
+                <img src="images/test-glass-157103_640.png">
+            </section>
+            <div class="clear"></div>
+            <button class="Pay">Pay</button>
+        </article>
+        <footer>
+            <section class="contact">
+                <a href="#" class="fbLink"></a>
+                <a href="#" class="youtubeLink"></a>
+            </section>
+            <section class="rights">
+                <p>© Copyright 2017 Yogev&Ori LTD. All right reserved.</p>
+            </section>
+        </footer>
+    </body>
+</html>
