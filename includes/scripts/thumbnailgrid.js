@@ -5,21 +5,54 @@
 
 $(document).ready(function () {
 
+
+
     slidegrid.alignGrid($(".cell").width(), $(".cell").height(), parseInt($(".cell").css("padding")), 0);
 
 
+
     $(".cell").click(function () {
-        if($(this).hasClass("cell")) {
-            $(this).removeClass("cell");
-            $(this).addClass("bigcell");
-            $(this).children(":first").css("display", "block");
-            slidegrid.alignGrid($(".cell").width(), $(".cell").height(), parseInt($(".cell").css("padding")), 0);
-        }
+        console.log("calling open");
+        openCell($(this))
+    });
+
+    $(".cellContent .close").click(function () {
+        event.stopImmediatePropagation();
+        console.log("calling close");
+        closeCell($(this).parent().parent())
     });
 
 
 });
 
+/**
+ *
+ * @param cell Jquery Object with class="cell"
+ */
+function openCell(cell) {
+    if(cell.hasClass("cell")) {
+        //Opening this cell
+        cell.removeClass("cell");
+        cell.addClass("bigcell");
+        cell.children(":first").css("display", "block");
+
+        slidegrid.alignGrid($(".cell").width(), $(".cell").height(), parseInt($(".cell").css("padding")), 0);
+    }
+}
+
+/**
+ *
+ * @param bigcell Jquery Object with class="bigcell"
+ */
+function closeCell(bigcell) {
+    if(bigcell.hasClass("bigcell")) {
+
+        bigcell.removeClass("bigcell");
+        bigcell.addClass("cell");
+        bigcell.children(":first").css("display", "none");
+        slidegrid.alignGrid($(".cell").width()/2, $(".cell").height()/2, parseInt($(".cell").css("padding")), 0);
+    }
+}
 
 /*
  File:           slidegrid.js
@@ -111,6 +144,7 @@ slidegrid = {
         }
     },
 
+
     /**
      * Aligns a set of elements in a resizable grid.
      *
@@ -127,7 +161,6 @@ slidegrid = {
 
         var width = Math.floor($(window).width()/cellWidth)*cellWidth;
         $(".slidegrid").width(width+"px");
-
 
 
         slidegrid.cellWidth = cellWidth;
@@ -340,8 +373,10 @@ slidegrid = {
 
     bindResize: function() {
         $(window).bind('resize', function() {
+
             var width = Math.floor($(window).width()/slidegrid.cellWidth)*slidegrid.cellWidth;
             $(".slidegrid").width(width+"px");
+
             if (!slidegrid.inResize && slidegrid.windowWidth != width) {
                 slidegrid.inResize = true;
                 setTimeout(function() {
@@ -352,4 +387,6 @@ slidegrid = {
             }
         });
     }
+
+
 }

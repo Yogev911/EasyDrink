@@ -1,0 +1,79 @@
+/*
+    Cocktail Info Thumbnail
+*/
+
+.slidegrid{
+    margin:auto;
+    position: relative;
+    font-size:0; /*For fixing some spaces*/
+    list-style:none;
+}
+
+.cell{
+    display: inline-block;
+    *display:inline;/*for IE6 - IE7*/
+    vertical-align:middle;
+    width: 202px;
+    height: 200px;
+    font-size:18px;
+    background-color: #1b6d85;
+    margin:0;
+    padding:0;
+}
+.bigcell{
+    display: inline-block;
+    *display:inline;/*for IE6 - IE7*/
+    width: 400px;
+    height: 400px;
+    vertical-align:middle;
+    box-sizing:border-box;
+    font-size:18px;
+    background-color: #114555;
+    margin:0;
+    padding:0;
+
+}
+
+.cell:hover,
+.bigcell:hover{
+    background-color: #114555;
+}
+
+
+.cellContent{
+    display: none;
+    position: relative;
+    margin: auto;
+    width: 380px;
+    height: 380px;
+    padding:10px;
+}
+
+@media (max-width: 400px) {
+    .cell {
+        width:50%;
+    }
+    .bigcell{
+        width: 100%;
+    }
+    .cellContent{
+        width: 100%;
+    }
+}
+
+
+.cellContent .buttonsArea{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    width: 150px;
+    margin: auto;
+}
+
+
+.cellContent .close{
+    color: #e6e6e6;
+    font-size: xx-large;
+    outline: none;
+}
