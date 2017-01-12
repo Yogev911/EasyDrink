@@ -45,3 +45,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+.idea/workspace.xml
+.idea/vcs.xml
+.idea/EasyDrink.iml
+.idea/modules.xml
