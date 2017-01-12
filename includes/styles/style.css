@@ -42,6 +42,7 @@ main, nav, header, footer, section{
     color: #262626;
 }
 
+
 .testing input[type=radio]{
     position: relative;
     visibility: hidden;
@@ -84,10 +85,9 @@ main, nav, header, footer, section{
 
 article .btn-warning{
 
-    padding: 5px;
-    width: 20%;
+    padding: 5px 10px;
+    margin-right: 15px;
     display: block;
-
     float: right;
 }
 
@@ -169,6 +169,20 @@ nav .navbar-toggle{
     }
     .tube{
     }
+}
+
+@media (max-width: 386px) {
+    .scroll{
+        float: left;
+        width: 100%;
+    }
+
+    .tube{
+        float: right;
+        height: 474px;
+        display: none;
+    }
+
 }
 
 nav .hamburger {
