@@ -8,9 +8,12 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="includes/scripts/bootstrap.min.js"></script>
         <script src="includes/scripts/scripts.js"></script>
-        <script src="includes/scripts/thumbnailgrid.js"></script>
+
+
+        <link rel="stylesheet" type="text/css" href="includes/styles/thumbnail.css" />
+        <script src="includes/scripts/modernizr.custom.js"></script>
+
         <link rel="stylesheet" href="includes/styles/style.css">
-        <link rel="stylesheet" href="includes/styles/slidegrid.css">
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -31,40 +34,99 @@
         </nav>
         <header></header>
         <main>
-            <div class="slidegrid">
-                <div class="cell">
-                    <div class="cellContent">
-                        <button type="button" class="close"><span aria-hidden="true">&times;</span></button>
-                        <h3>WiskyCock</h3>
-                        <div class="clocktailDescription">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis maximus diam. Proin vitae rhoncus metus, a rhoncus mauris. Donec sit amet feugiat velit. Mauris aliquet, nisl ac scelerisque varius, dolor urna mollis dolor, ut congue ex ex a magna. Sed sodales sit amet diam sit amet mollis. In maximus sed tellus sit amet tempor.</p>
-                        </div>
-                        <div class="buttonsArea">
-                            <a class="btn btn-primary">BUY</a>
-                            <a class="btn btn-info">CUSTOM</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
+            <ul id="og-grid" class="og-grid">
+                <li>
+                    <a href="#" data-largesrc="images/cocktails/1.jpg" data-title="Azuki bean" data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
+                        <img src="images/cocktails/thumbs/1.jpg" alt="img01"/>
+                    </a>
 
-            </div>
+                </li>
+                <li>
+                    <a href="#" data-largesrc="images/cocktails/2.jpg" data-title="Veggies sunt bona vobis" data-description="Komatsuna prairie turnip wattle seed artichoke mustard horseradish taro rutabaga ricebean carrot black-eyed pea turnip greens beetroot yarrow watercress kombu.">
+                        <img src="images/cocktails/thumbs/2.jpg" alt="img02"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-largesrc="images/cocktails/3.jpg" data-title="Dandelion horseradish" data-description="Cabbage bamboo shoot broccoli rabe chickpea chard sea lettuce lettuce ricebean artichoke earthnut pea aubergine okra brussels sprout avocado tomato.">
+                        <img src="images/cocktails/thumbs/3.jpg" alt="img03"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-largesrc="images/cocktails/1.jpg" data-title="Azuki bean" data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
+                        <img src="images/cocktails/thumbs/1.jpg" alt="img01"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-largesrc="images/cocktails/2.jpg" data-title="Veggies sunt bona vobis" data-description="Komatsuna prairie turnip wattle seed artichoke mustard horseradish taro rutabaga ricebean carrot black-eyed pea turnip greens beetroot yarrow watercress kombu.">
+                        <img src="images/cocktails/thumbs/2.jpg" alt="img02"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-largesrc="images/cocktails/3.jpg" data-title="Dandelion horseradish" data-description="Cabbage bamboo shoot broccoli rabe chickpea chard sea lettuce lettuce ricebean artichoke earthnut pea aubergine okra brussels sprout avocado tomato.">
+                        <img src="images/cocktails/thumbs/3.jpg" alt="img03"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-largesrc="images/cocktails/1.jpg" data-title="Azuki bean" data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
+                        <img src="images/cocktails/thumbs/1.jpg" alt="img01"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-largesrc="images/cocktails/2.jpg" data-title="Veggies sunt bona vobis" data-description="Komatsuna prairie turnip wattle seed artichoke mustard horseradish taro rutabaga ricebean carrot black-eyed pea turnip greens beetroot yarrow watercress kombu.">
+                        <img src="images/cocktails/thumbs/2.jpg" alt="img02"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-largesrc="images/cocktails/3.jpg" data-title="Dandelion horseradish" data-description="Cabbage bamboo shoot broccoli rabe chickpea chard sea lettuce lettuce ricebean artichoke earthnut pea aubergine okra brussels sprout avocado tomato.">
+                        <img src="images/cocktails/thumbs/3.jpg" alt="img03"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-largesrc="images/cocktails/1.jpg" data-title="Azuki bean" data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
+                        <img src="images/cocktails/thumbs/1.jpg" alt="img01"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-largesrc="images/cocktails/2.jpg" data-title="Veggies sunt bona vobis" data-description="Komatsuna prairie turnip wattle seed artichoke mustard horseradish taro rutabaga ricebean carrot black-eyed pea turnip greens beetroot yarrow watercress kombu.">
+                        <img src="images/cocktails/thumbs/2.jpg" alt="img02"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-largesrc="images/cocktails/3.jpg" data-title="Dandelion horseradish" data-description="Cabbage bamboo shoot broccoli rabe chickpea chard sea lettuce lettuce ricebean artichoke earthnut pea aubergine okra brussels sprout avocado tomato.">
+                        <img src="images/cocktails/thumbs/3.jpg" alt="img03"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-largesrc="images/cocktails/1.jpg" data-title="Azuki bean" data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
+                        <img src="images/cocktails/thumbs/1.jpg" alt="img01"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-largesrc="images/cocktails/2.jpg" data-title="Veggies sunt bona vobis" data-description="Komatsuna prairie turnip wattle seed artichoke mustard horseradish taro rutabaga ricebean carrot black-eyed pea turnip greens beetroot yarrow watercress kombu.">
+                        <img src="images/cocktails/thumbs/2.jpg" alt="img02"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-largesrc="images/cocktails/3.jpg" data-title="Dandelion horseradish" data-description="Cabbage bamboo shoot broccoli rabe chickpea chard sea lettuce lettuce ricebean artichoke earthnut pea aubergine okra brussels sprout avocado tomato.">
+                        <img src="images/cocktails/thumbs/3.jpg" alt="img03"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-largesrc="images/cocktails/1.jpg" data-title="Azuki bean" data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
+                        <img src="images/cocktails/thumbs/1.jpg" alt="img01"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-largesrc="images/cocktails/2.jpg" data-title="Veggies sunt bona vobis" data-description="Komatsuna prairie turnip wattle seed artichoke mustard horseradish taro rutabaga ricebean carrot black-eyed pea turnip greens beetroot yarrow watercress kombu.">
+                        <img src="images/cocktails/thumbs/2.jpg" alt="img02"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-largesrc="images/cocktails/3.jpg" data-title="Dandelion horseradish" data-description="Cabbage bamboo shoot broccoli rabe chickpea chard sea lettuce lettuce ricebean artichoke earthnut pea aubergine okra brussels sprout avocado tomato.">
+                        <img src="images/cocktails/thumbs/3.jpg" alt="img03"/>
+                    </a>
+                </li>
+            </ul>
         </main>
         <footer>
             <section class="contact">
@@ -75,5 +137,11 @@
                 <p>© Copyright 2017 Yogev&Ori LTD. All right reserved.</p>
             </section>
         </footer>
+        <script src="includes/scripts/grid.js"></script>
+        <script>
+            $(function() {
+                Grid.init();
+            });
+        </script>
     </body>
 </html>
