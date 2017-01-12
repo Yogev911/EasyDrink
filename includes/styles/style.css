@@ -11,27 +11,33 @@ main, nav, header, footer, section{
     display: block;
 }
 
+.MakeYourOwn{
+    color: #ffffff;
+}
+
 .scroll{
-    float: left;
-    width:90%
+    float: right;
+    width: 80%;
 }
 .tube{
-    float: right;
-    width:10%;
+    float: left;
+    height: 500px;
 }
 
 .alcoholSide{
     float: left;
-    width: 20%;
+    width: 50%;
 }
 
 .plusSide{
     float: right;
-    width: 90%;
+    width: 50%;
 }
 .testing{
-    float: left;
-    width: 20%;
+    width: 100%;
+    font-size: x-small;
+    color: #262626;
+
 }
 .center{
     width: 150px;
@@ -41,13 +47,42 @@ main, nav, header, footer, section{
     clear: both;
 }
 
+.GoNext1{
+    background-color: #428bca;
+    height: 250px;
+    width: 112px;
+    position: relative;
+    margin: auto;
+    color: #ffffff;
+    border-radius: 100px;
+}
+.GoNext2{
+    background-color: #428bca;
+    height: 100px;
+    width: 112px;
+    position: relative;
+    margin: auto;
+    color: #ffffff;
+    border-radius: 100px;
+}
 .Pay{
     background-color: #428bca;
     height: 46px;
     width: 112px;
-    position: relative;
+    margin: auto;
+    display: block;
+    color: #ffffff;
+}
+
+.wrapper{
+    width: 100%;
     margin: auto;
 }
+
+.col-sm-61 {
+    width: 100%;
+}
+
 .navbar-inverse{
     background-color: #262626;
     border: none;
@@ -90,6 +125,16 @@ nav .navbar-toggle{
 @media (min-width: 768px) {
     nav .navbar-toggle {
         display: block;
+    }
+    .wrapper{
+        width: 1000px;
+        margin: auto;
+    }
+
+    .scroll{
+        width: 80%;
+    }
+    .tube{
     }
 }
 
