@@ -59,6 +59,7 @@ nav .icon-bar{
 nav .navbar-toggle{
     border: none;
 }
+
 @media (min-width: 768px) {
     nav .navbar-toggle {
         display: block;
