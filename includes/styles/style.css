@@ -1,10 +1,13 @@
+@import url(http://fonts.googleapis.com/css?family=Volkhov:700);
+
 *{
     padding: 0;
     margin: 0;
 }
 body{
     background-color: #262626;
-    color: red;
+    color: white;
+    padding: 0;
 }
 
 main, nav, header, footer, section{
@@ -128,10 +131,19 @@ header{
     height: 50px;
 }
 
+main{
+}
+
 footer{
+    bottom: 0px;
     height: 150px;
     width: 100%;
+    margin-top: 100px;
     background-color: #262626;
+}
+
+.clear{
+    clear: both;
 }
 
 nav .icon-bar{
@@ -142,6 +154,7 @@ nav .icon-bar{
 nav .navbar-toggle{
     border: none;
 }
+
 @media (min-width: 768px) {
     nav .navbar-toggle {
         display: block;
@@ -187,6 +200,36 @@ footer .rights{
     display: inline-block;
     background: url("../../images/fbLogo.png");
 }
+.customizelink{
+    max-width: 1000px;
+    height: 400px;
+    display: block;
+    margin: 50px auto;
+    background: url("../../images/customize.jpg") no-repeat center;
+    position: relative;
+
+}
+.customizelink:focus,
+.customizelink:hover{
+    text-decoration: none;
+}
+
+.customizelink h2{
+    font-size: 400%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: block;
+    margin-top: 110px;
+    text-align: center;
+    color: white;
+}
+.customizelink p{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    text-align: center;
+    color: white;
+}
 
 .youtubeLink{
     width: 50px;
@@ -195,6 +238,51 @@ footer .rights{
     background: url("../../images/youtubeLogo.png");
 }
 
-
+.slogan{
+    text-align: center;
+    margin: 10px;
+    font-size: 300%;
+}
+.slogan:after {
+    right: -.57em;
+    z-index: -1;
+}
+.slogan:before {
+    bottom: auto;
+    top: -.5em;
+    left: -.57em;
+    z-index: -1;
+}
+.slogan a {
+    display: inline-block;
+    position: relative;
+    padding: .15em .75em;
+    text-decoration: none;
+    color: #192238;
+    background-color: #8ed2a9;
+}
+.slogan a:after, .slogan a:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: -.5em;
+    left: -.05em;
+    pointer-events: none;
+    -webkit-mask: none;
+}
+.slogan a:before {
+    bottom: auto;
+    top: -.5em;
+    border-bottom: 0.5em solid #398e5b;
+    border-left: .5em solid transparent;
+}
+.slogan a:after {
+    left: auto;
+    right: -.05em;
+    border-top: 0.5em solid #398e5b;
+    border-right: .5em solid transparent;
+}
 
 
