@@ -115,6 +115,14 @@
 	padding: 0 40px 0 20px;
 }
 
+.description{
+
+}
+.og-details .description{
+    width: 100%;
+    height: 100%;
+}
+
 .og-fullimg {
 	text-align: center;
 }
@@ -139,6 +147,7 @@
 	color: #999;
 }
 
+/*
 .og-details a {
 	font-weight: 700;
 	font-size: 16px;
@@ -162,7 +171,7 @@
 	border-color: #999;
 	color: #999;
 }
-
+*/
 .og-loading {
 	width: 20px;
 	height: 20px;
@@ -209,4 +218,8 @@
 	.og-fullimg { display: none; }
 	.og-details { float: none; width: 100%; }
 
+}
+
+.og-grid > li > .content{
+	display: none;
 }

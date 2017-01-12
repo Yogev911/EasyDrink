@@ -342,10 +342,11 @@ var Grid = (function() {
     Preview.prototype = {
         create : function() {
             // create Preview structure:
-            this.$title = $( '<h3></h3>' );
-            this.$description = $( '<p></p>' );
-            this.$href = $( '<a href="#">Visit website</a>' );
-            this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$description, this.$href );
+            //this.$title = $( '<h3></h3>' );
+            this.$description = $( '<div class=".description"></div>' );
+            //this.$href = $( '<a href="#">Visit website</a>' );
+            //this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$description, this.$href );
+            this.$details = $( '<div class="og-details"></div>' ).append( this.$description);
             this.$loading = $( '<div class="og-loading"></div>' );
             this.$fullimage = $( '<div class="og-fullimg"></div>' ).append( this.$loading );
             this.$closePreview = $( '<span class="og-close"></span>' );
@@ -382,12 +383,15 @@ var Grid = (function() {
                     href : $itemEl.attr( 'href' ),
                     largesrc : $itemEl.data( 'largesrc' ),
                     title : $itemEl.data( 'title' ),
-                    description : $itemEl.data( 'description' )
+                    //description : $itemEl.data( 'description' )
+                    description : $itemEl.parent().children(".content").html()
                 };
 
-            this.$title.html( eldata.title );
+            console.log($itemEl.parent().children(".content").html());
+
+            //this.$title.html( eldata.title );
             this.$description.html( eldata.description );
-            this.$href.attr( 'href', eldata.href );
+            //this.$href.attr( 'href', eldata.href );
 
             var self = this;
 
