@@ -7,6 +7,11 @@
  * Copyright 2011 @louis_remi
  * Licensed under the MIT license.
  */
+
+$(document).ready(function () {
+    Grid.init();
+});
+
 var $event = $.event,
     $special,
     resizeTimeout;

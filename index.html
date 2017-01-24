@@ -6,28 +6,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="includes/styles/bootstrap.min.css">
         <link href="includes/styles/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="includes/styles/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="includes/scripts/bootstrap.min.js"></script>
         <script src="includes/scripts/scripts.js"></script>
-        <link rel="stylesheet" href="includes/styles/style.css">
-
         <!--Thumbnail grid-->
         <link rel="stylesheet" type="text/css" href="includes/styles/thumbnail.css" />
         <script src="includes/scripts/modernizr.custom.js"></script>
 
     </head>
     <body>
+        <!-- Nav -->
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <div class="spinner-master">
-                        <input type="checkbox" id="spinner-form" />
-                        <label for="spinner-form" class="spinner-spin">
-                            <div class="spinner diagonal part-1"></div>
-                            <div class="spinner horizontal"></div>
-                            <div class="spinner diagonal part-2"></div>
-                        </label>
-                    </div>
+                    <button type="button" class="navbar-toggle collapsed hamburger" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                     <a href="index.html" id="logo">EasyDrink</a>
                     <button class="navbar-toggle collapsed search-toggle">
                         <span class="glyphicon glyphicon-search "></span>
@@ -35,13 +33,19 @@
                 </div>
             </div>
         </nav>
+        <!-- END Nav -->
+        <!-- Side Nav -->
         <div id="mySidenav" class="sidenav">
-            <a href="#"><i class="fa fa-history" aria-hidden="true"></i> Recent</a>
-            <a href="#"><i class="fa fa-flask" aria-hidden="true"></i> Customize</a>
-            <a href="#"><i class="fa fa-user" aria-hidden="true"></i> For you</a>
-            <a href="#"><span class="glyphicon glyphicon-glass" aria-hidden="true"></span> Our picks</a>
-            <a href="#"><span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span> Trendy</a>
+            <button class="btn closebtn">&times;</button>
+            <ul>
+                <li><a href="#"><i class="fa fa-history"></i> Recent</a></li>
+                <li><a href="MakeYourOwn.html"><i class="fa fa-flask"></i> Customize</a></li>
+                <li><a href="#"><i class="fa fa-user"></i> For you</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-glass" ></span> Our picks</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-sunglasses" ></span> Trendy</a></li>
+            </ul>
         </div>
+        <!-- END Side Nav -->
         <header>
             <h2 class="slogan"><a >It was never that EASY to get a DRINK  </a></h2>
         </header>
@@ -58,10 +62,17 @@
                     </a>
                     <div class="content">
                         <div>
-                            <h3>Coconut</h3>
-                            <p>Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.</p>
-                            <button class="btn btn-primary">Buy</button>
-                            <button class="btn btn-info">Costume</button>
+                            <section class="description-header">
+                                <h3>Coconut</h3>
+                            </section>
+                            <section class="description-content">
+                                <p>Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.</p>
+                            </section>
+                            <section class="description-buttons">
+                                <button class="btn btn-sm btn-warning">Save</button>
+                                <button class="btn btn-lg btn-primary">Buy</button>
+                                <button class="btn btn-lg btn-info">Costume</button>
+                            </section>
                         </div>
                     </div>
                 </li>
@@ -233,10 +244,5 @@
             </section>
         </footer>
         <script src="includes/scripts/grid.js"></script>
-        <script>
-            $(function() {
-                Grid.init();
-            });
-        </script>
     </body>
 </html>

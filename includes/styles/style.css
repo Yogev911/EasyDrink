@@ -13,6 +13,286 @@ body{
 main, nav, header, footer, section{
     display: block;
 }
+main{
+    min-width: 1000px;
+}
+btn:hover{
+    text-decoration:none;
+}
+
+
+.clear{
+    clear: both;
+}
+
+article .btn-warning{
+
+    padding: 5px 10px;
+    margin-right: 15px;
+    display: block;
+    float: right;
+}
+
+article .btn-primary{
+    padding: 9px 30px;
+    margin: auto;
+    display: block;
+}
+
+.wrapper{
+    width: 100%;
+    margin: auto;
+}
+
+
+
+.clear{
+    clear: both;
+}
+/*** Header ***/
+
+header{
+    margin-top: 100px;
+    text-align: center;
+}
+
+header h2{
+    display: block;
+    margin-top: 30px;
+}
+/*** Header END ***/
+
+
+
+/**** Nav-bar ****/
+#logo{
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: auto;
+    padding-left: 50px;
+    padding-top:20px;
+    width: 100px;
+    height: 50px;
+    text-decoration: none;
+    background: url("../../images/logo.svg") left no-repeat;
+    background-size: 40px;
+    color: #f2f2f2;
+}
+navbar-inverse{
+    background-color: #262626;
+    border: none;
+}
+nav .icon-bar{
+    background-color: white;
+}
+
+nav .navbar-toggle{
+    border: none;
+}
+
+@media (min-width: 768px) {
+    nav .navbar-toggle {
+        display: block;
+    }
+    .wrapper{
+        width: 1000px;
+        margin: auto;
+    }
+
+    .scroll{
+        width: 80%;
+    }
+    .tube{
+    }
+}
+
+@media (max-width: 386px) {
+    .scroll{
+        float: left;
+        width: 100%;
+    }
+
+    .tube{
+        float: right;
+        height: 474px;
+        display: none;
+    }
+
+}
+
+nav .hamburger {
+    position: absolute;
+    left: 5px;
+}
+nav .search-toggle{
+    position: absolute;
+    right: 5px;
+    color: white;
+}
+/**** Nav-bar END ****/
+
+
+/**** Footer ***/
+
+footer{
+    bottom: 0px;
+    height: 150px;
+    width: 100%;
+    margin-top: 100px;
+    background-color: #262626;
+}
+
+footer .contact{
+    margin: auto;
+    margin-top: 30px;
+    width: 105px;
+}
+
+footer .rights{
+    text-align: center;
+    font-size: small;
+    margin-top: 30px;
+    color: #a6a6a6;
+}
+
+.fbLink {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background: url("../../images/fbLogo.png");
+}
+
+/**** Footer END ***/
+
+/***** customize poster ******/
+
+.customize{
+    max-width: 1000px;
+    height: 400px;
+    display: block;
+    margin: 50px auto;
+    background: url("../../images/customize.jpg") no-repeat center;
+    position: relative;
+    text-align: center;
+}
+.customize h2{
+    font-size: 400%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+}
+.customize p{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+}
+
+/***** customize END ******/
+
+.youtubeLink{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background: url("../../images/youtubeLogo.png");
+}
+
+/****** the slogan ****/
+.slogan{
+    text-align: center;
+    margin: 10px;
+    font-size: 300%;
+}
+.slogan:after {
+    right: -.57em;
+    z-index: -1;
+}
+.slogan:before {
+    bottom: auto;
+    top: -.5em;
+    left: -.57em;
+    z-index: -1;
+}
+.slogan a {
+    display: inline-block;
+    position: relative;
+    padding: .15em .75em;
+    text-decoration: none;
+    color: #192238;
+    background-color: #8ed2a9;
+}
+.slogan a:after, .slogan a:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: -.5em;
+    left: -.05em;
+    pointer-events: none;
+    -webkit-mask: none;
+}
+.slogan a:before {
+    bottom: auto;
+    top: -.5em;
+    border-bottom: 0.5em solid #398e5b;
+    border-left: .5em solid transparent;
+}
+.slogan a:after {
+    left: auto;
+    right: -.05em;
+    border-top: 0.5em solid #398e5b;
+    border-right: .5em solid transparent;
+}
+/****** slogan END *****/
+
+/****** side Nav *****/
+.sidenav {
+    height: 100%;
+    width: 400px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 60px;
+    display: none;
+}
+@media (max-width: 400px) {
+    .sidenav{
+        width:100%;
+    }
+
+}
+.sidenav .closebtn {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    font-size: 36px;
+    margin-left: 50px;
+    background:none;
+    border: none;
+}
+.sidenav .closebtn:focus {
+    outline: none;
+}
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+/****** side Nav END *****/
+
 
 .MakeYourOwn{
     color: #ffffff;
@@ -79,296 +359,3 @@ main, nav, header, footer, section{
     width: 150px;
 
 }
-.clear{
-    clear: both;
-}
-
-article .btn-warning{
-
-    padding: 5px 10px;
-    margin-right: 15px;
-    display: block;
-    float: right;
-}
-
-article .btn-primary{
-    padding: 9px 30px;
-    margin: auto;
-    display: block;
-}
-
-.wrapper{
-    width: 100%;
-    margin: auto;
-}
-
-.navbar-inverse{
-    background-color: #262626;
-    border: none;
-}
-
-#logo{
-    position: absolute;
-    right: 0;
-    left: 0;
-    margin: auto;
-    padding-left: 50px;
-    padding-top:20px;
-    width: 100px;
-    height: 60px;
-    text-decoration: none;
-    background: url("../../images/logo.svg") left no-repeat;
-    background-size: 50px;
-    color: #f2f2f2;
-}
-
-.clear{
-    clear: both;
-}
-
-
-header{
-    margin-top: 100px;
-    text-align: center;
-}
-
-header h2{
-    display: block;
-    margin-top: 30px;
-}
-
-main{
-}
-
-
-
-
-/* Nav-bar */
-nav .icon-bar{
-    background-color: white;
-}
-
-nav .navbar-toggle{
-    border: none;
-}
-
-@media (min-width: 768px) {
-    nav .navbar-toggle {
-        display: block;
-    }
-    .wrapper{
-        width: 1000px;
-        margin: auto;
-    }
-
-    .scroll{
-        width: 80%;
-    }
-    .tube{
-    }
-}
-
-@media (max-width: 386px) {
-    .scroll{
-        float: left;
-        width: 100%;
-    }
-
-    .tube{
-        float: right;
-        height: 474px;
-        display: none;
-    }
-
-}
-
-nav .hamburger {
-    position: absolute;
-    left: 5px;
-}
-nav .search-toggle{
-    position: absolute;
-    right: 5px;
-    color: white;
-}
-/* Nav-bar END */
-
-
-/*Footer */
-
-footer{
-    bottom: 0px;
-    height: 150px;
-    width: 100%;
-    margin-top: 100px;
-    background-color: #262626;
-}
-
-footer .contact{
-    margin: auto;
-    margin-top: 30px;
-    width: 105px;
-}
-
-footer .rights{
-    text-align: center;
-    font-size: small;
-    margin-top: 30px;
-    color: #a6a6a6;
-}
-
-.fbLink {
-    width: 50px;
-    height: 50px;
-    display: inline-block;
-    background: url("../../images/fbLogo.png");
-}
-
-/* Footer END */
-
-/* customize */
-
-.customize{
-    max-width: 1000px;
-    height: 400px;
-    display: block;
-    margin: 50px auto;
-    background: url("../../images/customize.jpg") no-repeat center;
-    position: relative;
-    text-align: center;
-}
-.customize h2{
-    font-size: 400%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 10px;
-}
-.customize p{
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 10px;
-}
-
-/* customize END */
-
-.youtubeLink{
-    width: 50px;
-    height: 50px;
-    display: inline-block;
-    background: url("../../images/youtubeLogo.png");
-}
-
-.slogan{
-    text-align: center;
-    margin: 10px;
-    font-size: 300%;
-}
-.slogan:after {
-    right: -.57em;
-    z-index: -1;
-}
-.slogan:before {
-    bottom: auto;
-    top: -.5em;
-    left: -.57em;
-    z-index: -1;
-}
-.slogan a {
-    display: inline-block;
-    position: relative;
-    padding: .15em .75em;
-    text-decoration: none;
-    color: #192238;
-    background-color: #8ed2a9;
-}
-.slogan a:after, .slogan a:before {
-    content: " ";
-    display: block;
-    position: absolute;
-    width: 0;
-    height: 0;
-    bottom: -.5em;
-    left: -.05em;
-    pointer-events: none;
-    -webkit-mask: none;
-}
-.slogan a:before {
-    bottom: auto;
-    top: -.5em;
-    border-bottom: 0.5em solid #398e5b;
-    border-left: .5em solid transparent;
-}
-.slogan a:after {
-    left: auto;
-    right: -.05em;
-    border-top: 0.5em solid #398e5b;
-    border-right: .5em solid transparent;
-}
-
-/* The side navigation menu */
-.sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0;
-    left: 0;
-    background-color: #111; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-}
-
-/* The navigation menu links */
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
-}
-
-/* Spinner hamburger */
-.spinner-master * {transition:all 0.3s;-webkit-transition:all 0.3s;box-sizing:border-box;}
-
-.spinner-master {position:absolute; left:10px; top:5px;height:50px;width:30px;}
-
-.spinner-master input[type=checkbox] {display:none;}
-.spinner-master label {cursor:pointer;position:absolute;z-index:99;height:30px;width:30px;top:10px;left:0;}
-
-.spinner-master .spinner {position:absolute;height:3px;width:100%;background-color:white;}
-
-.spinner-master .diagonal.part-1 {position:relative;float:left;}
-.spinner-master .horizontal {position:relative;float:left;margin-top:6px;}
-.spinner-master .diagonal.part-2 {position:relative;float:left;margin-top:6px;}
-
-.spinner-master input[type=checkbox]:checked ~ .spinner-spin > .horizontal {opacity: 0;}
-.spinner-master input[type=checkbox]:checked ~ .spinner-spin > .diagonal.part-1 {transform:rotate(405deg);-webkit-transform:rotate(405deg);margin-top:10px;}
-.spinner-master input[type=checkbox]:checked ~ .spinner-spin > .diagonal.part-2 {transform:rotate(-405deg);-webkit-transform:rotate(-405deg);margin-top:-16px;}
-
-/*SECOND VERSION*/
-.spinner-master2 * {transition:all 0.3s;-webkit-transition:all 0.3s;box-sizing:border-box;}
-
-.spinner-master2 {position:relative;margin:50px auto;height:50px;width:50px;}
-
-.spinner-master2 input[type=checkbox] {display:none;}
-.spinner-master2 label {cursor:pointer;position:absolute;z-index:99;height:100%;width:100%;top:10px;left:0;}
-
-.spinner-master2 .spinner2 {position:absolute;height:5px;width:100%;background-color:#000;}
-
-.spinner-master2 .diagonal.part-1 {position:relative;float:left;}
-.spinner-master2 .horizontal {position:relative;float:left;margin-top:7px;}
-.spinner-master2 .diagonal.part-2 {position:relative;float:left;margin-top:6px;}
-
-.spinner-master2 input[type=checkbox]:checked ~ .spinner-spin2 > .horizontal {opacity: 0;}
-.spinner-master2 input[type=checkbox]:checked ~ .spinner-spin2 > .diagonal.part-1 {transform:rotate(135deg);-webkit-transform:rotate(135deg);margin-top:10px;}
-.spinner-master2 input[type=checkbox]:checked ~ .spinner-spin2 > .diagonal.part-2 {transform:rotate(-135deg);-webkit-transform:rotate(-135deg);margin-top:-16px;}
-/* Spinner hamburger END */
