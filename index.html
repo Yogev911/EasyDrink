@@ -5,6 +5,7 @@
         <title>EasyDrink</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="includes/styles/bootstrap.min.css">
+        <link href="includes/styles/font-awesome.min.css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="includes/scripts/bootstrap.min.js"></script>
         <script src="includes/scripts/scripts.js"></script>
@@ -19,12 +20,14 @@
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <button class="navbar-toggle collapsed hamburger">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+                    <div class="spinner-master">
+                        <input type="checkbox" id="spinner-form" />
+                        <label for="spinner-form" class="spinner-spin">
+                            <div class="spinner diagonal part-1"></div>
+                            <div class="spinner horizontal"></div>
+                            <div class="spinner diagonal part-2"></div>
+                        </label>
+                    </div>
                     <a href="index.html" id="logo">EasyDrink</a>
                     <button class="navbar-toggle collapsed search-toggle">
                         <span class="glyphicon glyphicon-search "></span>
@@ -32,16 +35,25 @@
                 </div>
             </div>
         </nav>
-        <header></header>
-        <main>
+        <div id="mySidenav" class="sidenav">
+            <a href="#"><i class="fa fa-history" aria-hidden="true"></i> Recent</a>
+            <a href="#"><i class="fa fa-flask" aria-hidden="true"></i> Customize</a>
+            <a href="#"><i class="fa fa-user" aria-hidden="true"></i> For you</a>
+            <a href="#"><span class="glyphicon glyphicon-glass" aria-hidden="true"></span> Our picks</a>
+            <a href="#"><span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span> Trendy</a>
+        </div>
+        <header>
             <h2 class="slogan"><a >It was never that EASY to get a DRINK  </a></h2>
-            <a class="customizelink" href="MakeYourOwn.html">
-                <h2>CREATE YOUR POTION</h2>
-                <p>Costumaize your drink just the way you like it .</p>
-            </a>
+        </header>
+        <main>
+            <section class="customize" href="MakeYourOwn.html">
+                <h2><i class="fa fa-flask" aria-hidden="true"></i>CREATE YOUR POTION</h2>
+                <p>Customize your drink just the way you like it .</p>
+                <a class="btn btn-info" href="MakeYourOwn.html">Create Now</a>
+            </section>
             <ul id="og-grid" class="og-grid">
                 <li>
-                    <a href="#" data-largesrc="images/cocktails/coconut.jpg" data-title="" data-description="">
+                    <a href="#" data-largesrc="images/cocktails/coconut.jpg">
                         <img src="images/cocktails/thumbs/coconut.jpg" alt="img01"/>
                     </a>
                     <div class="content">

@@ -2,6 +2,11 @@
  * Created by Yogev Heskia on 04/01/2017.
  */
 
+$( document ).ready(function () {
+    $(".spinner-spin").click(openNav);
+});
+
+
 //plugin bootstrap minus and plus
 //http://jsfiddle.net/laelitenetwork/puJ6G/
 $('.btn-number').click(function(e){
@@ -75,3 +80,15 @@ $(".input-number").keydown(function (e) {
         e.preventDefault();
     }
 });
+
+/* Set the width of the side navigation to 250px */
+function openNav() {
+    document.getElementById("mySidenav").style.width = "400px";
+    $(".spinner-spin").click(closeNav);
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    $(".spinner-spin").click(openNav);
+}

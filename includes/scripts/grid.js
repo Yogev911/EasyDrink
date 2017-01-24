@@ -387,7 +387,6 @@ var Grid = (function() {
                     description : $itemEl.parent().children(".content").html()
                 };
 
-            console.log($itemEl.parent().children(".content").html());
 
             //this.$title.html( eldata.title );
             this.$description.html( eldata.description );
