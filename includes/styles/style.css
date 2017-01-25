@@ -13,9 +13,7 @@ body{
 main, nav, header, footer, section{
     display: block;
 }
-main{
-    min-width: 1000px;
-}
+
 btn:hover{
     text-decoration:none;
 }
@@ -89,36 +87,6 @@ nav .icon-bar{
 
 nav .navbar-toggle{
     border: none;
-}
-
-@media (min-width: 768px) {
-    nav .navbar-toggle {
-        display: block;
-    }
-    .wrapper{
-        width: 1000px;
-        margin: auto;
-    }
-
-    .scroll{
-        width: 80%;
-    }
-    .tube{
-    }
-}
-
-@media (max-width: 386px) {
-    .scroll{
-        float: left;
-        width: 100%;
-    }
-
-    .tube{
-        float: right;
-        height: 474px;
-        display: none;
-    }
-
 }
 
 nav .hamburger {
@@ -261,6 +229,7 @@ footer .rights{
     padding-top: 60px;
     display: none;
 }
+
 @media (max-width: 400px) {
     .sidenav{
         width:100%;
@@ -357,5 +326,37 @@ footer .rights{
 }
 .center{
     width: 150px;
+
+}
+
+
+@media (min-width: 768px) {
+    nav .navbar-toggle {
+        display: block;
+    }
+    .wrapper{
+        width: 1000px;
+        margin: auto;
+    }
+    /*
+        .scroll{
+            width: 80%;
+        }
+        */
+    .tube{
+    }
+}
+
+@media (max-width: 386px) {
+    .scroll{
+        float: left;
+        width: 100%;
+    }
+
+    .tube{
+        float: right;
+        height: 474px;
+        display: none;
+    }
 
 }
