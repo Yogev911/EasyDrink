@@ -1,0 +1,24 @@
+* {
+	margin:0px;
+	padding:0px;
+}
+body {
+	font-family:Arial, Helvetica, sans-serif;
+}
+#wrapper { 
+	width: 920px;
+	margin: 0 auto;
+}
+aside, li, section {
+	border:1px solid black;
+	width:250px;
+	margin:10px;
+}
+h2 {
+	padding:8px;
+	font-size:14px;
+}
+p {
+	padding:8px;
+	font-size:11px;
+}
