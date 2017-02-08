@@ -7,7 +7,7 @@
 }
 
 body{
-    background-color: #262626;
+    background-color: #1C1B1B;
     color: white;
     padding: 0;
 }
@@ -32,7 +32,7 @@ btn:hover{
 article .btn-warning{
 
     padding: 5px 10px;
-    margin-right: 15px;
+    /*margin-right: 15px;*/
     display: block;
     float: right;
 }
@@ -71,7 +71,7 @@ header h1{
     height: 50px;
     text-decoration: none;
     background: url("../../images/logo.svg") left no-repeat;
-    background-size: 40px;
+    background-size: 30px;
     color: #f2f2f2;
 }
 navbar-inverse{
@@ -145,6 +145,15 @@ footer .rights{
     display: block;
     margin: 50px auto;
     background: url("../../images/customize.jpg") no-repeat center;
+    position: relative;
+    text-align: center;
+}
+.customizeGif{
+    max-width: 1000px;
+    height: 400px;
+    display: block;
+    margin: 50px auto;
+    background: url("../../images/IndexGif.gif") no-repeat center;
     position: relative;
     text-align: center;
 }
@@ -257,10 +266,15 @@ footer .rights{
         width:100%;
     }
 
-    .scroll{
-        float: left;
-        margin-left: 30px;
+    .wrapper{
         width: 90%;
+        margin: auto;
+    }
+    .scroll{
+        /*float: left;*/
+        /*margin-left: 30px;*/
+        margin: auto;
+        width: 100%;
     }
     .tube{
         float: right;
@@ -388,7 +402,7 @@ footer .rights{
 
 div .btn-warning {
     padding: 5px 10px;
-    margin-right: 15px;
+    /*margin-right: 15px;*/
     display: block;
     float: right;
 }
