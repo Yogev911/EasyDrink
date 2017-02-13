@@ -16,20 +16,16 @@
     <body>
     <!-- Nav -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed hamburger" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="index.html" id="logo">EasyDrink</a>
-                <button class="navbar-toggle collapsed search-toggle">
-                    <span class="glyphicon glyphicon-search "></span>
-                </button>
-            </div>
-        </div>
+        <button type="button" class="navbar-toggle collapsed hamburger" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="index.html" id="logo">EasyDrink</a>
+        <button class="navbar-toggle collapsed search-toggle">
+            <span class="glyphicon glyphicon-search "></span>
+        </button>
     </nav>
     <!-- END Nav -->
     <!-- Side Nav -->
@@ -45,12 +41,12 @@
     </div>
     <!-- END Side Nav -->
     <header>
-            <h1>Make Your Own Poison</h1>
+            <h1><i class="fa fa-flask" aria-hidden="true"></i> Make Your Own Poison</h1>
     </header>
     <div class="wrapper customize">
         <main>
             <section class="tube">
-                <img src="images/measureCup2.jpg">
+                <img src="images/measureCup.svg">
             </section>
             <section class="scroll">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -63,22 +59,12 @@
                             </h4>
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                            <div class="panel-body list-group">
-                                <ul>
-                                <div class="testing">
-                                    <input type="radio"  id="input1" name="glass" value="1" checked>
-                                    <label for="input1"><img src="images/Glass3.jpg"  alt="..."></label>Shot! 60cc Straight Into Your Vains
+                            <div class="panel-body ">
+                                <div class="radio glassType">
+                                    <label><img src="images/Glass1.jpg"  alt="glass"><input type="radio" name="glass" value="1">Wine Glass<span>270ml</span></label>
+                                    <label><img src="images/Glass2.jpg"  alt="glass"><input type="radio" name="glass" value="2">Highball, Party hard!<span>240ml</span></label>
+                                    <label><img src="images/Glass3.jpg"  alt="glass"><input type="radio" name="glass" value="3">Martini Glass<span>170ml</span></label>
                                 </div>
-                                <div class="testing">
-                                    <input type="radio" id="input2"  name="glass" value="2">
-                                    <label for="input2"><img src="images/Glass1.jpg"  alt="..."></label>Lowball 140cc For real man..
-                                </div>
-                                <div class="testing">
-                                    <input type="radio" id="input3" name="glass" value="3">
-                                    <label for="input3"><img src="images/Glass2.jpg" alt="..."></label>Highball 220 Party Hard!
-                                </div>
-                                <div class="clear"></div>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -86,113 +72,58 @@
                         <div class="panel-heading" role="tab" id="headingTwo">
                             <h4 class="panel-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Liquids
+                                    Alcohol
                                 </a>
                             </h4>
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                             <div class="panel-body">
-                                <article>
-                                    <section class="alcoholSide">
-                                        <div class="dropdown">
-                                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                                Vodka
-                                                <span class="caret"></span>
+                                <!-- ALCOHOL ONE -->
+                                <select class="form-control" name="alcoholOne">
+                                    <option value="" selected >Alcohol</option>
+                                    <option value="Van Gogh">Van Gogh 1.8$</option>
+                                    <option value="Grey Goose">Grey Goose 2.4$</option>
+                                    <option value="Absolute">Absolute 1.3$</option>
+                                </select>
+                                <section class="amountInput">
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default btn-number" data-type="minus" data-field="alcoholOneAmount">
+                                                <span class="glyphicon glyphicon-minus"></span>
                                             </button>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                                <li><a href="#">Van Gogh 1.8$</a></li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="#">Grey Goose 2.4$</a></li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="#">Absolute 1.3$</a></li>
-                                            </ul>
-                                        </div>
-                                    </section>
-                                    <section class="plusSide">
-                                        <div class="center">
-                                            <div class="input-group">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                                                    <span class="glyphicon glyphicon-minus"></span>
-                                                </button>
-                                            </span>
-                                                <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
-                                                <span class="input-group-btn">
-                                                <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
-                                                    <span class="glyphicon glyphicon-plus"></span>
-                                                </button>
-                                            </span>
-                                            </div>
-                                        </div>
-                                    </section>
-                                    <div class="clear"></div>
-                                    <section class="alcoholSide">
-                                        <div class="dropdown">
-                                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                                Whiskey
-                                                <span class="caret"></span>
+                                        </span>
+                                        <input type="number" name="alcoholOneAmount" class="form-control input-number" value="1" min="1" max="10">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="alcoholOneAmount">
+                                                <span class="glyphicon glyphicon-plus"></span>
                                             </button>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                                <li><a href="#">Jack Daniels 1.6$</a></li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="#">Red Lable 1.4$</a></li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="#">Jamson 1.7$</a></li>
-                                            </ul>
-                                        </div>
-                                    </section>
-                                    <section class="plusSide">
-                                        <div class="center">
-                                            <div class="input-group">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                                                    <span class="glyphicon glyphicon-minus"></span>
-                                                </button>
-                                            </span>
-                                                <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
-                                                <span class="input-group-btn">
-                                                <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
-                                                    <span class="glyphicon glyphicon-plus"></span>
-                                                </button>
-                                            </span>
-                                            </div>
-                                        </div>
-                                    </section>
-                                    <div class="clear"></div>
-                                    <section class="alcoholSide">
-                                        <div class="dropdown">
-                                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                                Juices
-                                                <span class="caret"></span>
+                                        </span>
+                                    </div>
+                                </section>
+                                <div class="clear"></div>
+                                <!-- ALCOHOL TWO -->
+                                <select class="form-control" name="alcoholTwo">
+                                    <option value="" selected >Alcohol</option>
+                                    <option value="Van Gogh">Van Gogh 1.8$</option>
+                                    <option value="Grey Goose">Grey Goose 2.4$</option>
+                                    <option value="Absolute">Absolute 1.3$</option>
+                                </select>
+                                <section class="amountInput">
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default btn-number" data-type="minus" data-field="alcoholTwoAmount">
+                                                <span class="glyphicon glyphicon-minus"></span>
                                             </button>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
-                                                <li><a href="#">Orange 0.8$</a></li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="#">Red Bull 0.4$</a></li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="#">Sour 0.3$</a></li>
-                                            </ul>
-                                        </div>
-                                    </section>
-                                    <section class="plusSide">
-                                        <div class="center">
-                                            <div class="input-group">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                                                    <span class="glyphicon glyphicon-minus"></span>
-                                                </button>
-                                            </span>
-                                                <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
-                                                <span class="input-group-btn">
-                                                <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
-                                                    <span class="glyphicon glyphicon-plus"></span>
-                                                </button>
-                                            </span>
-                                            </div>
-                                        </div>
-                                    </section>
-                                    <div class="clear"></div>
-                                </article>
+                                        </span>
+                                        <input type="number" name="alcoholTwoAmount" class="form-control input-number" value="1" min="1" max="10">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="alcoholTwoAmount">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </section>
+                                <div class="clear"></div>
                             </div>
                         </div>
                     </div>
@@ -200,11 +131,70 @@
                         <div class="panel-heading" role="tab" id="headingThree">
                             <h4 class="panel-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Juice
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <!-- JUICE ONE -->
+                                <select class="form-control" name="juiceOne">
+                                    <option value="" selected >Juice</option>
+                                    <option value="Van Gogh">Van Gogh 1.8$</option>
+                                    <option value="Grey Goose">Grey Goose 2.4$</option>
+                                    <option value="Absolute">Absolute 1.3$</option>
+                                </select>
+                                <section class="amountInput">
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default btn-number" data-type="minus" data-field="juiceOneAmount">
+                                                <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                        </span>
+                                        <input type="number" name="juiceOneAmount" class="form-control input-number" value="1" min="1" max="10">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="juiceOneAmount">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </section>
+                                <div class="clear"></div>
+                                <!-- JUICE TWo -->
+                                <select class="form-control" name="juiceTwo">
+                                    <option value="" selected >Juice</option>
+                                    <option value="Van Gogh">Van Gogh 1.8$</option>
+                                    <option value="Grey Goose">Grey Goose 2.4$</option>
+                                    <option value="Absolute">Absolute 1.3$</option>
+                                </select>
+                                <section class="amountInput">
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default btn-number" data-type="minus" data-field="juiceTwoAmount">
+                                                <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                        </span>
+                                        <input type="number" name="juiceTwoAmount" class="form-control input-number" value="1" min="1" max="10">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="juiceTwoAmount">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </section>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingFour">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThreeFour" aria-expanded="false" aria-controls="collapseThree">
                                     Ice
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div id="collapseThreeFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
                             <div class="panel-body">
                                 <div class="btn-group" data-toggle="buttons">
                                     <label class="btn btn-primary active">
@@ -223,9 +213,10 @@
                 </div>
             </section>
             <div class="clear"></div>
-            <button class="btn btn-danger">Clear</button>
-            <div class="clear"></div>
-            <button class="btn btn-primary">Pay</button>
+            <section class="customizeBtnSection">
+                <button class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-star"></span> Save</button>
+                <button class="btn btn-primary">Pay</button>
+            </section>
         </main>
     </div>
         <footer>
