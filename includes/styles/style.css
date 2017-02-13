@@ -139,7 +139,7 @@ footer .rights{
 
 /***** customize poster ******/
 
-.customize{
+.customize-poster{
     max-width: 1000px;
     height: 400px;
     display: block;
@@ -148,14 +148,14 @@ footer .rights{
     position: relative;
     text-align: center;
 }
-.customize h2{
+.customize-poster h2{
     font-size: 400%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 10px;
 }
-.customize p{
+.customize-poster p{
     width: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
@@ -386,14 +386,14 @@ footer .rights{
     100% {box-shadow: 0 0 5px green;}
 }
 
-div .btn-warning {
+.customize .btn-danger{
     padding: 5px 10px;
     margin-right: 15px;
     display: block;
     float: right;
 }
 
-div .btn-primary {
+.customize .btn-primary {
     padding: 9px 30px;
     margin: auto;
     display: block;
