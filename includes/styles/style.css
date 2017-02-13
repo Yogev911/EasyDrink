@@ -172,6 +172,10 @@ footer .rights{
     text-align: center;
     padding: 50px;
 }
+.headerSlogen{
+    text-align: left;
+    padding: 50px;
+}
 
 /****** side Nav *****/
 .sidenav {
