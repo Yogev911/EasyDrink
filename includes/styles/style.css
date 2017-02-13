@@ -88,6 +88,8 @@ nav .search-toggle{
     right: 5px;
     color: white;
 }
+
+
 /**** Nav-bar END ****/
 
 
@@ -197,14 +199,35 @@ footer .rights{
 .sidenav .closebtn:focus {
     outline: none;
 }
+
 /* The navigation menu links */
-.sidenav a {
+.sidenav .sideNavUser{
+    margin: 40px 20px;
+    padding: 10px;
+}
+.sidenav .sideNavUser h3{
+    display: inline-block;
+}
+.sidenav .sideNavUser a{
+    display: inline-block;
+    float: right;
+    margin-top: 15px;
+    font-size: 200%;
+}
+
+.sidenav ul li a {
+    font-size: 150%;
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     color: #818181;
     display: block;
     transition: 0.3s
 }
+
+.sidenav ul li .active{
+    color: #FFFFFF;
+}
+
 .sidenav a:hover, .offcanvas a:focus{
     color: #f1f1f1;
 }
