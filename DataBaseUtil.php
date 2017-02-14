@@ -6,7 +6,7 @@
  * Date: 13/02/2017
  * Time: 22:31
  */
-class cocktail
+class Cocktail
 {
     public $cocktail_id;
     public $name;
@@ -26,10 +26,34 @@ class cocktail
     public $rate;
     public $trendy;
     public $our_picks;
-//    public function displayVar() {
-//        echo $this->var;
-//    }
 }
+
+class Alcohol
+{
+    public $alcohol_id;
+    public $name;
+    public $price;
+    public $type;
+    public $color;
+}
+
+class Juice
+{
+    public $juice_id;
+    public $name;
+    public $price;
+    public $type;
+    public $color;
+}
+
+class Glass
+{
+    public $glass_id;
+    public $capacity;
+    public $name;
+    public $img_src;
+}
+
 
 function connect()
 {
@@ -54,12 +78,12 @@ function disconnect()
 
 }
 
-function getCocktailsByIdFromTbl($id, $TblName)
+// get the cocktail of the specific user id from specific table like Foryou219/recent/favorits etc...
+function getCocktailsByUserIdFromTbl($id, $TblName)
 {
     global $connection;
     $i = 0;
     $cocktailsId = array();
-    $cocktailObj = new cocktail();
     $cocktailObjArray = array();
 
     $query = "SELECT * FROM " . $TblName . " WHERE user_id = " . $id . "  ";
@@ -73,10 +97,10 @@ function getCocktailsByIdFromTbl($id, $TblName)
         while ($i > 0) {
             //find cocktail id row from cocktail tbl
             $cocktailObjArray[] = getCocktailsByCocktailId($cocktailsId[$i]);
+            $i--;
         }
-        $i--;
     } else {
-        echo $cocktailObjArray = null;
+        $cocktailObjArray = null;
     }
     return $cocktailObjArray;
 }
@@ -84,22 +108,22 @@ function getCocktailsByIdFromTbl($id, $TblName)
 function getCocktailsByCocktailId($cocktailId)
 {
     global $connection;
-    $cocktailObj = new cocktail();
+    $cocktailObj = new Cocktail();
     $query = "SELECT * FROM tbl_219_cocktail WHERE cocktail_id = " . $cocktailId . " ";
     $result = mysqli_query($connection, $query);
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         $cocktailObj->cocktail_id = $row["cocktail_id"];
         $cocktailObj->name = $row["name"];
-        $cocktailObj->alcohol_id1 = $row["alcohol_id1"];
+        $cocktailObj->alcohol_id1 = getAlcoholNameById($row["alcohol_id1"]);
         $cocktailObj->alcohol1_amount = $row["alcohol1_amount"];
-        $cocktailObj->alcohol_id2 = $row["alcohol_id2"];
+        $cocktailObj->alcohol_id2 = getAlcoholNameById($row["alcohol_id2"]);
         $cocktailObj->alcohol2_amount = $row["alcohol2_amount"];
         $cocktailObj->ice = $row["ice"];
         $cocktailObj->glass_id = $row["glass_id"];
-        $cocktailObj->juice_id1 = $row["juice_id1"];
+        $cocktailObj->juice_id1 = getJuiceNameById($row["juice_id1"]);
         $cocktailObj->juice1_amount = $row["juice1_amount"];
-        $cocktailObj->juice_id2 = $row["juice_id2"];
+        $cocktailObj->juice_id2 = getJuiceNameById($row["juice_id2"]);
         $cocktailObj->juice2_amount = $row["juice2_amount"];
         $cocktailObj->description = $row["description"];
         $cocktailObj->img_src = $row["img_src"];
@@ -111,20 +135,164 @@ function getCocktailsByCocktailId($cocktailId)
     return $cocktailObj;
 }
 
-function setCocktailToDB($cocktailObj){
+function setCocktailToDB($cocktailObj)
+{
     global $connection;
     $query = "INSERT INTO tbl_219_cocktail 
-(cocktail_id , name , alcohol_id1,alcohol1_amount,alcohol_id2,alcohol2_amount,ice,glass_id,juice_id1,juice1_amount,juice_id2,juice2_amount,description,img_src,tumb_src,rate,trendy,our_picks)VALUES 
-(?,?,?);";
+(cocktail_id , name , alcohol_id1,alcohol1_amount,alcohol_id2,alcohol2_amount,ice,glass_id,juice_id1,juice1_amount,juice_id2,juice2_amount,description,img_src,tumb_src,rate,trendy,our_picks)
+VALUES 
+($cocktailObj->cocktail_id,$cocktailObj->name,$cocktailObj->alcohol_id1,$cocktailObj->alcohol1_amount,$cocktailObj->alcohol_id2,$cocktailObj->alcohol2_amount,$cocktailObj->ice,$cocktailObj->glass_id,$cocktailObj->juice_id1,$cocktailObj->juice1_amount,$cocktailObj->juice_id2,$cocktailObj->juice2_amount,$cocktailObj->description,$cocktailObj->img_src,$cocktailObj->tumb_src,$cocktailObj->rate,$cocktailObj->trendy,$cocktailObj->our_picks);";
+    mysqli_query($connection, $query);
+}
+
+function getGlassObjArray()
+{
+    global $connection;
+    $glassArray = array();
+    $glassObj = new Glass();
+
+    $query = "SELECT * FROM tbl_219_glass ";
+    $result = mysqli_query($connection, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $glassObj->glass_id = $row["glass_id"];
+            $glassObj->capacity = $row["capacity"];
+            $glassObj->name = $row["name"];
+            $glassObj->img_src = $row["img_src"];
+            $glassArray[] = $glassObj;
+        }
+    } else {
+        $glassArray = null;
+    }
+    return $glassArray;
+}
+
+function getAlcoholObjArray()
+{
+    global $connection;
+    $alcoholArray = array();
+    $alcoholObj = new Alcohol();
+
+    $query = "SELECT * FROM tbl_219_alcohol ";
+    $result = mysqli_query($connection, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $alcoholObj->alcohol_id = $row["alcohol_id"];
+            $alcoholObj->name = $row["name"];
+            $alcoholObj->price = $row["price"];
+            $alcoholObj->type = $row["type"];
+            $alcoholObj->color = $row["color"];
+            $alcoholArray[] = $alcoholObj;
+        }
+    } else {
+        $alcoholArray = null;
+    }
+    return $alcoholArray;
+}
+
+function getJuiceObjArray()
+{
+    global $connection;
+    $juiceArray = array();
+    $juiceObj = new Juice();
+
+    $query = "SELECT * FROM tbl_219_alcohol ";
+    $result = mysqli_query($connection, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $juiceObj->juice_id = $row["alcohol_id"];
+            $juiceObj->name = $row["name"];
+            $juiceObj->price = $row["price"];
+            $juiceObj->type = $row["type"];
+            $juiceObj->color = $row["color"];
+            $juiceArray[] = $juiceObj;
+        }
+    } else {
+        $juiceArray = null;
+    }
+    return $juiceArray;
+}
+
+function getCocktailObjArray()
+{
+    global $connection;
+    $cocktailArray = array();
+    $cocktailObj = new Cocktail();
+
+    $query = "SELECT * FROM tbl_219_alcohol ";
+    $result = mysqli_query($connection, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $cocktailObj->cocktail_id = $row["cocktail_id"];
+            $cocktailObj->name = $row["name"];
+            $cocktailObj->alcohol_id1 = getAlcoholNameById($row["alcohol_id1"]);
+            $cocktailObj->alcohol1_amount = $row["alcohol1_amount"];
+            $cocktailObj->alcohol_id2 = getAlcoholNameById($row["alcohol_id2"]);
+            $cocktailObj->alcohol2_amount = $row["alcohol2_amount"];
+            $cocktailObj->ice = $row["ice"];
+            $cocktailObj->glass_id = $row["glass_id"];
+            $cocktailObj->juice_id1 = getJuiceNameById($row["juice_id1"]);
+            $cocktailObj->juice1_amount = $row["juice1_amount"];
+            $cocktailObj->juice_id2 = getJuiceNameById($row["juice_id2"]);
+            $cocktailObj->juice2_amount = $row["juice2_amount"];
+            $cocktailObj->description = $row["description"];
+            $cocktailObj->img_src = $row["img_src"];
+            $cocktailObj->tumb_src = $row["tumb_src"];
+            $cocktailObj->rate = $row["rate"];
+            $cocktailObj->trendy = $row["trendy"];
+            $cocktailObj->our_picks = $row["our_picks"];
+            $cocktailArray[] = $cocktailObj;
+        }
+    } else {
+        $cocktailArray = null;
+    }
+    return $cocktailArray;
+}
+
+function getAlcoholNameById($alcoholId)
+{
+    global $connection;
+    $nothing = "null";
+    $query = "SELECT * FROM tbl_219_alcohol WHERE alcohol_id = " . $alcoholId . " ";
     $result = mysqli_query($connection, $query);
     if (mysqli_num_rows($result) > 0) {
-
+        $row = mysqli_fetch_assoc($result);
+        return $row["name"];
+    } else {
+        return $nothing;
     }
+}
 
+function getJuiceNameById($juiceId)
+{
+    global $connection;
+    $nothing = "null";
+    $query = "SELECT * FROM tbl_219_juice WHERE juice_id = " . $juiceId . " ";
+    $result = mysqli_query($connection, $query);
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        return $row["name"];
+    } else {
+        return $nothing;
+    }
 }
 
 
 ?>
+//function setJuiceToDB($juiceObj)
+//{
+//    global $connection;
+//    $query = "INSERT INTO tbl_219_juice
+//(juice_id ,name ,price ,type, color)
+//VALUES
+//($juiceObj->juice_id,$juiceObj->name,$juiceObj->price,$juiceObj->type,$juiceObj->color);";
+//    mysqli_query($connection, $query);
+//}
+
 
 //find cocktail id row from cocktail tbl
 //            $query = "SELECT * FROM tbl_219_cocktail WHERE cocktail_id = " . $cocktailsId[$i] . " ";
