@@ -56,7 +56,9 @@ class Glass
 
 
 function connect()
+
 {
+    global $connection;
     $dbhost = "182.50.133.146";
     $dbuser = "auxstudDB6c";
     $dbpass = "auxstud6cDB1!";
@@ -149,13 +151,13 @@ function getGlassObjArray()
 {
     global $connection;
     $glassArray = array();
-    $glassObj = new Glass();
 
     $query = "SELECT * FROM tbl_219_glass ";
     $result = mysqli_query($connection, $query);
 
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
+            $glassObj = new Glass();
             $glassObj->glass_id = $row["glass_id"];
             $glassObj->capacity = $row["capacity"];
             $glassObj->name = $row["name"];
@@ -172,13 +174,13 @@ function getAlcoholObjArray()
 {
     global $connection;
     $alcoholArray = array();
-    $alcoholObj = new Alcohol();
 
     $query = "SELECT * FROM tbl_219_alcohol ";
     $result = mysqli_query($connection, $query);
 
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
+            $alcoholObj = new Alcohol();
             $alcoholObj->alcohol_id = $row["alcohol_id"];
             $alcoholObj->name = $row["name"];
             $alcoholObj->price = $row["price"];
@@ -196,14 +198,15 @@ function getJuiceObjArray()
 {
     global $connection;
     $juiceArray = array();
-    $juiceObj = new Juice();
 
-    $query = "SELECT * FROM tbl_219_alcohol ";
+
+    $query = "SELECT * FROM tbl_219_juice ";
     $result = mysqli_query($connection, $query);
 
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
-            $juiceObj->juice_id = $row["alcohol_id"];
+            $juiceObj = new Juice();
+            $juiceObj->juice_id = $row["juice_id"];
             $juiceObj->name = $row["name"];
             $juiceObj->price = $row["price"];
             $juiceObj->type = $row["type"];
@@ -220,13 +223,13 @@ function getCocktailObjArray()
 {
     global $connection;
     $cocktailArray = array();
-    $cocktailObj = new Cocktail();
 
-    $query = "SELECT * FROM tbl_219_alcohol ";
+    $query = "SELECT * FROM tbl_219_cocktail ";
     $result = mysqli_query($connection, $query);
 
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
+            $cocktailObj = new Cocktail();
             $cocktailObj->cocktail_id = $row["cocktail_id"];
             $cocktailObj->name = $row["name"];
             $cocktailObj->alcohol_id1 = getAlcoholNameById($row["alcohol_id1"]);
@@ -281,8 +284,6 @@ function getJuiceNameById($juiceId)
     }
 }
 
-
-?>
 //function setJuiceToDB($juiceObj)
 //{
 //    global $connection;
@@ -320,3 +321,5 @@ function getJuiceNameById($juiceId)
 //                $cocktailObj->our_picks = $row["our_picks"];
 //
 //                $cocktailObjArray[] = $cocktailObj;
+
+?>

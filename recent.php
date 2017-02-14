@@ -21,7 +21,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="index.html" id="logo">EasyDrink</a>
+            <a href="index.php" id="logo">EasyDrink</a>
             <button class="navbar-toggle collapsed search-toggle">
                 <span class="glyphicon glyphicon-search "></span>
             </button>
@@ -36,10 +36,10 @@
             </section>
             <ul>
                 <li class="active"><a href="recent.php"><i class="fa fa-history"></i> Recent</a></li>
-                <li><a href="MakeYourOwn.html"><i class="fa fa-flask"></i> Customize</a></li>
+                <li><a href="MakeYourOwn.php"><i class="fa fa-flask"></i> Customize</a></li>
                 <li><a href="foryou.php"><i class="fa fa-user"></i> For you</a></li>
-                <li><a href="ourpicks.php"><span class="glyphicon glyphicon-glass"></span> Our picks</a></li>
-                <li><a href="Trendy.php"><span class="glyphicon glyphicon-sunglasses"></span> Trendy</a></li>
+                <li><a href="ourpicks.php"><span class="glyphicon glyphicon-glass" ></span> Our picks</a></li>
+                <li><a href="Trendy.php"><span class="glyphicon glyphicon-sunglasses" ></span> Trendy</a></li>
             </ul>
         </div>
         <!-- END Side Nav -->

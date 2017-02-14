@@ -24,7 +24,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <a href="index.html" id="logo">EasyDrink</a>
+    <a href="index.php" id="logo">EasyDrink</a>
     <button class="navbar-toggle collapsed search-toggle">
         <span class="glyphicon glyphicon-search "></span>
     </button>
@@ -35,10 +35,10 @@
     <button class="btn closebtn">&times;</button>
     <ul>
         <li><a href="recent.php"><i class="fa fa-history"></i> Recent</a></li>
-        <li><a href="MakeYourOwn.html"><i class="fa fa-flask"></i> Customize</a></li>
+        <li><a href="MakeYourOwn.php"><i class="fa fa-flask"></i> Customize</a></li>
         <li><a href="foryou.php"><i class="fa fa-user"></i> For you</a></li>
-        <li><a href="ourpicks.php"><span class="glyphicon glyphicon-glass"></span> Our picks</a></li>
-        <li class="active"><a href="Trendy.php"><span class="glyphicon glyphicon-sunglasses"></span> Trendy</a></li>
+        <li><a href="ourpicks.php"><span class="glyphicon glyphicon-glass" ></span> Our picks</a></li>
+        <li class="active"><a href="Trendy.php"><span class="glyphicon glyphicon-sunglasses" ></span> Trendy</a></li>
     </ul>
 </div>
 <!-- END Side Nav -->
@@ -49,12 +49,15 @@
 <main>
     <ul id="og-grid" class="og-grid">
         <?php
-        $drinkArr;
-        if($drinkArr.len)
-        for ($i = 0; $i < 10; $i++) { //There are 10 Trendy drinks
+        include "DataBaseUtil.php";
+        connect();
+
+        $drinkArr = getCocktailObjArray();
+        $arrSize = count($drinkArr);
+        for ($i = 0;  ($i < 10) && ($i < $arrSize) ;  $i++) { //There are 10 Trendy drinks
             echo '
                 <li>
-                    <a href="#" data-largesrc=" ' . $drinkArr[$i]->img_src . '" data-title="" data-description="">
+                    <a href="#" data-largesrc=" ' . $drinkArr[$i]->img_src . '">
                         <img src="' . $drinkArr[$i]->tumb_src . '" alt="img02">
                     </a>
                     <div class="thumbnail-content">
@@ -66,13 +69,15 @@
                                 <p>' . $drinkArr[$i]->description . '</p>
                             </section>
                             <section class="thumbnail-description-buttons">
-                                <button class="btn btn-primary">Buy</button>
-                                <button class="btn btn-info">Customize</button>
+                                <button class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-star"></span> Save</button>
+                                <button class="btn btn-lg btn-primary">Buy</button>
+                                <form action="MakeYourOwn.php" methud="get"><input type="hidden" name="id" value="'.$drinkArr[$i]->cocktail_id.'"><button class="btn btn-lg btn-success">Customize</button></form>
                             </section>
                         </div>
                     </div>
                 </li>';
         }
+        disconnect();
         ?>
     </ul>
 </main>

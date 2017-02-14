@@ -24,7 +24,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <a href="index.html" id="logo">EasyDrink</a>
+    <a href="index.php" id="logo">EasyDrink</a>
     <button class="navbar-toggle collapsed search-toggle">
         <span class="glyphicon glyphicon-search "></span>
     </button>
@@ -35,7 +35,7 @@
     <button class="btn closebtn">&times;</button>
     <ul>
         <li><a href="recent.php"><i class="fa fa-history"></i> Recent</a></li>
-        <li><a href="MakeYourOwn.html"><i class="fa fa-flask"></i> Customize</a></li>
+        <li><a href="MakeYourOwn.php"><i class="fa fa-flask"></i> Customize</a></li>
         <li><a href="foryou.php"><i class="fa fa-user"></i> For you</a></li>
         <li><a href="ourpicks.php"><span class="glyphicon glyphicon-glass"></span> Our picks</a></li>
         <li class="active"><a href="Trendy.php"><span class="glyphicon glyphicon-sunglasses"></span> Trendy</a></li>
@@ -52,21 +52,20 @@
     </section>
     <ul id="og-grid" class="og-grid">
         <?php
-        $drinkArr;
-        if(count($drinkArr) > 0 ) {
-            for ($i = 0; $i < 3; $i++) { //There are 3 drinks of the day
-                echo '
+        include 'DataBaseUtil.php';
+        for ($i = 0; $i < 3; $i++) { //There are 3 drinks of the day
+            echo '
                 <li>
-                    <a href="#" data-largesrc=" ' . $drinkArr[$i]->img_src . '" data-title="" data-description="">
-                        <img src="' . $drinkArr[$i]->tumb_src . '" alt="img02">
+                    <a href="#" data-largesrc=" ' . $drinkArr[$i]->$img_src . '" data-title="" data-description="">
+                        <img src="' . $drinkArr[$i]->$tumb_src . '" alt="img02">
                     </a>
                     <div class="thumbnail-content">
                         <div>
                             <section class="thumbnail-description-header">
-                                <h3>' . $drinkArr[$i]->name . '</h3>
+                                <h3>' . $drinkArr[$i]->$name . '</h3>
                              </section>
                             <section class="thumbnail-description-content">
-                                <p>' . $drinkArr[$i]->description . '</p>
+                                <p>' . $drinkArr[$i]->$description . '</p>
                             </section>
                             <section class="thumbnail-description-buttons">
                                 <button class="btn btn-primary">Buy</button>
@@ -75,10 +74,8 @@
                         </div>
                     </div>
                 </li>';
-            }
-        }else{
-
         }
+
         ?>
     </ul>
     <section class="headerSlogen">
@@ -88,16 +85,16 @@
     for ($i = 0; $i < 7; $i++) { //There are 7 drinks of the day
         echo '
                 <li>
-                    <a href="#" data-largesrc=" ' . $drinkArr[$i]->img_src . '" data-title="" data-description="">
-                        <img src="' . $drinkArr[$i]->tumb_src . '" alt="img02">
+                    <a href="#" data-largesrc=" ' . $drinkArr[$i]->$img_src . '" data-title="" data-description="">
+                        <img src="' . $drinkArr[$i]->$tumb_src . '" alt="img02">
                     </a>
                     <div class="thumbnail-content">
                         <div>
                             <section class="thumbnail-description-header">
-                                <h3>' . $drinkArr[$i]->name . '</h3>
+                                <h3>' . $drinkArr[$i]->$name . '</h3>
                              </section>
                             <section class="thumbnail-description-content">
-                                <p>' . $drinkArr[$i]->description . '</p>
+                                <p>' . $drinkArr[$i]->$description . '</p>
                             </section>
                             <section class="thumbnail-description-buttons">
                                 <button class="btn btn-primary">Buy</button>

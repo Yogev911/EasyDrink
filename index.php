@@ -24,7 +24,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                 </button>
-                <a href="index.html" id="logo">EasyDrink</a>
+                <a href="index.php" id="logo">EasyDrink</a>
                 <button class="navbar-toggle collapsed search-toggle">
                         <span class="glyphicon glyphicon-search "></span>
                 </button>
@@ -39,10 +39,10 @@
             </section>
             <ul>
                 <li><a href="recent.php"><i class="fa fa-history"></i> Recent</a></li>
-                <li><a href="MakeYourOwn.html"><i class="fa fa-flask"></i> Customize</a></li>
-                <li><a href="#"><i class="fa fa-user"></i> For you</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-glass" ></span> Our picks</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-sunglasses" ></span> Trendy</a></li>
+                <li><a href="MakeYourOwn.php"><i class="fa fa-flask"></i> Customize</a></li>
+                <li><a href="foryou.php"><i class="fa fa-user"></i> For you</a></li>
+                <li><a href="ourpicks.php"><span class="glyphicon glyphicon-glass" ></span> Our picks</a></li>
+                <li><a href="Trendy.php"><span class="glyphicon glyphicon-sunglasses" ></span> Trendy</a></li>
             </ul>
         </div>
         <!-- END Side Nav -->
@@ -51,7 +51,7 @@
             <section class="customize-poster" href="MakeYourOwn.html">
                 <h2><i class="fa fa-flask" aria-hidden="true"></i>CREATE YOUR POISON</h2>
                 <p>Customize your drink just the way you like it .</p>
-                <a class="btn btn-info" href="MakeYourOwn.html">Create Now</a>
+                <a class="btn btn-info" href="MakeYourOwn.php">Create Now</a>
             </section>
             <section class="slogan">
                 <h2>IT WAS NEVER THAT EASY TO GET A DRINK</h2>

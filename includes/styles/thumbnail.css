@@ -174,7 +174,7 @@
     margin: 30px auto;
 }
 .thumbnail-description-buttons .btn-lg{
-	width: 100px;
+	min-width: 100px;
 	text-align: center;
 
 }
