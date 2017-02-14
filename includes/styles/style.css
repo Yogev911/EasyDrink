@@ -15,6 +15,9 @@ body{
 main, nav, header, footer, section{
     display: block;
 }
+main{
+    min-height: 450px;
+}
 
 .wrapper{
     width: 100%;
@@ -228,7 +231,7 @@ footer .rights{
     transition: 0.3s
 }
 
-.sidenav ul li .active{
+.sidenav ul .active{
     color: #FFFFFF;
 }
 

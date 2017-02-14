@@ -43,16 +43,19 @@
 </div>
 <!-- END Side Nav -->
 <header>
-    <h1><i class="glyphicon glyphicon-sunglasses" aria-hidden="true"></i> Trendy</h1>
-    <p>Most popular drink out there</p>
+    <h1><span class="glyphicon glyphicon-glass"> Our picks</h1>
+    <p>Posting Drinks selected by our team</p>
 </header>
 <main>
+    <section class="headerSlogen">
+        <h2>Drink of the Day</h2>
+    </section>
     <ul id="og-grid" class="og-grid">
         <?php
         $drinkArr;
-        if($drinkArr.len)
-        for ($i = 0; $i < 10; $i++) { //There are 10 Trendy drinks
-            echo '
+        if(count($drinkArr) > 0 ) {
+            for ($i = 0; $i < 3; $i++) { //There are 3 drinks of the day
+                echo '
                 <li>
                     <a href="#" data-largesrc=" ' . $drinkArr[$i]->img_src . '" data-title="" data-description="">
                         <img src="' . $drinkArr[$i]->tumb_src . '" alt="img02">
@@ -72,9 +75,39 @@
                         </div>
                     </div>
                 </li>';
+            }
+        }else{
+
         }
         ?>
     </ul>
+    <section class="headerSlogen">
+        <h2>Drink of the Week</h2>
+    </section>
+    <?php
+    for ($i = 0; $i < 7; $i++) { //There are 7 drinks of the day
+        echo '
+                <li>
+                    <a href="#" data-largesrc=" ' . $drinkArr[$i]->img_src . '" data-title="" data-description="">
+                        <img src="' . $drinkArr[$i]->tumb_src . '" alt="img02">
+                    </a>
+                    <div class="thumbnail-content">
+                        <div>
+                            <section class="thumbnail-description-header">
+                                <h3>' . $drinkArr[$i]->name . '</h3>
+                             </section>
+                            <section class="thumbnail-description-content">
+                                <p>' . $drinkArr[$i]->description . '</p>
+                            </section>
+                            <section class="thumbnail-description-buttons">
+                                <button class="btn btn-primary">Buy</button>
+                                <button class="btn btn-info">Customize</button>
+                            </section>
+                        </div>
+                    </div>
+                </li>';
+    }
+    ?>
 </main>
 <footer>
     <section class="contact">

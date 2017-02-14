@@ -35,11 +35,11 @@
                 <a class="btn logInOutBtn"><span class="glyphicon glyphicon-log-out"></span></a>
             </section>
             <ul>
-                <li><a href="recent.php" class="active"><i class="fa fa-history"></i> Recent</a></li>
+                <li class="active"><a href="recent.php"><i class="fa fa-history"></i> Recent</a></li>
                 <li><a href="MakeYourOwn.html"><i class="fa fa-flask"></i> Customize</a></li>
-                <li><a href="#"><i class="fa fa-user"></i> For you</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-glass" ></span> Our picks</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-sunglasses" ></span> Trendy</a></li>
+                <li><a href="foryou.php"><i class="fa fa-user"></i> For you</a></li>
+                <li><a href="ourpicks.php"><span class="glyphicon glyphicon-glass"></span> Our picks</a></li>
+                <li><a href="Trendy.php"><span class="glyphicon glyphicon-sunglasses"></span> Trendy</a></li>
             </ul>
         </div>
         <!-- END Side Nav -->
@@ -99,6 +99,15 @@
                 </li>
             </ul>
         </main>
+        <footer>
+            <section class="contact">
+                <a href="#" class="fbLink"></a>
+                <a href="#" class="youtubeLink"></a>
+            </section>
+            <section class="rights">
+                <p>© Copyright 2017 Yogev&Ori LTD. All right reserved.</p>
+            </section>
+        </footer>
     </body>
 </html>
 

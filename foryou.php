@@ -34,24 +34,25 @@
 <div id="mySidenav" class="sidenav">
     <button class="btn closebtn">&times;</button>
     <ul>
-        <li><a href="recent.php"><i class="fa fa-history"></i> Recent</a></li>
+        <li><a href="#"><i class="fa fa-history"></i> Recent</a></li>
         <li><a href="MakeYourOwn.html"><i class="fa fa-flask"></i> Customize</a></li>
-        <li><a href="foryou.php"><i class="fa fa-user"></i> For you</a></li>
-        <li><a href="ourpicks.php"><span class="glyphicon glyphicon-glass"></span> Our picks</a></li>
-        <li class="active"><a href="Trendy.php"><span class="glyphicon glyphicon-sunglasses"></span> Trendy</a></li>
+        <li><a href="#"><i class="fa fa-user"></i> For you</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-glass"></span> Our picks</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-sunglasses"></span> Trendy</a></li>
     </ul>
 </div>
 <!-- END Side Nav -->
 <header>
     <h1><i class="glyphicon glyphicon-sunglasses" aria-hidden="true"></i> Trendy</h1>
-    <p>Most popular drink out there</p>
 </header>
 <main>
+    <section class="headerSlogen">
+        <h2>Drink of the Day</h2>
+    </section>
     <ul id="og-grid" class="og-grid">
         <?php
         $drinkArr;
-        if($drinkArr.len)
-        for ($i = 0; $i < 10; $i++) { //There are 10 Trendy drinks
+        for ($i = 0; $i < 3; $i++) { //There are 3 drinks of the day
             echo '
                 <li>
                     <a href="#" data-largesrc=" ' . $drinkArr[$i]->img_src . '" data-title="" data-description="">
@@ -75,6 +76,33 @@
         }
         ?>
     </ul>
+    <section class="headerSlogen">
+        <h2>Drink of the Week</h2>
+    </section>
+    <?php
+    for ($i = 0; $i < 7; $i++) { //There are 7 drinks of the day
+        echo '
+                <li>
+                    <a href="#" data-largesrc=" ' . $drinkArr[$i]->img_src . '" data-title="" data-description="">
+                        <img src="' . $drinkArr[$i]->tumb_src . '" alt="img02">
+                    </a>
+                    <div class="thumbnail-content">
+                        <div>
+                            <section class="thumbnail-description-header">
+                                <h3>' . $drinkArr[$i]->name . '</h3>
+                             </section>
+                            <section class="thumbnail-description-content">
+                                <p>' . $drinkArr[$i]->description . '</p>
+                            </section>
+                            <section class="thumbnail-description-buttons">
+                                <button class="btn btn-primary">Buy</button>
+                                <button class="btn btn-info">Customize</button>
+                            </section>
+                        </div>
+                    </div>
+                </li>';
+    }
+    ?>
 </main>
 <footer>
     <section class="contact">
