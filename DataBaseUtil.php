@@ -10,15 +10,15 @@ class Cocktail
 {
     public $cocktail_id;
     public $name;
-    public $alcohol_id1;
+    public $alcohol1;
     public $alcohol1_amount;
-    public $alcohol_id2;
+    public $alcohol2;
     public $alcohol2_amount;
     public $ice;
     public $glass_id;
-    public $juice_id1;
+    public $juice1;
     public $juice1_amount;
-    public $juice_id2;
+    public $juice2;
     public $juice2_amount;
     public $description;
     public $img_src;
@@ -26,6 +26,8 @@ class Cocktail
     public $rate;
     public $trendy;
     public $our_picks;
+    public $price;
+
 }
 
 class Alcohol
@@ -119,15 +121,15 @@ function getCocktailsByCocktailId($cocktailId)
         $row = mysqli_fetch_assoc($result);
         $cocktailObj->cocktail_id = $row["cocktail_id"];
         $cocktailObj->name = $row["name"];
-        $cocktailObj->alcohol_id1 = getAlcoholNameById($row["alcohol_id1"]);
+        $cocktailObj->alcohol1 = getAlcoholObjById($row["alcohol_id1"]);
         $cocktailObj->alcohol1_amount = $row["alcohol1_amount"];
-        $cocktailObj->alcohol_id2 = getAlcoholNameById($row["alcohol_id2"]);
+        $cocktailObj->alcohol2 = getAlcoholObjById($row["alcohol_id2"]);
         $cocktailObj->alcohol2_amount = $row["alcohol2_amount"];
         $cocktailObj->ice = $row["ice"];
         $cocktailObj->glass_id = $row["glass_id"];
-        $cocktailObj->juice_id1 = getJuiceNameById($row["juice_id1"]);
+        $cocktailObj->juice1 = getJuiceObjById($row["juice_id1"]);
         $cocktailObj->juice1_amount = $row["juice1_amount"];
-        $cocktailObj->juice_id2 = getJuiceNameById($row["juice_id2"]);
+        $cocktailObj->juice2 = getJuiceObjById($row["juice_id2"]);
         $cocktailObj->juice2_amount = $row["juice2_amount"];
         $cocktailObj->description = $row["description"];
         $cocktailObj->img_src = $row["img_src"];
@@ -135,6 +137,7 @@ function getCocktailsByCocktailId($cocktailId)
         $cocktailObj->rate = $row["rate"];
         $cocktailObj->trendy = $row["trendy"];
         $cocktailObj->our_picks = $row["our_picks"];
+        $cocktailObj->price = $cocktailObj->alcohol1->price * $cocktailObj->alcohol1_amount/10 + $cocktailObj->alcohol2->price * $cocktailObj->alcohol2_amount/10 + $cocktailObj->juice1->price * $cocktailObj->juice1_amount/10 + $cocktailObj->juice2->price * $cocktailObj->juice2_amount/10;
     }
     return $cocktailObj;
 }
@@ -145,7 +148,7 @@ function setCocktailToDB($cocktailObj)
     $query = "INSERT INTO tbl_219_cocktail 
 (cocktail_id , name , alcohol_id1,alcohol1_amount,alcohol_id2,alcohol2_amount,ice,glass_id,juice_id1,juice1_amount,juice_id2,juice2_amount,description,img_src,tumb_src,rate,trendy,our_picks)
 VALUES 
-($cocktailObj->cocktail_id,$cocktailObj->name,$cocktailObj->alcohol_id1,$cocktailObj->alcohol1_amount,$cocktailObj->alcohol_id2,$cocktailObj->alcohol2_amount,$cocktailObj->ice,$cocktailObj->glass_id,$cocktailObj->juice_id1,$cocktailObj->juice1_amount,$cocktailObj->juice_id2,$cocktailObj->juice2_amount,$cocktailObj->description,$cocktailObj->img_src,$cocktailObj->tumb_src,$cocktailObj->rate,$cocktailObj->trendy,$cocktailObj->our_picks);";
+($cocktailObj->cocktail_id,$cocktailObj->name,$cocktailObj->alcohol1->alcohol_id,$cocktailObj->alcohol1_amount,$cocktailObj->alcohol2->alcohol_id,$cocktailObj->alcohol2_amount,$cocktailObj->ice,$cocktailObj->glass_id,$cocktailObj->juice1->juice_id ,$cocktailObj->juice1_amount,$cocktailObj->juice2->juice_id,$cocktailObj->juice2_amount,$cocktailObj->description,$cocktailObj->img_src,$cocktailObj->tumb_src,$cocktailObj->rate,$cocktailObj->trendy,$cocktailObj->our_picks);";
     mysqli_query($connection, $query);
 }
 
@@ -234,15 +237,15 @@ function getCocktailObjArray()
             $cocktailObj = new Cocktail();
             $cocktailObj->cocktail_id = $row["cocktail_id"];
             $cocktailObj->name = $row["name"];
-            $cocktailObj->alcohol_id1 = getAlcoholNameById($row["alcohol_id1"]);
+            $cocktailObj->alcohol1 = getAlcoholObjById($row["alcohol_id1"]);
             $cocktailObj->alcohol1_amount = $row["alcohol1_amount"];
-            $cocktailObj->alcohol_id2 = getAlcoholNameById($row["alcohol_id2"]);
+            $cocktailObj->alcohol2 = getAlcoholObjById($row["alcohol_id2"]);
             $cocktailObj->alcohol2_amount = $row["alcohol2_amount"];
             $cocktailObj->ice = $row["ice"];
             $cocktailObj->glass_id = $row["glass_id"];
-            $cocktailObj->juice_id1 = getJuiceNameById($row["juice_id1"]);
+            $cocktailObj->juice1 = getJuiceObjById($row["juice_id1"]);
             $cocktailObj->juice1_amount = $row["juice1_amount"];
-            $cocktailObj->juice_id2 = getJuiceNameById($row["juice_id2"]);
+            $cocktailObj->juice2 = getJuiceObjById($row["juice_id2"]);
             $cocktailObj->juice2_amount = $row["juice2_amount"];
             $cocktailObj->description = $row["description"];
             $cocktailObj->img_src = $row["img_src"];
@@ -258,29 +261,41 @@ function getCocktailObjArray()
     return $cocktailArray;
 }
 
-function getAlcoholNameById($alcoholId)
+function getAlcoholObjById($alcoholId)
 {
     global $connection;
     $nothing = "null";
+    $alcoholObj = new Alcohol();
     $query = "SELECT * FROM tbl_219_alcohol WHERE alcohol_id = " . $alcoholId . " ";
     $result = mysqli_query($connection, $query);
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
-        return $row["name"];
+        $alcoholObj->name = $row["name"];
+        $alcoholObj->alcohol_id = $row["alcohol_id"];
+        $alcoholObj->color = $row["color"];
+        $alcoholObj->price = $row["price"];
+        $alcoholObj->type = $row["type"];
+        return $alcoholObj;
     } else {
         return $nothing;
     }
 }
 
-function getJuiceNameById($juiceId)
+function getJuiceObjById($juiceId)
 {
     global $connection;
     $nothing = "null";
+    $juiceObj = new Juice();
     $query = "SELECT * FROM tbl_219_juice WHERE juice_id = " . $juiceId . " ";
     $result = mysqli_query($connection, $query);
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
-        return $row["name"];
+        $juiceObj->name = $row["name"];
+        $juiceObj->juice_id = $row["juice_id"];
+        $juiceObj->color = $row["color"];
+        $juiceObj->price = $row["price"];
+        $juiceObj->type = $row["type"];
+        return $juiceObj;
     } else {
         return $nothing;
     }

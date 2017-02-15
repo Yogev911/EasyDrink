@@ -58,6 +58,10 @@ header h1{
 nav{
     height: 50px;
 }
+#checkOut main{
+    width: 200px;
+    color: #0f0f0f;
+}
 
 #logo{
     position: absolute;
@@ -357,7 +361,14 @@ footer .rights{
     100% {box-shadow: 0 0 5px green;}
 }
 */
+.wrapper table{
+    color: #262626;
+}
 
+.payPanel{
+    width: 50%;
+    margin: auto;
+}
 
 
 /*MOBILE*/
