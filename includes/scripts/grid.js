@@ -315,6 +315,7 @@ var Grid = (function() {
             // same row
             else {
                 preview.update( $item );
+                $(".saveBtn").click(saveDrinkToFav);
                 return false;
             }
 
@@ -326,6 +327,8 @@ var Grid = (function() {
         preview = $.data( this, 'preview', new Preview( $item ) );
         // expand preview overlay
         preview.open();
+
+        $(".saveBtn").click(saveDrinkToFav);
 
     }
 
@@ -521,3 +524,32 @@ var Grid = (function() {
     };
 
 })();
+
+function saveDrinkToFav() {
+
+    var idVal = $(this).data("id");
+
+    console.log("called");
+
+    $.ajax({
+        type:"POST",
+        url: "saveDrink.php",
+        data: "id="+idVal,
+        cache: true,
+        success: function (data) {
+            console.log(data);
+            if(!data.localeCompare("1")) {
+                $(".alert-warning").slideToggle(300);
+                setTimeout(function () {
+                    $(".alert-warning").slideUp(300);
+                }, 3000)
+            }else if (data.includes("Duplicate")){
+                $(".alert,.alert-danger").slideToggle(300);
+                setTimeout(function () {
+                    $(".alert-danger").slideUp(300);
+                }, 3000)
+            }
+        }
+    })
+
+}

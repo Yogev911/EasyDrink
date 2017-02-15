@@ -4,10 +4,8 @@
 
 $( document ).ready(function () {
     $(".hamburger").click(openNav);
-   $(".sidenav .closebtn").click(closeNav);
+    $(".sidenav .closebtn").click(closeNav);
 });
-
-
 
 /* Set the width of the side navigation to 250px */
 function openNav() {
@@ -18,3 +16,4 @@ function openNav() {
 function closeNav() {
     $(".sidenav").slideUp(300);
 }
+
