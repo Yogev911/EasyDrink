@@ -70,7 +70,7 @@
                             </section>
                             <section class="thumbnail-description-buttons">
                                 <button class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-star"></span> Save</button>
-                                <button class="btn btn-lg btn-primary">Buy</button>
+                                <form action="CheckOut.php" methud="get"><input type="hidden" name="id" value="'.$drinkArr[$i]->cocktail_id.'"><button class="btn btn-lg btn-primary">Buy</button></form>
                                 <form action="MakeYourOwn.php" methud="get"><input type="hidden" name="id" value="'.$drinkArr[$i]->cocktail_id.'"><button class="btn btn-lg btn-success">Customize</button></form>
                             </section>
                         </div>
