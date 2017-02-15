@@ -361,6 +361,9 @@ footer .rights{
     width: 50%;
     margin: auto;
 }
+.form_makeyourown{
+    display: block;
+}
 
 
 /*MOBILE*/
