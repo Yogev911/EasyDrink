@@ -309,6 +309,14 @@ footer .rights{
 .tube img{
     width: 400px;
 }
+
+.alert{
+    position: fixed;
+    display: none;
+    z-index: 2;
+    top: 60px;
+    right: 5px;
+}
 /*
 .testing{
     width: 100%;

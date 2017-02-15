@@ -74,6 +74,8 @@ function connect()
 }
 
 //$cocktailObj = new cocktail();
+global $defaultUserId ;
+$defaultUserId = 1234;
 
 function disconnect()
 {
@@ -315,6 +317,40 @@ function getGlassObjById($glassId)
     }
 }
 function createCocktailObjFromParams($cocktail_id, $name, $alcohol1, $alcohol1_amount, $alcohol2, $alcohol2_amount, $ice, $glass_id, $juice1, $juice1_amount, $juice2, $juice2_amount, $description, $img_src, $tumb_src, $rate, $trendy, $our_picks, $price){
+
+}
+
+/**
+ * @param cocktailId $ The cocktail id which would like to add to favorites
+ * using $defaultUserId the user's favorite
+ */
+function addToFavorites($cocktailId){
+    global $connection;
+    global $defaultUserId;
+    $query = "INSERT INTO  auxstudDB6c.tbl_219_favorits (user_id ,cocktail_id) VALUES (".$defaultUserId.",".$cocktailId.")";
+
+    if ( $connection->query($query) === TRUE) {
+        return "1";
+    } else {
+        return $connection->error;
+    }
+
+}
+
+/**
+ * @param cocktailId $ The cocktail id which would like to add to favorites
+ * using $defaultUserId the user's favorite
+ */
+function addToRecent($cocktailId){
+    global $connection;
+    global $defaultUserId;
+    $query = "INSERT INTO  auxstudDB6c.tbl_219_recent (user_id ,cocktail_id) VALUES (".$defaultUserId.",".$cocktailId.")";
+
+    if ( $connection->query($query) === TRUE) {
+        return "1";
+    } else {
+        return $connection->error;
+    }
 
 }
 
