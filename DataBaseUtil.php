@@ -126,7 +126,7 @@ function getCocktailsByCocktailId($cocktailId)
         $cocktailObj->alcohol2 = getAlcoholObjById($row["alcohol_id2"]);
         $cocktailObj->alcohol2_amount = $row["alcohol2_amount"];
         $cocktailObj->ice = $row["ice"];
-        $cocktailObj->glass = $row["glass_id"];
+        $cocktailObj->glass = getGlassObjById($row["glass_id"]);
         $cocktailObj->juice1 = getJuiceObjById($row["juice_id1"]);
         $cocktailObj->juice1_amount = $row["juice1_amount"];
         $cocktailObj->juice2 = getJuiceObjById($row["juice_id2"]);
@@ -242,7 +242,7 @@ function getCocktailObjArray()
             $cocktailObj->alcohol2 = getAlcoholObjById($row["alcohol_id2"]);
             $cocktailObj->alcohol2_amount = $row["alcohol2_amount"];
             $cocktailObj->ice = $row["ice"];
-            $cocktailObj->glass = $row["glass_id"];
+            $cocktailObj->glass = getGlassObjById($row["glass_id"]);
             $cocktailObj->juice1 = getJuiceObjById($row["juice_id1"]);
             $cocktailObj->juice1_amount = $row["juice1_amount"];
             $cocktailObj->juice2 = getJuiceObjById($row["juice_id2"]);
@@ -303,7 +303,7 @@ function getGlassObjById($glassId)
 {
     global $connection;
     $glassObj = new Glass();
-    $query = "SELECT * FROM tbl_219_glass WHERE juice_id = " . $glassId . " ";
+    $query = "SELECT * FROM tbl_219_glass WHERE glass_id = " . $glassId . " ";
     $result = mysqli_query($connection, $query);
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);

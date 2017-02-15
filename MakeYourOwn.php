@@ -60,18 +60,18 @@
             include "DataBaseUtil.php";
             connect();
 
-            if (empty($_GET["cocktail_id"])) {
-                $glassArr = getGlassObjArray();
-                $alcoholArr = getAlcoholObjArray();
-                $juiceArr = getJuiceObjArray();
-            }else {
-                $cocktailObj = getCocktailsByCocktailId($_GET["cocktail_id"]);
-                $glassArr = $cocktailObj->glass;
-                $alcoholArr[] = $cocktailObj->alcohol1;
-                $alcoholArr[] = $cocktailObj->alcohol2;
-                $juiceArr[] = $cocktailObj->juice1;
-                $juiceArr[] = $cocktailObj->juice2;
-            }
+//            if (empty($_GET["cocktail_id"])) {
+//                $glassArr = getGlassObjArray();
+//                $alcoholArr = getAlcoholObjArray();
+//                $juiceArr = getJuiceObjArray();
+//            }else {
+//                $cocktailObj = getCocktailsByCocktailId($_GET["cocktail_id"]);
+//                $glassArr = $cocktailObj->glass;
+//                $alcoholArr[] = $cocktailObj->alcohol1;
+//                $alcoholArr[] = $cocktailObj->alcohol2;
+//                $juiceArr[] = $cocktailObj->juice1;
+//                $juiceArr[] = $cocktailObj->juice2;
+//            }
             $glassArr = getGlassObjArray();
             $alcoholArr = getAlcoholObjArray();
             $juiceArr = getJuiceObjArray();
@@ -83,9 +83,12 @@
                 $key2 = array_search($cocktailObj->alcohol2 , $alcoholArr);
                 unset($alcoholArr[$key2]);
                 $key3 = array_search($cocktailObj->juice1 , $juiceArr);
-                unset($alcoholArr[$key3]);
+                unset($juiceArr[$key3]);
                 $key4 = array_search($cocktailObj->juice2 , $juiceArr);
-                unset($alcoholArr[$key4]);
+                unset($juiceArr[$key4]);
+                $key5 = array_search($cocktailObj->glass , $glassArr);
+                unset($glassArr[$key5]);
+
             }else{
                 $glassArr = getGlassObjArray();
                 $alcoholArr = getAlcoholObjArray();
@@ -112,6 +115,10 @@
                                 <div class="radio glassType">
 
                                     <?php
+//                                    echo $cocktailObj->glass->glass_id;
+                                    if (!empty($_GET["id"])) {
+                                        echo '<label><img src="' . $cocktailObj->glass->img_src . '"  alt="glass"><input type="radio" name="glassId" value="' . $cocktailObj->glass->glass_id . '" checked>' . $cocktailObj->glass->name . '<span>' . $cocktailObj->glass->capacity . 'ml</span></label>';
+                                    }
                                     foreach ($glassArr as $glass) {
                                         echo '<label><img src="' . $glass->img_src . '"  alt="glass"><input type="radio" name="glassId" value="' . $glass->glass_id . '">' . $glass->name . '<span>' . $glass->capacity . 'ml</span></label>';
                                     }
@@ -136,11 +143,7 @@
                                 <select class="form-control" name="alcoholOne">
                                     <?php
                                     if (!empty($_GET["id"])) {
-                                        $cocktailObj = getCocktailsByCocktailId($_GET["id"]);
-                                        $key = array_search($cocktailObj->alcohol1 , $alcoholArr);
-                                        echo 'index is '. $key.'';
                                         echo '<option value="' . $cocktailObj->alcohol1->alcohol_id . '">' . $cocktailObj->alcohol1->name . ' ' . $cocktailObj->alcohol1->price . '$</option>';
-                                        unset($alcoholArr[$key]);
                                     }else{
                                         echo '<option value="" selected>Alcohol</option>';
                                     }
@@ -171,9 +174,12 @@
                                 <div class="clear"></div>
                                 <!-- ALCOHOL TWO -->
                                 <select class="form-control" name="alcoholTwo">
-                                    <option value="" selected>Alcohol</option>
-                                    <option value="" selected>Alcohol</option>
                                     <?php
+                                    if (!empty($_GET["id"])) {
+                                        echo '<option value="' . $cocktailObj->alcohol2->alcohol_id . '">' . $cocktailObj->alcohol2->name . ' ' . $cocktailObj->alcohol2->price . '$</option>';
+                                    }else{
+                                        echo '<option value="" selected>Alcohol</option>';
+                                    }
                                     foreach ($alcoholArr as $alcohol) {
                                         echo '<option value="' . $alcohol->alcohol_id . '">' . $alcohol->name . ' ' . $alcohol->price . '$</option>';
                                     }
@@ -215,10 +221,15 @@
                             <div class="panel-body">
                                 <!-- JUICE ONE -->
                                 <select class="form-control" name="juiceOne">
-                                    <option value="" selected>Juice</option>
+
                                     <?php
+                                    if (!empty($_GET["id"])) {
+                                        echo '<option value="' . $cocktailObj->juice1->juice_id . '">' . $cocktailObj->juice1->name . ' ' . $cocktailObj->juice1->price . '$</option>';
+                                    }else{
+                                        echo '<option value="" selected>Juice</option>';
+                                    }
                                     foreach ($juiceArr as $juice) {
-                                        echo '<option value="' . $juice->alcohol_id . '">' . $juice->name . ' ' . $juice->price . '$</option>';
+                                        echo '<option value="' . $juice->juice_id . '">' . $juice->name . ' ' . $juice->price . '$</option>';
                                     }
                                     ?>
                                 </select>
@@ -243,10 +254,15 @@
                                 <div class="clear"></div>
                                 <!-- JUICE TWo -->
                                 <select class="form-control" name="juiceTwo">
-                                    <option value="" selected>Juice</option>
+
                                     <?php
+                                    if (!empty($_GET["id"])) {
+                                        echo '<option value="' . $cocktailObj->juice2->juice_id . '">' . $cocktailObj->juice2->name . ' ' . $cocktailObj->juice2->price . '$</option>';
+                                    }else{
+                                        echo '<option value="" selected>Juice</option>';
+                                    }
                                     foreach ($juiceArr as $juice) {
-                                        echo '<option value="' . $juice->alcohol_id . '">' . $juice->name . ' ' . $juice->price . '$</option>';
+                                        echo '<option value="' . $juice->juice_id . '">' . $juice->name . ' ' . $juice->price . '$</option>';
                                     }
                                     ?>
                                 </select>
@@ -285,15 +301,29 @@
                              aria-labelledby="headingFour">
                             <div class="panel-body">
                                 <div class="btn-group" data-toggle="buttons">
-                                    <label class="btn btn-primary active">
-                                        <input type="radio" name="options" id="option1" autocomplete="off" checked> Yes
-                                    </label>
+                                    <?php
+                                    echo '<label class="btn btn-primary">
+                                        <input type="radio" name="ice" id="option1" autocomplete="off" value="0" ';
+                                    if ($cocktailObj->ice == 0){
+                                        echo 'checked';
+                                    }
+                                    echo '> Yes</label>';
+                                    echo '
                                     <label class="btn btn-primary">
-                                        <input type="radio" name="options" id="option2" autocomplete="off"> No
-                                    </label>
+                                        <input type="radio" name="ice" id="option2" autocomplete="off" value="1"';
+                                    if ($cocktailObj->ice == 1){
+                                        echo 'checked';
+                                    }
+                                    echo '> No</label>';
+                                    echo '
                                     <label class="btn btn-primary">
-                                        <input type="radio" name="options" id="option3" autocomplete="off"> Crashed!
-                                    </label>
+                                        <input type="radio" name="ice" id="option3" autocomplete="off" value="2"';
+                                    if ($cocktailObj->ice == 2){
+                                        echo 'checked';
+                                    }
+                                    echo '> Crashed!</label>';
+                                    ?>
+
                                 </div>
                             </div>
                         </div>
