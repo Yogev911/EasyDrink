@@ -10,7 +10,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="includes/scripts/bootstrap.min.js"></script>
     <script src="includes/scripts/scripts.js"></script>
-    <script src="includes/scripts/customize.js"></script>
 
 </head>
 <body>
@@ -159,7 +158,7 @@
                                             </button>
                                         </span>
                                         <input type="number" name="alcoholOneAmount" class="form-control input-number"
-                                               value="1" min="1" max="10">
+                                               value="0" min="0" max="200">
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number" data-type="plus"
                                                     data-field="alcoholOneAmount">
@@ -188,7 +187,7 @@
                                             </button>
                                         </span>
                                         <input type="number" name="alcoholTwoAmount" class="form-control input-number"
-                                               value="1" min="1" max="10">
+                                               value="0" min="0" max="200">
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number" data-type="plus"
                                                     data-field="alcoholTwoAmount">
@@ -231,7 +230,7 @@
                                             </button>
                                         </span>
                                         <input type="number" name="juiceOneAmount" class="form-control input-number"
-                                               value="1" min="1" max="10">
+                                               value="0" min="0" max="200">
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number" data-type="plus"
                                                     data-field="juiceOneAmount">
@@ -259,7 +258,7 @@
                                             </button>
                                         </span>
                                         <input type="number" name="juiceTwoAmount" class="form-control input-number"
-                                               value="1" min="1" max="10">
+                                               value="0" min="0" max="200">
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number" data-type="plus"
                                                     data-field="juiceTwoAmount">
