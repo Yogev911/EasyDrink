@@ -57,9 +57,7 @@ class Glass
 }
 
 
-function connect()
-
-{
+function connect(){
     global $connection;
     $dbhost = "182.50.133.146";
     $dbuser = "auxstudDB6c";
@@ -84,7 +82,11 @@ function disconnect()
 
 }
 
-// get the cocktail of the specific user id from specific table like Foryou219/recent/favorits etc...
+/**
+ * @param $id user
+ * @param $TblName table name
+ * @return array|null of cocktails that has $id in the $TbName
+ */
 function getCocktailsByUserIdFromTbl($id, $TblName)
 {
     global $connection;
@@ -96,7 +98,7 @@ function getCocktailsByUserIdFromTbl($id, $TblName)
     $result = mysqli_query($connection, $query);
 
     if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
+        while ( ($row = mysqli_fetch_assoc($result)) ) {
             $cocktailsId[$i++] = $row["cocktail_id"];
         }
         //found all cocktails id by user id
@@ -110,6 +112,95 @@ function getCocktailsByUserIdFromTbl($id, $TblName)
     }
     return $cocktailObjArray;
 }
+
+/**
+ * @param $id user
+ * @param $tblName table name
+ * @return array|null of Thin cocktails that has $id in the $TbName
+ */function getThinCocktailsByUserIdFromTbl($id, $tblName)
+{
+    global $connection;
+    $cocktailArray = array();
+
+    $query = 'SELECT * FROM '. $tblName .' INNER JOIN tbl_219_cocktail WHERE '.$tblName.'.cocktail_id = tbl_219_cocktail.cocktail_id AND user_id = '.$id;
+    $result = mysqli_query($connection, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        while ( $row = mysqli_fetch_assoc($result)) {
+            $cocktailArray[] = cocktailRowToThinObject($row);
+        }
+    } else {
+        $cocktailArray = null;
+    }
+
+    return $cocktailArray;
+}
+
+/**
+ * @param $TblName
+ * @return array|null of cocktails in $Tblname
+ */
+function getThinCocktailsFromTbl($TblName)
+{
+    global $connection;
+    $cocktailArray = array();
+
+    $query = "SELECT * FROM " . $TblName ;
+    $result = mysqli_query($connection, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $cocktailArray[] = cocktailRowToThinObject($row);
+        }
+    } else {
+        $cocktailArray[] = null;
+    }
+    return $cocktailArray;
+}
+
+
+/**
+ * @return array|null of all Thin cocktails That are trendy
+ */
+function getThinTrendyCocktails()
+{
+    global $connection;
+    $cocktailArray = array();
+
+    $query = "SELECT * FROM tbl_219_cocktail WHERE trendy = 1 ";
+    $result = mysqli_query($connection, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        while ( $row = mysqli_fetch_assoc($result) ) {
+            $cocktailArray[] = cocktailRowToThinObject($row);
+        }
+    } else {
+        $cocktailArray = null;
+    }
+    return $cocktailArray;
+}
+
+/**
+ * @return array|null of all Thin cocktails That are Ourpicks
+ */
+function getThinOurpicksCocktails()
+{
+    global $connection;
+    $cocktailArray = array();
+
+    $query = "SELECT * FROM tbl_219_cocktail WHERE our_picks = 1 ";
+    $result = mysqli_query($connection, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $cocktailArray[] = cocktailRowToThinObject($row);
+        }
+    } else {
+        $cocktailArray = null;
+    }
+    return $cocktailArray;
+}
+
 
 function getCocktailsByCocktailId($cocktailId)
 {
@@ -224,6 +315,9 @@ function getJuiceObjArray()
     return $juiceArray;
 }
 
+/**
+ * @return array|null of all cocktails in DB
+ */
 function getCocktailObjArray()
 {
     global $connection;
@@ -254,6 +348,27 @@ function getCocktailObjArray()
             $cocktailObj->trendy = $row["trendy"];
             $cocktailObj->our_picks = $row["our_picks"];
             $cocktailArray[] = $cocktailObj;
+        }
+    } else {
+        $cocktailArray = null;
+    }
+    return $cocktailArray;
+}
+
+/**
+ * @return array|null of all Thin cocktails in DB
+ */
+function getThinCocktailObjArray()
+{
+    global $connection;
+    $cocktailArray = array();
+
+    $query = "SELECT * FROM tbl_219_cocktail ";
+    $result = mysqli_query($connection, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $cocktailArray[] = cocktailRowToThinObject($row);
         }
     } else {
         $cocktailArray = null;
@@ -337,6 +452,32 @@ function addToFavorites($cocktailId){
 
 }
 
+/**
+ * get DB row
+ * returns Thin Cocktail
+ */
+function cocktailRowToThinObject($row){
+    $cocktailObj = new Cocktail();
+    $cocktailObj->cocktail_id = $row["cocktail_id"];
+    $cocktailObj->name = $row["name"];
+    $cocktailObj->alcohol1 =$row["alcohol_id1"];
+    $cocktailObj->alcohol1_amount = $row["alcohol1_amount"];
+    $cocktailObj->alcohol2 = $row["alcohol_id2"];
+    $cocktailObj->alcohol2_amount = $row["alcohol2_amount"];
+    $cocktailObj->ice = $row["ice"];
+    $cocktailObj->glass = $row["glass_id"];
+    $cocktailObj->juice1 = $row["juice_id1"];
+    $cocktailObj->juice1_amount = $row["juice1_amount"];
+    $cocktailObj->juice2 = $row["juice_id2"];
+    $cocktailObj->juice2_amount = $row["juice2_amount"];
+    $cocktailObj->description = $row["description"];
+    $cocktailObj->img_src = $row["img_src"];
+    $cocktailObj->tumb_src = $row["tumb_src"];
+    $cocktailObj->rate = $row["rate"];
+    $cocktailObj->trendy = $row["trendy"];
+    $cocktailObj->our_picks = $row["our_picks"];
+    return $cocktailObj;
+}
 /**
  * @param cocktailId $ The cocktail id which would like to add to favorites
  * using $defaultUserId the user's favorite

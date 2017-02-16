@@ -15,6 +15,14 @@
         <script src="includes/scripts/modernizr.custom.js"></script>
 
     </head>
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong><span class="glyphicon glyphicon-star"></span> </strong> Cocktail saved !
+    </div>
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong><span class="glyphicon glyphicon-warning-sign"></span> </strong> Cocktail already on favorites
+    </div>
     <body>
         <!-- Nav -->
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -56,182 +64,42 @@
             <section class="slogan">
                 <h2>IT WAS NEVER THAT EASY TO GET A DRINK</h2>
             </section>
-            <ul id="og-grid" class="og-grid">
-                <!-- This is how the expander code should look like !-->
+            <ul id="og-grid" class="og-grid">        <?php
+                include "DataBaseUtil.php";
+                connect();
+
+                $drinkArr = getThinCocktailObjArray();
+                $arrSize = count($drinkArr);
+                for ($i = 0;  ($i < 10) && ($i < $arrSize) ;  $i++) { //There are 10 drinks in index page
+                    echo '
                 <li>
-                    <a href="#" data-largesrc="images/cocktails/coconut.jpg">
-                        <img src="images/cocktails/thumbs/coconut.jpg" alt="img01"/>
+                    <a href="#" data-largesrc=" ' . $drinkArr[$i]->img_src . '">
+                        <img src="' . $drinkArr[$i]->tumb_src . '" alt="img02">
                     </a>
                     <div class="thumbnail-content">
+                        <div>
                             <section class="thumbnail-description-header">
-                                <h3>Coconut <span class="label label-info">Trandy</span> </h3>
-                            </section>
+                                <h3>' . $drinkArr[$i]->name;
+                                    if($drinkArr[$i]->trendy == 1)
+                                        echo '<span class="label label-info"><i class="glyphicon glyphicon-sunglasses" aria-hidden="true"></i> Trandy</span> ';
+                                    if($drinkArr[$i]->our_picks== 1)
+                                        echo '<span class="label label-success"><span class="glyphicon glyphicon-glass">OurPicks</span>';
+                                echo '</h3>
+                             </section>
                             <section class="thumbnail-description-content">
-                                <p>Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.</p>
+                                <p>' . $drinkArr[$i]->description . '</p>
                             </section>
                             <section class="thumbnail-description-buttons">
-                                <button class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-star"></span> Save</button>
-                                <button class="btn btn-lg btn-primary">Buy</button>
-                                <button class="btn btn-lg btn-success">Customize</button>
+                                <button class="btn btn-sm btn-warning saveBtn" data-id="'.$drinkArr[$i]->cocktail_id.'"><span class="glyphicon glyphicon-star"></span> Save</button>
+                                <form action="CheckOut.php" methud="get"><input type="hidden" name="id" value="'.$drinkArr[$i]->cocktail_id.'"><button class="btn btn-lg btn-primary">Buy</button></form>
+                                <form action="MakeYourOwn.php" methud="get"><input type="hidden" name="id" value="'.$drinkArr[$i]->cocktail_id.'"><button class="btn btn-lg btn-success">Customize</button></form>
                             </section>
-                    </div>
-                </li>
-                <li>
-                    <a href="#" data-largesrc="images/cocktails/redmoon.jpg" data-title="" data-description="">
-                        <img src="images/cocktails/thumbs/redmoon.jpg" alt="img02"/>
-                    </a>
-                    <div class="thumbnail-content">
-                        <div>
-                            <h3>Red Moon Over Manhattan Cocktail</h3>
-                            <p>The Manhattan is one of the finest and oldest cocktails around. It’s a classic and sophisticated cocktail. For this Red Moon Over Manhattan…</p>
-                            <button class="btn btn-primary">Buy</button>
-                            <button class="btn btn-info">Customize</button>
                         </div>
                     </div>
-                </li>
-                <li>
-                    <a href="#" data-largesrc="images/cocktails/blueberry-mojito-float.jpg" data-title="" data-description="">
-                        <img src="images/cocktails/thumbs/blueberry-mojito-float.jpg" alt="img03"/>
-                    </a>
-                    <div class="thumbnail-content">
-                        <div>
-                            <h3>BLUEBERRY MOJITO FLOAT</h3>
-                            <p>This blueberry mojito float takes a traditional mint mojito and adds a pop of flavor and color with the addition of blueberry sorbet.</p>
-                            <button class="btn btn-primary">Buy</button>
-                            <button class="btn btn-info">Customize</button>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="#" data-largesrc="images/cocktails/Guinness_Bourbon_Blackberry_cocktail.jpg" data-title="" data-description="">
-                        <img src="images/cocktails/thumbs/Guinness_Bourbon_Blackberry_cocktail.jpg" alt="img01"/>
-                    </a>
-                    <div class="thumbnail-content">
-                        <div>
-                            <h3>Guinness Black Magic Cocktail</h3>
-                            <p>A gorgeous cocktail to toast with on Halloween or St Patrick's Day – Guinness, bourbon, blackberries and lime. Double or triple the recipe in order to use the whole can of Guinness draught.</p>
-                            <button class="btn btn-primary">Buy</button>
-                            <button class="btn btn-info">Customize</button>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="#" data-largesrc="images/cocktails/Witches-Heart.jpg" data-title="" data-description="">
-                        <img src="images/cocktails/thumbs/Witches-Heart.jpg" alt="img02"/>
-                    </a>
-                    <div class="thumbnail-content">
-                        <div>
-                            <h3>The Witch's Heart</h3>
-                            <p>Cocktail brings together the mesmerizing swirls, colors and flavors of Viniq, Vodka ,Grenadine and voilà – The Witch’s Heart Cocktail!</p>
-                            <button class="btn btn-primary">Buy</button>
-                            <button class="btn btn-info">Customize</button>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="#" data-largesrc="images/cocktails/Spicy-Grapefruit-Margaritas.jpg" data-title="" data-description="">
-                        <img src="images/cocktails/thumbs/Spicy-Grapefruit-Margaritas.jpg" alt="img03"/>
-                    </a>
-                    <div class="thumbnail-content">
-                        <div>
-                            <h3>Jalapeño Grapefruit Margarita</h3>
-                            <p>This margarita is the absolute best and easiest sweet, spicy cocktail for all your entertaining needs! The heat of the infused jalapeño pairs wonderfully with grapefruit and tequila.</p>
-                            <button class="btn btn-primary">Buy</button>
-                            <button class="btn btn-info">Customize</button>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="#" data-largesrc="images/cocktails/pinakolada.jpg" data-title="" data-description="">
-                        <img src="images/cocktails/thumbs/pinakolada.jpg" alt="img01"/>
-                    </a>
-                    <div class="thumbnail-content">
-                        <div>
-                            <h3>Pinakolada</h3>
-                            <p>Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.</p>
-                            <button class="btn btn-primary">Buy</button>
-                            <button class="btn btn-info">Customize</button>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="#" data-largesrc="images/cocktails/pinakolada.jpg" data-title="" data-description="">
-                        <img src="images/cocktails/thumbs/pinakolada.jpg" alt="img01"/>
-                    </a>
-                    <div class="thumbnail-content">
-                        <div>
-                            <h3>Pinakolada</h3>
-                            <p>Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.</p>
-                            <button class="btn btn-primary">Buy</button>
-                            <button class="btn btn-info">Customize</button>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="#" data-largesrc="images/cocktails/coconut.jpg" data-title="" data-description="">
-                        <img src="images/cocktails/thumbs/coconut.jpg" alt="img01"/>
-                    </a>
-                    <div class="thumbnail-content">
-                        <div>
-                            <h3>Coconut</h3>
-                            <p>Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.</p>
-                            <button class="btn btn-primary">Buy</button>
-                            <button class="btn btn-info">Customize</button>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="#" data-largesrc="images/cocktails/watermelon.jpg" data-title="" data-description="">
-                        <img src="images/cocktails/thumbs/watermelon.jpg" alt="img02"/>
-                    </a>
-                    <div class="thumbnail-content">
-                        <div>
-                            <h3>Watermelon</h3>
-                            <p>Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.</p>
-                            <button class="btn btn-primary">Buy</button>
-                            <button class="btn btn-info">Customize</button>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="#" data-largesrc="images/cocktails/orange.jpg" data-title="" data-description="">
-                        <img src="images/cocktails/thumbs/orange.jpg" alt="img03"/>
-                    </a>
-                    <div class="thumbnail-content">
-                        <div>
-                            <h3>Orange</h3>
-                            <p>Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.</p>
-                            <button class="btn btn-primary">Buy</button>
-                            <button class="btn btn-info">Customize</button>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="#" data-largesrc="images/cocktails/green.jpg" data-title="" data-description="">
-                        <img src="images/cocktails/thumbs/green.jpg" alt="img02"/>
-                    </a>
-                    <div class="thumbnail-content">
-                        <div>
-                            <h3>Green</h3>
-                            <p>Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.</p>
-                            <button class="btn btn-primary">Buy</button>
-                            <button class="btn btn-info">Customize</button>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="#" data-largesrc="images/cocktails/coconut.jpg" data-title="" data-description="">
-                        <img src="images/cocktails/thumbs/coconut.jpg" alt="img01"/>
-                    </a>
-                    <div class="thumbnail-content">
-                        <div>
-                            <h3>Coconut</h3>
-                            <p>Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.</p>
-                            <button class="btn btn-primary">Buy</button>
-                            <button class="btn btn-info">Customize</button>
-                        </div>
-                    </div>
-                </li>
+                </li>';
+                }
+                disconnect();
+                ?>
             </ul>
         </main>
         <footer>

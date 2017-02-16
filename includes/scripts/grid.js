@@ -544,6 +544,7 @@ function saveDrinkToFav() {
                     $(".alert-warning").slideUp(300);
                 }, 3000)
             }else if (data.includes("Duplicate")){
+                debugger;
                 $(".alert,.alert-danger").slideToggle(300);
                 setTimeout(function () {
                     $(".alert-danger").slideUp(300);

@@ -60,9 +60,9 @@
         include "DataBaseUtil.php";
         connect();
 
-        $drinkArr = getCocktailObjArray();
+        $drinkArr = getThinTrendyCocktails();
         $arrSize = count($drinkArr);
-        for ($i = 0;  ($i < 10) && ($i < $arrSize) ;  $i++) { //There are 10 Trendy drinks
+        for ($i = 0; ($i < $arrSize) ;  $i++) {
             echo '
                 <li>
                     <a href="#" data-largesrc=" ' . $drinkArr[$i]->img_src . '">
@@ -71,7 +71,7 @@
                     <div class="thumbnail-content">
                         <div>
                             <section class="thumbnail-description-header">
-                                <h3>' . $drinkArr[$i]->name . '</h3>
+                                <h3>' . $drinkArr[$i]->name . '<span class="label label-info"><i class="glyphicon glyphicon-sunglasses" aria-hidden="true"></i> Trandy</span></h3>
                              </section>
                             <section class="thumbnail-description-content">
                                 <p>' . $drinkArr[$i]->description . '</p>

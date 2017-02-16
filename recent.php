@@ -47,9 +47,40 @@
             <h1><i class="fa fa-history" aria-hidden="true"></i> Recent</h1>
             <p>Your recent ordered drinks</p>
         </header>
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong><span class="glyphicon glyphicon-star"></span> </strong> Cocktail saved !
+        </div>
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong><span class="glyphicon glyphicon-warning-sign"></span> </strong> Cocktail already on favorites
+        </div>
         <main class="wrapper">
             <ul class="list-group drinkList">
-                <li class="list-group-item">
+                <?php
+                include "DataBaseUtil.php";
+                connect();
+                global $defaultUserId;
+                $drinkArr = getThinCocktailsByUserIdFromTbl($defaultUserId, "tbl_219_recent");
+                $arrSize = count($drinkArr);
+                for ($i = 0;  $i < $arrSize ;  $i++) {
+                    echo '
+                            <li class="list-group-item">
+                                <img src="images/Glass1.jpg"  alt="glass">
+                                <label class="drinkName">' . substr($drinkArr[$i]->name,0,20) . '</label>
+                                <label class="drinkDescription">' . substr($drinkArr[$i]->description,0,50) . '...</label>
+                                <section class="drinkLiBtnGroup">
+                                    <button class="btn btn-sm btn-warning saveBtn" data-id="'.$drinkArr[$i]->cocktail_id.'"><span class="glyphicon glyphicon-star"></span> Save</button>
+                                    <form action="CheckOut.php" methud="get"><input type="hidden" name="id" value="'.$drinkArr[$i]->cocktail_id.'"><button class="btn btn-lg btn-primary">Buy</button></form>
+                                    <form action="MakeYourOwn.php" methud="get"><input type="hidden" name="id" value="'.$drinkArr[$i]->cocktail_id.'"><button class="btn btn-lg btn-success">Customize</button></form>
+                                </section>
+                                <label class="drinkPrice">10$</label>
+                                <div class="clear"> </div>
+                            </li>';
+                }
+                disconnect()
+                ?>
+                <!--<li class="list-group-item">
                     <img src="images/Glass1.jpg"  alt="glass">
                     <label class="drinkName">WallaVodkaRedball</label>
                     <label class="drinkDescription">Vodka 10cc, orange 20cc, ice</label>
@@ -60,43 +91,7 @@
                     </section>
                     <label class="drinkPrice">10$</label>
                     <div class="clear"> </div>
-                </li>
-                <li class="list-group-item">
-                    <img src="images/Glass1.jpg"  alt="glass">
-                    <label class="drinkName">WallaVodkaRedball</label>
-                    <label class="drinkDescription">Vodka 10cc, orange 20cc, ice</label>
-                    <section class="drinkLiBtnGroup">
-                        <button class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-star"></span> Save</button>
-                        <button class="btn btn btn-primary">Buy</button>
-                        <button class="btn btn-success">Customize</button>
-                    </section>
-                    <label class="drinkPrice">10$</label>
-                    <div class="clear"> </div>
-                </li>
-                <li class="list-group-item">
-                    <img src="images/Glass1.jpg"  alt="glass">
-                    <label class="drinkName">WallaVodkaRedball</label>
-                    <label class="drinkDescription">Vodka 10cc, orange 20cc, ice</label>
-                    <section class="drinkLiBtnGroup">
-                        <button class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-star"></span> Save</button>
-                        <button class="btn btn btn-primary">Buy</button>
-                        <button class="btn btn-success">Customize</button>
-                    </section>
-                    <label class="drinkPrice">10$</label>
-                    <div class="clear"> </div>
-                </li>
-                <li class="list-group-item">
-                    <img src="images/Glass1.jpg"  alt="glass">
-                    <label class="drinkName">WallaVodkaRedball</label>
-                    <label class="drinkDescription">Vodka 10cc, orange 20cc, ice</label>
-                    <section class="drinkLiBtnGroup">
-                        <button class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-star"></span> Save</button>
-                        <button class="btn btn btn-primary">Buy</button>
-                        <button class="btn btn-success">Customize</button>
-                    </section>
-                    <label class="drinkPrice">10$</label>
-                    <div class="clear"> </div>
-                </li>
+                </li>-->
             </ul>
         </main>
         <footer>
