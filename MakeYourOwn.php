@@ -160,8 +160,13 @@
                                                 <span class="glyphicon glyphicon-minus"></span>
                                             </button>
                                         </span>
-                                        <input type="number" name="alcoholOneAmount" class="form-control input-number"
-                                               value="0" min="0" max="200">
+                                        <?php
+                                        if (!empty($_GET["id"])) {
+                                            echo '<input type="number" name="alcoholOneAmount" class="form-control input-number"value="'.$cocktailObj->alcohol1_amount.'" min="0" max="200">';
+                                        }else{
+                                            echo '<input type="number" name="alcoholOneAmount" class="form-control input-number"value="0" min="0" max="200">';
+                                        }
+                                        ?>
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number" data-type="plus"
                                                     data-field="alcoholOneAmount">
@@ -192,8 +197,13 @@
                                                 <span class="glyphicon glyphicon-minus"></span>
                                             </button>
                                         </span>
-                                        <input type="number" name="alcoholTwoAmount" class="form-control input-number"
-                                               value="0" min="0" max="200">
+                                        <?php
+                                        if (!empty($_GET["id"])) {
+                                            echo '<input type="number" name="alcoholTwoAmount" class="form-control input-number"value="'.$cocktailObj->alcohol2_amount.'" min="0" max="200">';
+                                        }else{
+                                            echo '<input type="number" name="alcoholTwoAmount" class="form-control input-number"value="0" min="0" max="200">';
+                                        }
+                                        ?>
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number" data-type="plus"
                                                     data-field="alcoholTwoAmount">
@@ -240,8 +250,13 @@
                                                 <span class="glyphicon glyphicon-minus"></span>
                                             </button>
                                         </span>
-                                        <input type="number" name="juiceOneAmount" class="form-control input-number"
-                                               value="0" min="0" max="200">
+                                        <?php
+                                        if (!empty($_GET["id"])) {
+                                            echo '<input type="number" name="juiceOneAmount" class="form-control input-number"value="'.$cocktailObj->juice1_amount.'" min="0" max="200">';
+                                        }else{
+                                            echo '<input type="number" name="juiceOneAmount" class="form-control input-number"value="0" min="0" max="200">';
+                                        }
+                                        ?>
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number" data-type="plus"
                                                     data-field="juiceOneAmount">
@@ -273,8 +288,13 @@
                                                 <span class="glyphicon glyphicon-minus"></span>
                                             </button>
                                         </span>
-                                        <input type="number" name="juiceTwoAmount" class="form-control input-number"
-                                               value="0" min="0" max="200">
+                                        <?php
+                                        if (!empty($_GET["id"])) {
+                                            echo '<input type="number" name="juiceTwoAmount" class="form-control input-number"value="'.$cocktailObj->juice2_amount.'" min="0" max="200">';
+                                        }else{
+                                            echo '<input type="number" name="juiceTwoAmount" class="form-control input-number"value="0" min="0" max="200">';
+                                        }
+                                        ?>
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number" data-type="plus"
                                                     data-field="juiceTwoAmount">
@@ -301,26 +321,23 @@
                             <div class="panel-body">
                                 <div class="btn-group" data-toggle="buttons">
                                     <?php
-                                    echo '<label class="btn btn-primary">
-                                        <input type="radio" name="ice" id="option1" autocomplete="off" value="0" ';
                                     if ($cocktailObj->ice == 0){
-                                        echo 'checked';
+                                        echo '<label class="btn btn-primary active"><input type="radio" name="ice" id="option1" autocomplete="off" value="0" checked> Yes</label>';
                                     }
-                                    echo '> Yes</label>';
-                                    echo '
-                                    <label class="btn btn-primary">
-                                        <input type="radio" name="ice" id="option2" autocomplete="off" value="1"';
+                                    else{
+                                        echo '<label class="btn btn-primary"><input type="radio" name="ice" id="option1" autocomplete="off" value="0"> Yes</label>';
+                                    }
                                     if ($cocktailObj->ice == 1){
-                                        echo 'checked';
+                                        echo '<label class="btn btn-primary active"><input type="radio" name="ice" id="option2" autocomplete="off" value="1" checked > No</label>';
                                     }
-                                    echo '> No</label>';
-                                    echo '
-                                    <label class="btn btn-primary">
-                                        <input type="radio" name="ice" id="option3" autocomplete="off" value="2"';
+                                    else{
+                                        echo '<label class="btn btn-primary"><input type="radio" name="ice" id="option2" autocomplete="off" value="1" > No</label>';
+                                    }
                                     if ($cocktailObj->ice == 2){
-                                        echo 'checked';
+                                        echo '<label class="btn btn-primary active"><input type="radio" name="ice" id="option3" autocomplete="off" value="2" checked > Crashed!</label>';
+                                    }else{
+                                        echo '<label class="btn btn-primary"><input type="radio" name="ice" id="option3" autocomplete="off" value="2" > Crashed!</label>';
                                     }
-                                    echo '> Crashed!</label>';
                                     ?>
 
                                 </div>

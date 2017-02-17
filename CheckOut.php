@@ -59,7 +59,15 @@
     include "DataBaseUtil.php";
     connect();
 
-    if (!empty($_GET["id"])) {
+    if (empty($_GET["id"])) {
+        $cocktail = getCocktailPrices($_GET["alcoholOne"],$_GET["alcoholTwo"],$_GET["juiceOne"],$_GET["juiceTwo"]);
+        $cocktail->alcohol1_amount = $_GET["alcoholOneAmount"];
+        $cocktail->alcohol2_amount = $_GET["alcoholTwoAmount"];
+        $cocktail->juice1_amount = $_GET["juiceOneAmount"];
+        $cocktail->juice2_amount = $_GET["juiceTwoAmount"];
+        $cocktail->price = ($cocktail->alcohol1->price * $cocktail->alcohol1_amount/10) + ($cocktail->alcohol2->price * $cocktail->alcohol2_amount/10) + ($cocktail->juice1->price * $cocktail->juice1_amount/10) + ($cocktail->juice2->price * $cocktail->juice2_amount/10);
+//        $cocktail->price = 55;
+    }else{
         $cocktail = getCocktailsByCocktailId($_GET["id"]);
     }
     echo '
