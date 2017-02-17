@@ -61,6 +61,8 @@
 
         <section class="tube">
             <img src="images/measureCup.svg">
+            <section>
+            </section>
         </section>
         <form action="CheckOut.php" class="form_makeyourown">
 
@@ -137,13 +139,13 @@
                                 <select class="form-control" name="alcoholOne">
                                     <?php
                                     if (!empty($_GET["id"])) {
-                                        echo '<option value="' . $cocktailObj->alcohol1->alcohol_id . '">' . $cocktailObj->alcohol1->name . ' ' . $cocktailObj->alcohol1->price . '$</option>';
+                                        echo '<option data-color="'.$cocktailObj->alcohol1->color.'" value="' . $cocktailObj->alcohol1->alcohol_id . '">' . $cocktailObj->alcohol1->name . ' ' . $cocktailObj->alcohol1->price . '$</option>';
                                     }else{
                                         echo '<option value="" selected>Alcohol</option>';
                                     }
 
                                     foreach ($alcoholArr as $alcohol) {
-                                        echo '<option value="' . $alcohol->alcohol_id . '">' . $alcohol->name . ' ' . $alcohol->price . '$</option>';
+                                        echo '<option data-color="'.$alcohol->color.'"  value="' . $alcohol->alcohol_id . '">' . $alcohol->name . ' ' . $alcohol->price . '$</option>';
                                     }
                                     ?>
                                 </select>
@@ -151,7 +153,7 @@
                                     <div class="input-group">
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number" data-type="minus"
-                                                    data-field="alcoholOneAmount">
+                                                    data-field="alcoholOneAmount" data-for="alcoholOne">
                                                 <span class="glyphicon glyphicon-minus"></span>
                                             </button>
                                         </span>
@@ -164,7 +166,7 @@
                                         ?>
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number" data-type="plus"
-                                                    data-field="alcoholOneAmount">
+                                                    data-field="alcoholOneAmount" data-for="alcoholOne">
                                                 <span class="glyphicon glyphicon-plus"></span>
                                             </button>
                                         </span>
@@ -175,12 +177,12 @@
                                 <select class="form-control" name="alcoholTwo">
                                     <?php
                                     if (!empty($_GET["id"])) {
-                                        echo '<option value="' . $cocktailObj->alcohol2->alcohol_id . '">' . $cocktailObj->alcohol2->name . ' ' . $cocktailObj->alcohol2->price . '$</option>';
+                                        echo '<option data-color="'.$cocktailObj->alcohol2->color.'" value="' . $cocktailObj->alcohol2->alcohol_id . '">' . $cocktailObj->alcohol2->name . ' ' . $cocktailObj->alcohol2->price . '$</option>';
                                     }else{
                                         echo '<option value="" selected>Alcohol</option>';
                                     }
                                     foreach ($alcoholArr as $alcohol) {
-                                        echo '<option value="' . $alcohol->alcohol_id . '">' . $alcohol->name . ' ' . $alcohol->price . '$</option>';
+                                        echo '<option data-color="'.$alcohol->color.'" value="' . $alcohol->alcohol_id . '">' . $alcohol->name . ' ' . $alcohol->price . '$</option>';
                                     }
                                     ?>
                                 </select>
@@ -188,7 +190,7 @@
                                     <div class="input-group">
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number" data-type="minus"
-                                                    data-field="alcoholTwoAmount">
+                                                    data-field="alcoholTwoAmount" data-for="alcoholTwo">
                                                 <span class="glyphicon glyphicon-minus"></span>
                                             </button>
                                         </span>
@@ -201,7 +203,7 @@
                                         ?>
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number" data-type="plus"
-                                                    data-field="alcoholTwoAmount">
+                                                    data-field="alcoholTwoAmount" data-for="alcoholTwo">
                                                 <span class="glyphicon glyphicon-plus"></span>
                                             </button>
                                         </span>
@@ -228,12 +230,12 @@
 
                                     <?php
                                     if (!empty($_GET["id"])) {
-                                        echo '<option value="' . $cocktailObj->juice1->juice_id . '">' . $cocktailObj->juice1->name . ' ' . $cocktailObj->juice1->price . '$</option>';
+                                        echo '<option data-color="'.$cocktailObj->juice2->color.'"  value="' . $cocktailObj->juice1->juice_id . '">' . $cocktailObj->juice1->name . ' ' . $cocktailObj->juice1->price . '$</option>';
                                     }else{
                                         echo '<option value="" selected>Juice</option>';
                                     }
                                     foreach ($juiceArr as $juice) {
-                                        echo '<option value="' . $juice->juice_id . '">' . $juice->name . ' ' . $juice->price . '$</option>';
+                                        echo '<option data-color="'.$juice->juice2->color.'"  value="' . $juice->juice_id . '">' . $juice->name . ' ' . $juice->price . '$</option>';
                                     }
                                     ?>
                                 </select>
@@ -241,7 +243,7 @@
                                     <div class="input-group">
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number" data-type="minus"
-                                                    data-field="juiceOneAmount">
+                                                    data-field="juiceOneAmount" data-for="juiceOne">
                                                 <span class="glyphicon glyphicon-minus"></span>
                                             </button>
                                         </span>
@@ -254,7 +256,7 @@
                                         ?>
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number" data-type="plus"
-                                                    data-field="juiceOneAmount">
+                                                    data-field="juiceOneAmount" data-for="juiceOne" >
                                                 <span class="glyphicon glyphicon-plus"></span>
                                             </button>
                                         </span>
@@ -266,12 +268,12 @@
 
                                     <?php
                                     if (!empty($_GET["id"])) {
-                                        echo '<option value="' . $cocktailObj->juice2->juice_id . '">' . $cocktailObj->juice2->name . ' ' . $cocktailObj->juice2->price . '$</option>';
+                                        echo '<option data-color="'.$cocktailObj->juice2->color.'" value="' . $cocktailObj->juice2->juice_id . ' ">' . $cocktailObj->juice2->name . ' ' . $cocktailObj->juice2->price . '$</option>';
                                     }else{
                                         echo '<option value="" selected>Juice</option>';
                                     }
                                     foreach ($juiceArr as $juice) {
-                                        echo '<option value="' . $juice->juice_id . '">' . $juice->name . ' ' . $juice->price . '$</option>';
+                                        echo '<option data-color="'.$juice->color.'" value="' . $juice->juice_id . '">' . $juice->name . ' ' . $juice->price . '$</option>';
                                     }
                                     ?>
                                 </select>
@@ -279,7 +281,7 @@
                                     <div class="input-group">
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number" data-type="minus"
-                                                    data-field="juiceTwoAmount">
+                                                    data-field="juiceTwoAmount" data-for="juiceTwo">
                                                 <span class="glyphicon glyphicon-minus"></span>
                                             </button>
                                         </span>
@@ -292,7 +294,7 @@
                                         ?>
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number" data-type="plus"
-                                                    data-field="juiceTwoAmount">
+                                                    data-field="juiceTwoAmount" data-for="juiceTwo">
                                                 <span class="glyphicon glyphicon-plus"></span>
                                             </button>
                                         </span>

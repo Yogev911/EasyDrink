@@ -15,15 +15,7 @@
         <script src="includes/scripts/modernizr.custom.js"></script>
 
     </head>
-    <div class="alert alert-warning alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong><span class="glyphicon glyphicon-star"></span> </strong> Cocktail saved !
-    </div>
-    <div class="alert alert-danger alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong><span class="glyphicon glyphicon-warning-sign"></span> </strong> Cocktail already on favorites
-    </div>
-    <body>
+    <body id="index">
         <!-- Nav -->
         <nav class="navbar navbar-inverse navbar-fixed-top">
                 <button type="button" class="navbar-toggle collapsed hamburger" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -55,6 +47,14 @@
         </div>
         <!-- END Side Nav -->
         <section class="customizeGif"></section>
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong><span class="glyphicon glyphicon-star"></span> </strong> Cocktail saved !
+        </div>
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong><span class="glyphicon glyphicon-warning-sign"></span> </strong> Cocktail already on favorites
+        </div>
         <main>
             <section class="customize-poster" href="MakeYourOwn.html">
                 <h2><i class="fa fa-flask" aria-hidden="true"></i>CREATE YOUR POISON</h2>
