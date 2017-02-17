@@ -489,6 +489,22 @@ SELECT name,price FROM tbl_219_juice WHERE juice_id = ".$juice1." or juice_id = 
     }
 }
 
+function updateSavedCocktail($id,$glassId,$alcoholOne,$alcoholOneAmount,$alcoholTwo,$alcoholTwoAmount,$juiceOne,$juiceOneAmount,$juiceTwo,$juiceTwoAmount,$ice){
+    global $connection;
+//    $query = "INSERT INTO  auxstudDB6c.tbl_219_cocktail (user_id ,cocktail_id) VALUES (".$defaultUserId.",".$cocktailId.")";
+//    $query = "UPDATE auxstudDB6c.tbl_219_cocktail
+//              SET glass_id='.$glassId.' ,alcohol_id1='.$alcoholOne.' ,alcohol1_amount='.$alcoholOneAmount.' ,alcohol_id2='.$alcoholTwo.' ,alcohol2_amount='.$alcoholTwoAmount.' ,juice_id1='.$juiceOne.' ,juice1_amount='.$juiceOneAmount.' ,juice_id2='.$juiceTwo.' ,juice2_amount='.$juiceTwoAmount.' ,ice='.$ice.'
+//              WHERE cocktail_id='.$id.' ";
+    $query = "UPDATE auxstudDB6c.tbl_219_cocktail
+              SET glass_id=".$glassId." ,alcohol_id1=".$alcoholOne." ,alcohol1_amount=".$alcoholOneAmount." ,alcohol_id2=".$alcoholTwo." ,alcohol2_amount=".$alcoholTwoAmount." ,juice_id1=".$juiceOne." ,juice1_amount=".$juiceOneAmount." ,juice_id2=".$juiceTwo." ,juice2_amount=".$juiceTwoAmount." ,ice=".$ice."
+              WHERE cocktail_id=".$id." ";
+    if ( $connection->query($query) === TRUE) {
+        return "1";
+    } else {
+        return $connection->error;
+    }
+}
+
 /**
  * @param cocktailId $ The cocktail id which would like to add to favorites
  * using $defaultUserId the user's favorite

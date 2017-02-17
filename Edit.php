@@ -6,6 +6,33 @@
  * Time: 15:49
  */
 ?>
+<?php
+include "DataBaseUtil.php";
+connect();
+
+if (!empty($_GET["id"])) {
+    $glassArr = getGlassObjArray();
+    $alcoholArr = getAlcoholObjArray();
+    $juiceArr = getJuiceObjArray();
+    $cocktailObj = getCocktailsByCocktailId($_GET["id"]);
+    $key1 = array_search($cocktailObj->alcohol1 , $alcoholArr);
+    unset($alcoholArr[$key1]);
+    $key2 = array_search($cocktailObj->alcohol2 , $alcoholArr);
+    unset($alcoholArr[$key2]);
+    $key3 = array_search($cocktailObj->juice1 , $juiceArr);
+    unset($juiceArr[$key3]);
+    $key4 = array_search($cocktailObj->juice2 , $juiceArr);
+    unset($juiceArr[$key4]);
+    $key5 = array_search($cocktailObj->glass , $glassArr);
+    unset($glassArr[$key5]);
+
+
+}else{
+    $glassArr = getGlassObjArray();
+    $alcoholArr = getAlcoholObjArray();
+    $juiceArr = getJuiceObjArray();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,7 +81,9 @@
 </div>
 <!-- END Side Nav -->
 <header>
-    <h1><i class="fa fa-flask" aria-hidden="true"></i> Make Your Own Poison</h1>
+    <?php
+    echo '<h1><i class="fa fa-edit" aria-hidden="true"></i> Edit '.$cocktailObj->name.'</h1>';
+    ?>
 </header>
 <div class="alert alert-warning alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -70,35 +99,9 @@
         <section class="tube">
             <img src="images/measureCup.svg">
         </section>
-        <form action="CheckOut.php" class="form_makeyourown">
-
-            <?php
-            include "DataBaseUtil.php";
-            connect();
-
-            if (!empty($_GET["id"])) {
-                $glassArr = getGlassObjArray();
-                $alcoholArr = getAlcoholObjArray();
-                $juiceArr = getJuiceObjArray();
-                $cocktailObj = getCocktailsByCocktailId($_GET["id"]);
-                $key1 = array_search($cocktailObj->alcohol1 , $alcoholArr);
-                unset($alcoholArr[$key1]);
-                $key2 = array_search($cocktailObj->alcohol2 , $alcoholArr);
-                unset($alcoholArr[$key2]);
-                $key3 = array_search($cocktailObj->juice1 , $juiceArr);
-                unset($juiceArr[$key3]);
-                $key4 = array_search($cocktailObj->juice2 , $juiceArr);
-                unset($juiceArr[$key4]);
-                $key5 = array_search($cocktailObj->glass , $glassArr);
-                unset($glassArr[$key5]);
+        <form action="favorites.php" class="form_makeyourown">
 
 
-            }else{
-                $glassArr = getGlassObjArray();
-                $alcoholArr = getAlcoholObjArray();
-                $juiceArr = getJuiceObjArray();
-            }
-            ?>
 
             <section class="scroll">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -117,7 +120,7 @@
                                 <div class="radio glassType">
 
                                     <?php
-                                    //                                    echo $cocktailObj->glass->glass_id;
+                                    echo '<input type="hidden" name="id" value="'.$_GET["id"].'">';
                                     if (!empty($_GET["id"])) {
                                         echo '<label><img src="' . $cocktailObj->glass->img_src . '"  alt="glass"><input type="radio" name="glassId" value="' . $cocktailObj->glass->glass_id . '" checked>' . $cocktailObj->glass->name . '<span>' . $cocktailObj->glass->capacity . 'ml</span></label>';
                                     }
@@ -346,7 +349,6 @@
                                         echo '<label class="btn btn-primary"><input type="radio" name="ice" id="option3" autocomplete="off" value="2" > Crashed!</label>';
                                     }
                                     ?>
-
                                 </div>
                             </div>
                         </div>
@@ -355,9 +357,7 @@
             </section>
             <div class="clear"></div>
             <section class="customizeBtnSection">
-                <button class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-star"></span> Save</button>
-
-                <button type="submit" value="Submit" class="btn btn-primary">Pay</button>
+                <button button type="submit" value="Submit" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-star"></span> Save</button>
 
             </section>
 
