@@ -20,24 +20,6 @@ function closeNav() {
     $(".sidenav").slideUp(300);
 }
 
-/**
- * Setting the plus and minus btns in the customize form
- */
-function plusMinusBtn() {
-    var jumps=10, $btn = $(this) ,val ;
-    var $inpObj = $("[name="+$btn.data("field")+"]");
-    var maxValue = parseInt($inpObj.attr("max")),minValue = parseInt($inpObj.attr("min"));
-    if($btn.data("type").localeCompare("plus")==0){
-        val = parseInt($inpObj.val())
-        if(val + jumps <= maxValue )
-            $inpObj.val(val + jumps);
-    }else{
-        val = parseInt($inpObj.val())
-        if(val - jumps >=  minValue )
-            $inpObj.val(val - jumps);
-    }
-
-}
 
 function saveDrinkToFav() {
 
@@ -67,4 +49,38 @@ function saveDrinkToFav() {
         }
     })
 
+}
+
+/**
+ * Setting the plus and minus btns in the customize form
+ */
+function plusMinusBtn() {
+    var jumps=10, $btn = $(this) ,val ;
+    var $inpObj = $("[name="+$btn.data("field")+"]");
+    var maxValue = parseInt($inpObj.attr("max")),minValue = parseInt($inpObj.attr("min"));
+    if($btn.data("type").localeCompare("plus")==0){
+        val = parseInt($inpObj.val())
+        if(val + jumps <= maxValue )
+            $inpObj.val(val + jumps);
+        addBlock($(this));
+    }else{
+        val = parseInt($inpObj.val())
+        if(val - jumps >=  minValue )
+            $inpObj.val(val - jumps);
+    }
+
+}
+
+var $tubeContainer = null;
+var newDiv = null;
+function addBlock($btn) {
+    if($(".tube").css("display") != "none"  ){
+        if($tubeContainer == null) {
+            $tubeContainer = $(".tube section");
+        }
+        newDiv = document.createElement("div");
+        newDiv.style.backgroundColor = $("[name="+$btn.data("for")+"]").find(":selected").data("color");
+        $tubeContainer.append(newDiv);
+
+    }
 }
