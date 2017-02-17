@@ -1,3 +1,11 @@
+<?php
+/**
+ * Created by IntelliJ IDEA.
+ * User: Yogev Heskia
+ * Date: 17/02/2017
+ * Time: 15:49
+ */
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -109,7 +117,7 @@
                                 <div class="radio glassType">
 
                                     <?php
-//                                    echo $cocktailObj->glass->glass_id;
+                                    //                                    echo $cocktailObj->glass->glass_id;
                                     if (!empty($_GET["id"])) {
                                         echo '<label><img src="' . $cocktailObj->glass->img_src . '"  alt="glass"><input type="radio" name="glassId" value="' . $cocktailObj->glass->glass_id . '" checked>' . $cocktailObj->glass->name . '<span>' . $cocktailObj->glass->capacity . 'ml</span></label>';
                                     }
