@@ -317,50 +317,6 @@ footer .rights{
     top: 60px;
     right: 5px;
 }
-/*
-.testing{
-    width: 100%;
-    font-size: x-small;
-    color: #262626;
-}
-
-.testing input[type=radio]{
-    position: relative;
-    visibility: hidden;
-
-}
-
-.testing label{
-    border-radius: 50%;
-    position: relative;
-    left:-5%;
-}
-
-.testing img{
-    position: relative;
-    left:1.5%;
-    margin-right: -15%;
-    border-radius: 50%;
-}
-
-.testing input[type=radio]:checked + label{
-    animation: test 5s linear infinite;
-}
-
-@keyframes test {
-    from{
-        box-shadow: 0 0 10px green;
-    }
-    to{
-        box-shadow: 0 0 20px green;
-    }
-    0% {box-shadow: 0 0 5px green;}
-    25% {box-shadow: 0 0 15px green;}
-    50% {box-shadow: 0 0 25px green;}
-    75% {box-shadow: 0 0 15px green;}
-    100% {box-shadow: 0 0 5px green;}
-}
-*/
 .wrapper table{
     color: #262626;
 }

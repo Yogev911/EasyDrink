@@ -35,6 +35,7 @@
                 <a class="btn logInOutBtn"><span class="glyphicon glyphicon-log-out"></span></a>
             </section>
             <ul>
+                <li><a href="favorites.php"><span class="glyphicon glyphicon-star"></span> Favorites</a></li>
                 <li class="active"><a href="recent.php"><i class="fa fa-history"></i> Recent</a></li>
                 <li><a href="MakeYourOwn.php"><i class="fa fa-flask"></i> Customize</a></li>
                 <li><a href="foryou.php"><i class="fa fa-user"></i> For you</a></li>
@@ -80,18 +81,6 @@
                 }
                 disconnect()
                 ?>
-                <!--<li class="list-group-item">
-                    <img src="images/Glass1.jpg"  alt="glass">
-                    <label class="drinkName">WallaVodkaRedball</label>
-                    <label class="drinkDescription">Vodka 10cc, orange 20cc, ice</label>
-                    <section class="drinkLiBtnGroup">
-                        <button class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-star"></span> Save</button>
-                        <button class="btn btn btn-primary">Buy</button>
-                        <button class="btn btn-success">Customize</button>
-                    </section>
-                    <label class="drinkPrice">10$</label>
-                    <div class="clear"> </div>
-                </li>-->
             </ul>
         </main>
         <footer>

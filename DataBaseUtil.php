@@ -180,6 +180,8 @@ function getThinTrendyCocktails()
     return $cocktailArray;
 }
 
+
+
 /**
  * @return array|null of all Thin cocktails That are Ourpicks
  */
@@ -546,43 +548,5 @@ function addToRecent($cocktailId){
     }
 
 }
-
-//function setJuiceToDB($juiceObj)
-//{
-//    global $connection;
-//    $query = "INSERT INTO tbl_219_juice
-//(juice_id ,name ,price ,type, color)
-//VALUES
-//($juiceObj->juice_id,$juiceObj->name,$juiceObj->price,$juiceObj->type,$juiceObj->color);";
-//    mysqli_query($connection, $query);
-//}
-
-
-//find cocktail id row from cocktail tbl
-//            $query = "SELECT * FROM tbl_219_cocktail WHERE cocktail_id = " . $cocktailsId[$i] . " ";
-//            $result = mysqli_query($connection, $query);
-//            if (mysqli_num_rows($result) > 0) {
-//                $row = mysqli_fetch_assoc($result);
-//                //for each cul get data to obj and put the obj inside the array
-//                $cocktailObj->cocktail_id = $row["cocktail_id"];
-//                $cocktailObj->name = $row["name"];
-//                $cocktailObj->alcohol_id1 = $row["alcohol_id1"];
-//                $cocktailObj->alcohol1_amount = $row["alcohol1_amount"];
-//                $cocktailObj->alcohol_id2 = $row["alcohol_id2"];
-//                $cocktailObj->alcohol2_amount = $row["alcohol2_amount"];
-//                $cocktailObj->ice = $row["ice"];
-//                $cocktailObj->glass_id = $row["glass_id"];
-//                $cocktailObj->juice_id1 = $row["juice_id1"];
-//                $cocktailObj->juice1_amount = $row["juice1_amount"];
-//                $cocktailObj->juice_id2 = $row["juice_id2"];
-//                $cocktailObj->juice2_amount = $row["juice2_amount"];
-//                $cocktailObj->description = $row["description"];
-//                $cocktailObj->img_src = $row["img_src"];
-//                $cocktailObj->tumb_src = $row["tumb_src"];
-//                $cocktailObj->rate = $row["rate"];
-//                $cocktailObj->trendy = $row["trendy"];
-//                $cocktailObj->our_picks = $row["our_picks"];
-//
-//                $cocktailObjArray[] = $cocktailObj;
 
 ?>

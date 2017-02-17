@@ -6,6 +6,7 @@ $( document ).ready(function () {
     $(".hamburger").click(openNav);
     $(".sidenav .closebtn").click(closeNav);
     $(".btn-number").click(plusMinusBtn);
+    $(".saveBtn").click(saveDrinkToFav);
 });
 
 
@@ -35,5 +36,35 @@ function plusMinusBtn() {
         if(val - jumps >=  minValue )
             $inpObj.val(val - jumps);
     }
+
+}
+
+function saveDrinkToFav() {
+
+    var idVal = $(this).data("id");
+
+    console.log("called");
+
+    $.ajax({
+        type:"POST",
+        url: "saveDrink.php",
+        data: "id="+idVal,
+        cache: true,
+        success: function (data) {
+            console.log(data);
+            if(!data.localeCompare("1")) {
+                $(".alert-warning").slideToggle(300);
+                setTimeout(function () {
+                    $(".alert-warning").slideUp(300);
+                }, 3000)
+            }else if (data.includes("Duplicate")){
+                debugger;
+                $(".alert,.alert-danger").slideToggle(300);
+                setTimeout(function () {
+                    $(".alert-danger").slideUp(300);
+                }, 3000)
+            }
+        }
+    })
 
 }

@@ -25,19 +25,21 @@
 
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <button type="button" class="navbar-toggle collapsed hamburger" data-toggle="collapse" data-target="#navbar"
-            aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-    </button>
-    <a href="index.php" id="logo">EasyDrink</a>
-    <button class="navbar-toggle collapsed search-toggle">
-        <span class="glyphicon glyphicon-search "></span>
-    </button>
-</nav>
+<div id="mySidenav" class="sidenav">
+    <button class="btn closebtn">&times;</button>
+    <section class="sideNavUser">
+        <h3><span class="glyphicon glyphicon-user"> Shaul Gueta</h3>
+        <a class="btn logInOutBtn"><span class="glyphicon glyphicon-log-out"></span></a>
+    </section>
+    <ul>
+        <li><a href="favorites.php"><span class="glyphicon glyphicon-star"></span> Favorites</a></li>
+        <li><a href="recent.php"><i class="fa fa-history"></i> Recent</a></li>
+        <li><a href="MakeYourOwn.php"><i class="fa fa-flask"></i> Customize</a></li>
+        <li><a href="foryou.php"><i class="fa fa-user"></i> For you</a></li>
+        <li><a href="ourpicks.php"><span class="glyphicon glyphicon-glass" ></span> Our picks</a></li>
+        <li><a href="Trendy.php"><span class="glyphicon glyphicon-sunglasses" ></span> Trendy</a></li>
+    </ul>
+</div>
 <!-- END Nav -->
 <!-- Side Nav -->
 <div id="mySidenav" class="sidenav">
@@ -54,6 +56,14 @@
 <header>
     <h1><i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>Check Out</h1>
 </header>
+<div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong><span class="glyphicon glyphicon-star"></span> </strong> Cocktail saved !
+</div>
+<div class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong><span class="glyphicon glyphicon-warning-sign"></span> </strong> Cocktail already on favorites
+</div>
 <main class="wrapper">
     <?php
     include "DataBaseUtil.php";

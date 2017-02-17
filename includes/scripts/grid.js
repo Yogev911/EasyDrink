@@ -8,6 +8,8 @@
  * Licensed under the MIT license.
  */
 
+
+
 $(document).ready(function () {
     Grid.init();
 });
@@ -525,32 +527,3 @@ var Grid = (function() {
 
 })();
 
-function saveDrinkToFav() {
-
-    var idVal = $(this).data("id");
-
-    console.log("called");
-
-    $.ajax({
-        type:"POST",
-        url: "saveDrink.php",
-        data: "id="+idVal,
-        cache: true,
-        success: function (data) {
-            console.log(data);
-            if(!data.localeCompare("1")) {
-                $(".alert-warning").slideToggle(300);
-                setTimeout(function () {
-                    $(".alert-warning").slideUp(300);
-                }, 3000)
-            }else if (data.includes("Duplicate")){
-                debugger;
-                $(".alert,.alert-danger").slideToggle(300);
-                setTimeout(function () {
-                    $(".alert-danger").slideUp(300);
-                }, 3000)
-            }
-        }
-    })
-
-}

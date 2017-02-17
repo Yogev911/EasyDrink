@@ -36,17 +36,26 @@
         <a class="btn logInOutBtn"><span class="glyphicon glyphicon-log-out"></span></a>
     </section>
     <ul>
+        <li><a href="favorites.php"><span class="glyphicon glyphicon-star"></span> Favorites</a></li>
         <li><a href="recent.php"><i class="fa fa-history"></i> Recent</a></li>
         <li class="active"><a href="MakeYourOwn.php"><i class="fa fa-flask"></i> Customize</a></li>
         <li><a href="foryou.php"><i class="fa fa-user"></i> For you</a></li>
-        <li><a href="ourpicks.php"><span class="glyphicon glyphicon-glass"></span> Our picks</a></li>
-        <li><a href="Trendy.php"><span class="glyphicon glyphicon-sunglasses"></span> Trendy</a></li>
+        <li><a href="ourpicks.php"><span class="glyphicon glyphicon-glass" ></span> Our picks</a></li>
+        <li><a href="Trendy.php"><span class="glyphicon glyphicon-sunglasses" ></span> Trendy</a></li>
     </ul>
 </div>
 <!-- END Side Nav -->
 <header>
     <h1><i class="fa fa-flask" aria-hidden="true"></i> Make Your Own Poison</h1>
 </header>
+<div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong><span class="glyphicon glyphicon-star"></span> </strong> Cocktail saved !
+</div>
+<div class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong><span class="glyphicon glyphicon-warning-sign"></span> </strong> Cocktail already on favorites
+</div>
 <div class="wrapper customize">
     <main>
 
