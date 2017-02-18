@@ -113,21 +113,48 @@
                 foreach ($cocktail as $value) {
                     $price += $value->price * $value->amount / 10;
                 }
-            } else {
-                $cocktail = getCocktailsByCocktailId($_GET["id"]);
-            }
-            foreach ($cocktail as $value) {
-                echo '<tr class="info">
+                foreach ($cocktail as $value) {
+                    echo '<tr class="info">
                         <td>' . $value->name . '</td>
                         <td>' . $value->amount . 'ml</td>
                         <td>' . $value->price * $value->amount / 10 . '$ </td>
                       </tr>';
-            }
-            echo '<tr class="success">
+                }
+                echo '<tr class="success">
                     <td><b>Total</b></td>
                     <td></td>
                     <td><b>' . $price . '$</b></td>
                   </tr>';
+            } else {
+                $cocktail = getCocktailsByCocktailId($_GET["id"]);
+                echo '
+                <tr class="info">
+           <td>'.$cocktail->alcohol1->name.'</td>
+           <td>'.$cocktail->alcohol1_amount.'ml</td>
+           <td>'.$cocktail->alcohol1->price * $cocktail->alcohol1_amount/10 .'$ </td>
+        </tr>
+        <tr class="info">
+           <td>'.$cocktail->alcohol2->name.'</td>
+           <td>'.$cocktail->alcohol2_amount.'ml</td>
+           <td>'.$cocktail->alcohol2->price * $cocktail->alcohol2_amount/10 .'$</td>
+        </tr>
+        <tr class="info">
+           <td>'.$cocktail->juice1->name.'</td>
+           <td>'.$cocktail->juice1_amount.'ml</td>
+           <td>'.$cocktail->juice1->price * $cocktail->juice1_amount/10 .'$</td>
+        </tr>
+        <tr class="info">
+           <td>'.$cocktail->juice2->name.'</td>
+           <td>'.$cocktail->juice2_amount.'ml</td>
+           <td>'.$cocktail->juice2->price * $cocktail->juice2_amount/10 .'$</td>
+        </tr>
+        <tr class="success">
+           <td><b>Total</b></td>
+           <td></td>
+           <td><b>'.$cocktail->price.'$</b></td>
+        </tr>';
+            }
+
             disconnect();
             ?>
         </table>
