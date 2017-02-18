@@ -74,8 +74,9 @@
                 <?php
                 $drinkArr = getThinCocktailObjArray();
                 $arrSize = count($drinkArr);
-                for ($i = 0;  ($i < 10) && ($i < $arrSize) ;  $i++) { //There are 10 drinks in index page
-                    echo '
+                for ($i = 0;  ($i < 15) && ($i < $arrSize) ;  $i++) { //There are 10 drinks in index page
+                    if ((($drinkArr[$i]->trendy == 1) || ($drinkArr[$i]->our_picks == 1))) {
+                        echo '
                 <li>
                     <a href="#" data-largesrc=" ' . $drinkArr[$i]->img_src . '">
                         <img src="' . $drinkArr[$i]->tumb_src . '" alt="img02">
@@ -84,23 +85,24 @@
                         <div>
                             <section class="thumbnail-description-header">
                                 <h3>' . $drinkArr[$i]->name;
-                                    if($drinkArr[$i]->trendy == 1)
-                                        echo '<span class="label label-info"><i class="glyphicon glyphicon-sunglasses" aria-hidden="true"></i> Trandy</span> ';
-                                    if($drinkArr[$i]->our_picks== 1)
-                                        echo '<span class="label label-success"><span class="glyphicon glyphicon-glass">OurPicks</span>';
-                                echo '</h3>
+                        if ($drinkArr[$i]->trendy == 1)
+                            echo '<span class="label label-info"><i class="glyphicon glyphicon-sunglasses" aria-hidden="true"></i> Trandy</span> ';
+                        if ($drinkArr[$i]->our_picks == 1)
+                            echo '<span class="label label-success"><span class="glyphicon glyphicon-glass">OurPicks</span>';
+                        echo '</h3>
                              </section>
                             <section class="thumbnail-description-content">
                                 <p>' . $drinkArr[$i]->description . '</p>
                             </section>
                             <section class="thumbnail-description-buttons">
-                                <button class="btn btn-sm btn-warning saveBtn" data-id="'.$drinkArr[$i]->cocktail_id.'"><span class="glyphicon glyphicon-star"></span> Save</button>
-                                <form action="CheckOut.php" methud="get"><input type="hidden" name="id" value="'.$drinkArr[$i]->cocktail_id.'"><button class="btn btn-lg btn-primary">Buy</button></form>
-                                <form action="MakeYourOwn.php" methud="get"><input type="hidden" name="id" value="'.$drinkArr[$i]->cocktail_id.'"><button class="btn btn-lg btn-success">Customize</button></form>
+                                <button class="btn btn-sm btn-warning saveBtn" data-id="' . $drinkArr[$i]->cocktail_id . '"><span class="glyphicon glyphicon-star"></span> Save</button>
+                                <form action="CheckOut.php" methud="get"><input type="hidden" name="id" value="' . $drinkArr[$i]->cocktail_id . '"><button class="btn btn-lg btn-primary">Buy</button></form>
+                                <form action="MakeYourOwn.php" methud="get"><input type="hidden" name="id" value="' . $drinkArr[$i]->cocktail_id . '"><button class="btn btn-lg btn-success">Customize</button></form>
                             </section>
                         </div>
                     </div>
                 </li>';
+                    }
                 }
                 disconnect();
                 ?>
