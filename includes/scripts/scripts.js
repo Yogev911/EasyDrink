@@ -53,7 +53,7 @@ function showSaveDialog() {
     }, 3000)
 }
 function showDuplicateDialog() {
-    $(".alert,.alert-danger").slideToggle(300);
+    $(".alert-danger").slideToggle(300);
     setTimeout(function () {
         $(".alert-danger").slideUp(300);
     }, 3000)
