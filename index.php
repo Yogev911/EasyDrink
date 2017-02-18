@@ -86,7 +86,7 @@
                             <section class="thumbnail-description-header">
                                 <h3>' . $drinkArr[$i]->name;
                         if ($drinkArr[$i]->trendy == 1)
-                            echo '<span class="label label-info"><i class="glyphicon glyphicon-sunglasses" aria-hidden="true"></i> Trandy</span> ';
+                            echo '<span class="label label-info"><i class="glyphicon glyphicon-sunglasses" aria-hidden="true"></i> Trendy</span> ';
                         if ($drinkArr[$i]->our_picks == 1)
                             echo '<span class="label label-success"><span class="glyphicon glyphicon-glass">OurPicks</span>';
                         echo '</h3>

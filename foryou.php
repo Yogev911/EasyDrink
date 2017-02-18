@@ -35,6 +35,8 @@
     <button class="btn closebtn">&times;</button>
     <section class="sideNavUser">
         <?php
+        include "DataBaseUtil.php";
+        connect();
         $userConnected = getUserObj(305166860);
         echo '<h3><img class="userImg" src="'.$userConnected->pic.'">  '.$userConnected->name.'</h3>';
         ?>
@@ -65,8 +67,6 @@
 <main>
     <ul id="og-grid" class="og-grid">
         <?php
-        include "DataBaseUtil.php";
-        connect();
         global $defaultUserId;
         $drinkArr = getThinCocktailsByUserIdFromTbl($defaultUserId, "tbl_219_for_you");
         $arrSize = count($drinkArr);
@@ -81,7 +81,7 @@
                             <section class="thumbnail-description-header">
                                 <h3>' . $drinkArr[$i]->name;
             if($drinkArr[$i]->trendy == 1)
-                echo '<span class="label label-info"><i class="glyphicon glyphicon-sunglasses" aria-hidden="true"></i> Trandy</span> ';
+                echo '<span class="label label-info"><i class="glyphicon glyphicon-sunglasses" aria-hidden="true"></i> Trendy</span> ';
             if($drinkArr[$i]->our_picks== 1)
                 echo '<span class="label label-success"><span class="glyphicon glyphicon-glass">OurPicks</span>';
             echo '</h3>

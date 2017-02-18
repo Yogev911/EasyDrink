@@ -115,6 +115,9 @@
                                     <?php
                                     if (!empty($_GET["id"])) {
                                         echo '<label><img src="' . $cocktailObj->glass->img_src . '"  alt="glass"><input type="radio" name="glassId" value="' . $cocktailObj->glass->glass_id . '" checked>' . $cocktailObj->glass->name . '<span>' . $cocktailObj->glass->capacity . 'ml</span></label>';
+                                    }else{
+                                        echo '<label><img src="' . $glassArr[0]->img_src . '"  alt="glass"><input type="radio" name="glassId" value="' . $glassArr[0]->glass_id . '" checked>' . $glassArr[0]->name . '<span>' . $glassArr[0]->capacity . 'ml</span></label>';
+                                        unset($glassArr[0]);
                                     }
                                     foreach ($glassArr as $glass) {
                                         echo '<label><img src="' . $glass->img_src . '"  alt="glass"><input type="radio" name="glassId" value="' . $glass->glass_id . '">' . $glass->name . '<span>' . $glass->capacity . 'ml</span></label>';
