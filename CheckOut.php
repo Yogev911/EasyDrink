@@ -46,7 +46,10 @@
         <?php
         include "DataBaseUtil.php";
         connect();
-
+        if (!empty($_GET["id"])) {
+            $val = addToRecent($_GET["id"]);
+            echo $val;
+        }
         $userConnected = getUserObj(305166860);
         echo '<h3><img class="userImg" src="'.$userConnected->pic.'">  '.$userConnected->name.'</h3>';
         ?>
