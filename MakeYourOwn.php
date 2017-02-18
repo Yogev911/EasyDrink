@@ -32,7 +32,12 @@
 <div id="mySidenav" class="sidenav">
     <button class="btn closebtn">&times;</button>
     <section class="sideNavUser">
-        <h3><span class="glyphicon glyphicon-user"> Shaul Gueta</h3>
+        <?php
+        include "DataBaseUtil.php";
+        connect();
+        $userConnected = getUserObj(305166860);
+        echo '<h3><img class="userImg" src="'.$userConnected->pic.'">  '.$userConnected->name.'</h3>';
+        ?>
         <a class="btn logInOutBtn"><span class="glyphicon glyphicon-log-out"></span></a>
     </section>
     <ul>
@@ -65,11 +70,7 @@
             </section>
         </section>
         <form action="CheckOut.php" class="form_makeyourown">
-
             <?php
-            include "DataBaseUtil.php";
-            connect();
-
             if (!empty($_GET["id"])) {
                 $glassArr = getGlassObjArray();
                 $alcoholArr = getAlcoholObjArray();
