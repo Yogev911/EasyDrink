@@ -61,6 +61,10 @@
         <h1><span class="glyphicon glyphicon-star"></span> Favorites</h1>
         <p>Here are you Favorites Cocktails</p>
     </header>
+    <div class="alert alert-danger alert-dismissible notify" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong><span class="glyphicon glyphicon-trash"></span> </strong> Cocktail Deleted from Favorites !
+    </div>
     <main class="wrapper">
         <ul class="list-group drinkList">
             <?php
@@ -77,12 +81,16 @@
                                 <section class="drinkLiBtnGroup">
                                     <form action="CheckOut.php" methud="get"><input type="hidden" name="id" value="' . $drinkArr[$i]->cocktail_id . '"><button class="btn btn-lg btn-primary">Buy</button></form>
                                     <form action="Edit.php" methud="get"><input type="hidden" name="id" value="' . $drinkArr[$i]->cocktail_id . '"><button class="btn btn-lg btn-success">Edit</button></form>
+                                    <button class="btn btn-danger btn-lg deleteBtn" data-id="'.$drinkArr[$i]->cocktail_id.'"><span class="glyphicon glyphicon-trash"></span></button>
                                 </section>
                                 <label class="drinkPrice">10$</label>
                                 <div class="clear"> </div>
                             </li>';
             }
-            disconnect()
+            disconnect();
+            if($i == 0){
+                echo " <div class=\"alert alert-info\" role=\"alert\"><i class=\"fa fa-frown-o\" aria-hidden=\"true\"></i> No Favorite Cocktails</div>";
+            }
             ?>
         </ul>
     </main>

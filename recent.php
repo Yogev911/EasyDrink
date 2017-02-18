@@ -53,11 +53,11 @@
             <h1><i class="fa fa-history" aria-hidden="true"></i> Recent</h1>
             <p>Your recent ordered drinks</p>
         </header>
-        <div class="alert alert-warning alert-dismissible" role="alert">
+        <div class="alert alert-warning alert-dismissible notify" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <strong><span class="glyphicon glyphicon-star"></span> </strong> Cocktail saved !
         </div>
-        <div class="alert alert-danger alert-dismissible" role="alert">
+        <div class="alert alert-danger alert-dismissible notify" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <strong><span class="glyphicon glyphicon-warning-sign"></span> </strong> Cocktail already on favorites
         </div>
@@ -82,7 +82,11 @@
                                 <div class="clear"> </div>
                             </li>';
                 }
-                disconnect()
+                disconnect();
+
+                if($i == 0){
+                    echo " <div class=\"alert alert-info\" role=\"alert\"><i class=\"fa fa-frown-o\" aria-hidden=\"true\"></i> No Recent purchases</div>";
+                }
                 ?>
             </ul>
         </main>

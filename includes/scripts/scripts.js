@@ -7,6 +7,7 @@ $( document ).ready(function () {
     $(".sidenav .closebtn").click(closeNav);
     $(".btn-number").click(plusMinusBtn);
     $(".saveBtn").click(saveDrinkToFav);
+    $(".deleteBtn").click(deleteCocktail);
     $(".saveMakeYourOwn").click(function () {
         saveMakeYourOwn();
         $('#myModal').modal('hide');
@@ -48,6 +49,13 @@ function saveDrinkToFav() {
         }
     })
 
+}
+
+function showDeletedDialog() {
+    $(".alert-danger").slideToggle(300);
+    setTimeout(function () {
+        $(".alert-danger").slideUp(300);
+    }, 3000)
 }
 
 function showSaveDialog() {
@@ -149,4 +157,22 @@ function saveMakeYourOwn(){
             }
         })
 
+}
+
+function deleteCocktail() {
+    var id = $(this).data("id");
+    $.ajax({
+        type:"POST",
+        url: "deleteFavorite.php",
+        data: "id="+ id ,
+        cache: true,
+        success: function (data) {
+            if(!data.includes("error")) {
+                showDeletedDialog();
+                $("[data-id="+id+"]").parentsUntil("li").parent().remove();
+            }else {
+                console.log(data);
+            }
+        }
+    })
 }

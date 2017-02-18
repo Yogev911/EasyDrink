@@ -358,6 +358,7 @@ if (!empty($_GET["id"])) {
                     </div>
                 </div>
             </section>
+            <input type="hidden" name="edited" value="1">
             <div class="clear"></div>
             <section class="customizeBtnSection">
                 <button button type="submit" value="Submit" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-star"></span> Save</button>

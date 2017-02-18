@@ -56,11 +56,11 @@
     <h1><span class="glyphicon glyphicon-glass"> Our picks</h1>
     <p>Posting Drinks selected by our team</p>
 </header>
-<div class="alert alert-warning alert-dismissible" role="alert">
+<div class="alert alert-warning alert-dismissible notify" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <strong><span class="glyphicon glyphicon-star"></span> </strong> Cocktail saved !
 </div>
-<div class="alert alert-danger alert-dismissible" role="alert">
+<div class="alert alert-danger alert-dismissible notify" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <strong><span class="glyphicon glyphicon-warning-sign"></span> </strong> Cocktail already on favorites
 </div>

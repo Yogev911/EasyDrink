@@ -336,7 +336,7 @@ footer .rights{
     background-color:yellow ;
 }
 
-.alert{
+.notify{
     position: fixed;
     display: none;
     z-index: 2;
