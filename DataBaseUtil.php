@@ -463,40 +463,46 @@ function createCocktailObjFromParams($cocktail_id, $name, $alcohol1, $alcohol1_a
     $cocktailObj->our_picks = $our_picks;
     $cocktailObj->price = $price;
 }
-
-function getCocktailPrices($alcohol1, $alcohol2, $juice1, $juice2){
+class DrinkPay
+{
+    public $name;
+    public $price;
+    public $amount;
+}
+function getCocktailPrices($alcohol1=1, $alcohol2=1, $juice1=1, $juice2=1){
 
 
     global $connection;
-    $cocktailObj = new Cocktail();
-    $cocktailObj->alcohol1 = new Alcohol();
-    $cocktailObj->alcohol2 = new Alcohol();
-    $cocktailObj->juice1 = new Juice();
-    $cocktailObj->juice2 = new Juice();
+    $DrinkObj = array();
 
     $query = "SELECT name,price FROM tbl_219_alcohol WHERE alcohol_id = ".$alcohol1."  or alcohol_id = ".$alcohol2."
 UNION 
 SELECT name,price FROM tbl_219_juice WHERE juice_id = ".$juice1." or juice_id = ".$juice2." ";
     $result = mysqli_query($connection, $query);
     if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        $cocktailObj->alcohol1->name = $row["name"];
-        $cocktailObj->alcohol1->price = $row["price"];
-        $row = mysqli_fetch_assoc($result);
-        $cocktailObj->alcohol2->name = $row["name"];
-        $cocktailObj->alcohol2->price = $row["price"];
-        $row = mysqli_fetch_assoc($result);
-        $cocktailObj->juice1->name = $row["name"];
-        $cocktailObj->juice1->price = $row["price"];
-        $row = mysqli_fetch_assoc($result);
-        $cocktailObj->juice2->name = $row["name"];
-        $cocktailObj->juice2->price = $row["price"];
-        return $cocktailObj;
+        while ( ($row = mysqli_fetch_assoc($result)) ) {
+            $drink = new DrinkPay();
+            $drink->name = $row["name"];
+            $drink->price = $row["price"];
+            $DrinkObj[] = $drink;
+        }
+        return $DrinkObj;
     } else {
         return null;
     }
 }
-
+//$row = mysqli_fetch_assoc($result);
+//$cocktailObj->alcohol1->name = $row["name"];
+//$cocktailObj->alcohol1->price = $row["price"];
+//$row = mysqli_fetch_assoc($result);
+//$cocktailObj->alcohol2->name = $row["name"];
+//$cocktailObj->alcohol2->price = $row["price"];
+//$row = mysqli_fetch_assoc($result);
+//$cocktailObj->juice1->name = $row["name"];
+//$cocktailObj->juice1->price = $row["price"];
+//$row = mysqli_fetch_assoc($result);
+//$cocktailObj->juice2->name = $row["name"];
+//$cocktailObj->juice2->price = $row["price"];
 function updateSavedCocktail($id,$glassId,$alcoholOne,$alcoholOneAmount,$alcoholTwo,$alcoholTwoAmount,$juiceOne,$juiceOneAmount,$juiceTwo,$juiceTwoAmount,$ice){
     global $connection;
 //    $query = "INSERT INTO  auxstudDB6c.tbl_219_cocktail (user_id ,cocktail_id) VALUES (".$defaultUserId.",".$cocktailId.")";
