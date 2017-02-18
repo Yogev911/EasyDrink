@@ -597,18 +597,35 @@ function addToRecent($cocktailId){
         return $connection->error;
     }
 }
-
-function deleteFromFavorites($id){
+function addToRecentByParams($glassId,$alcoholOne,$alcoholOneAmount,$alcoholTwo,$alcoholTwoAmount,$juiceOne,$juiceOneAmount,$juiceTwo,$juiceTwoAmount,$ice){
     global $connection;
-    global $defaultUserId;
-    $query = "DELETE FROM tbl_219_favorits WHERE cocktail_id = ".$id;
-    if ( $connection->query($query) === TRUE) {
-        return "1";
+    $nothing ="null";
+    $query = "INSERT INTO  auxstudDB6c.tbl_219_cocktail (
+                                name,
+                                alcohol_id1 ,
+                                alcohol1_amount ,
+                                alcohol_id2 ,
+                                alcohol2_amount ,
+                                ice ,
+                                glass_id,
+                                juice_id1 ,
+                                juice1_amount ,
+                                juice_id2 ,
+                                juice2_amount,
+                                description
+                                )
+                                VALUES ('cocktail".rand(1,100)."',".$alcoholOne.",".$alcoholOneAmount.",".$alcoholTwo.",
+                                ".$alcoholTwoAmount.",".$ice.",".$glassId. ",".$juiceOne.",".$juiceOneAmount.",
+                                ".$juiceTwo.",".$juiceTwoAmount.",".$nothing.") ";
+
+    if ( ($result = $connection->query($query)) === TRUE) {
+        $lastId = $connection->insert_id;
+        addToRecent($lastId);
+        echo $lastId;
     } else {
-        return $connection->error."error";
+        echo $connection->error."error";
     }
 }
-
 
 
 ?>

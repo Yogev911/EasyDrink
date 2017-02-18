@@ -72,7 +72,7 @@
         <?php
         $drinkArr = getThinOurpicksCocktails();
         $arrSize = count($drinkArr);
-        for ($i = 0;  ($i < $arrSize) ;  $i++) { //There are 10 Trendy drinks
+        for ($i = 0;  ($i < $arrSize-1) ;  $i++) { //There are 10 Trendy drinks
             echo '
                 <li>
                     <a href="#" data-largesrc=" ' . $drinkArr[$i]->img_src . '">
@@ -95,13 +95,38 @@
                     </div>
                 </li>';
         }
-        disconnect();
         ?>
     </ul>
     <section class="headerSlogen">
         <h2>Drink of the Week</h2>
     </section>
+    <ul id="og-grid" class="og-grid">
+        <?php
+            echo '
+                <li>
+                    <a href="#" data-largesrc=" ' . $drinkArr[$i]->img_src . '">
+                        <img src="' . $drinkArr[$i]->tumb_src . '" alt="img02">
+                    </a>
+                    <div class="thumbnail-content">
+                        <div>
+                            <section class="thumbnail-description-header">
+                                <h3>' . $drinkArr[$i]->name . '<span class="label label-success"><span class="glyphicon glyphicon-glass">OurPicks</span></h3>
+                             </section>
+                            <section class="thumbnail-description-content">
+                                <p>' . $drinkArr[$i]->description . '</p>
+                            </section>
+                            <section class="thumbnail-description-buttons">
+                                <button class="btn btn-sm btn-warning saveBtn" data-id="'.$drinkArr[$i]->cocktail_id.'"><span class="glyphicon glyphicon-star"></span> Save</button>
+                                <form action="CheckOut.php" methud="get"><input type="hidden" name="id" value="'.$drinkArr[$i]->cocktail_id.'"><button class="btn btn-lg btn-primary">Buy</button></form>
+                                <form action="MakeYourOwn.php" methud="get"><input type="hidden" name="id" value="'.$drinkArr[$i]->cocktail_id.'"><button class="btn btn-lg btn-success">Customize</button></form>
+                            </section>
+                        </div>
+                    </div>
+                </li>';
 
+        disconnect();
+        ?>
+    </ul>
 </main>
 <footer>
     <section class="contact">

@@ -78,7 +78,7 @@
                     <div class="thumbnail-content">
                         <div>
                             <section class="thumbnail-description-header">
-                                <h3>' . $drinkArr[$i]->name . '<span class="label label-info"><i class="glyphicon glyphicon-sunglasses" aria-hidden="true"></i> Trandy</span></h3>
+                                <h3>' . $drinkArr[$i]->name . '<span class="label label-info"><i class="glyphicon glyphicon-sunglasses" aria-hidden="true"></i> Trendy</span></h3>
                              </section>
                             <section class="thumbnail-description-content">
                                 <p>' . $drinkArr[$i]->description . '</p>

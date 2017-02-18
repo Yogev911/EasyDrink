@@ -49,7 +49,9 @@
         connect();
         if (!empty($_GET["id"])) {
             $val = addToRecent($_GET["id"]);
-            echo $val;
+        }else{
+            addToRecentByParams($_GET["glassId"],$_GET["alcoholOne"],$_GET["alcoholOneAmount"],$_GET["alcoholTwo"],$_GET["alcoholTwoAmount"],$_GET["juiceOne"],$_GET["juiceOneAmount"],$_GET["juiceTwo"],$_GET["juiceTwoAmount"],$_GET["ice"]);
+//            addToRecentByParams($glassId,$alcoholOne,$alcoholOneAmount,$alcoholTwo,$alcoholTwoAmount,$juiceOne,$juiceOneAmount,$juiceTwo,$juiceTwoAmount,$ice);
         }
         $userConnected = getUserObj(305166860);
         echo '<h3><img class="userImg" src="' . $userConnected->pic . '">  ' . $userConnected->name . '</h3>';
