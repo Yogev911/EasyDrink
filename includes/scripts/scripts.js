@@ -7,6 +7,7 @@ $( document ).ready(function () {
     $(".sidenav .closebtn").click(closeNav);
     $(".btn-number").click(plusMinusBtn);
     $(".saveBtn").click(saveDrinkToFav);
+    initContainer();
 });
 
 
@@ -67,19 +68,55 @@ function plusMinusBtn() {
         val = parseInt($inpObj.val())
         if(val - jumps >=  minValue )
             $inpObj.val(val - jumps);
+        addBlock($(this));
     }
 
 }
 
+function initContainer() {
+    if($(".tube").css("display") != "none"  ) {
+        var $inputs = $("input[type=number]");
+        var times, i,j, size = $inputs.length;
+        for(j = 0 ; j < size ; j++) {
+            times = $inputs.eq(j).val() / 10;
+            for (i = 0; i < times; i++) {
+                addBlock($inputs.eq(j));
+            }
+        }
+    }
+}
+
 var $tubeContainer = null;
 var newDiv = null;
+
 function addBlock($btn) {
     if($(".tube").css("display") != "none"  ){
         if($tubeContainer == null) {
             $tubeContainer = $(".tube section");
         }
         newDiv = document.createElement("div");
-        newDiv.style.backgroundColor = $("[name="+$btn.data("for")+"]").find(":selected").data("color");
+        if($btn.is("button")) {
+            newDiv.style.backgroundColor = $("[name=" + $btn.data("for") + "]").find(":selected").data("color");
+        }else {
+            newDiv.style.backgroundColor = $("[name=" + $btn.data("for") + "]").find(":selected").data("color");
+        }
+        $tubeContainer.append(newDiv);
+
+    }
+}
+
+
+function removeBlock($btn) {
+    if($(".tube").css("display") != "none"  ){
+        if($tubeContainer == null) {
+            $tubeContainer = $(".tube section");
+        }
+        newDiv = document.createElement("div");
+        if($btn.is("button")) {
+            newDiv.style.backgroundColor = $("[name=" + $btn.data("for") + "]").find(":selected").data("color");
+        }else {
+            newDiv.style.backgroundColor = $("[name=" + $btn.data("for") + "]").find(":selected").data("color");
+        }
         $tubeContainer.append(newDiv);
 
     }

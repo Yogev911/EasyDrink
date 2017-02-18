@@ -532,6 +532,7 @@ function cocktailRowToThinObject($row){
     $cocktailObj->our_picks = $row["our_picks"];
     return $cocktailObj;
 }
+
 /**
  * @param cocktailId $ The cocktail id which would like to add to favorites
  * using $defaultUserId the user's favorite
@@ -546,7 +547,6 @@ function addToRecent($cocktailId){
     } else {
         return $connection->error;
     }
-
 }
 
 ?>

@@ -159,7 +159,7 @@
                                         </span>
                                         <?php
                                         if (!empty($_GET["id"])) {
-                                            echo '<input type="number" name="alcoholOneAmount" class="form-control input-number"value="'.$cocktailObj->alcohol1_amount.'" min="0" max="200">';
+                                            echo '<input type="number" name="alcoholOneAmount" class="form-control input-number"value="'.$cocktailObj->alcohol1_amount.'" min="0" max="200" data-for="alcoholOne">';
                                         }else{
                                             echo '<input type="number" name="alcoholOneAmount" class="form-control input-number"value="0" min="0" max="200">';
                                         }
@@ -196,7 +196,7 @@
                                         </span>
                                         <?php
                                         if (!empty($_GET["id"])) {
-                                            echo '<input type="number" name="alcoholTwoAmount" class="form-control input-number"value="'.$cocktailObj->alcohol2_amount.'" min="0" max="200">';
+                                            echo '<input type="number" name="alcoholTwoAmount" class="form-control input-number"value="'.$cocktailObj->alcohol2_amount.'" min="0" max="200" data-for="alcoholTwo" >';
                                         }else{
                                             echo '<input type="number" name="alcoholTwoAmount" class="form-control input-number"value="0" min="0" max="200">';
                                         }
@@ -230,7 +230,7 @@
 
                                     <?php
                                     if (!empty($_GET["id"])) {
-                                        echo '<option data-color="'.$cocktailObj->juice2->color.'"  value="' . $cocktailObj->juice1->juice_id . '">' . $cocktailObj->juice1->name . ' ' . $cocktailObj->juice1->price . '$</option>';
+                                        echo '<option data-color="'.$cocktailObj->juice1->color.'"  value="' . $cocktailObj->juice1->juice_id . '">' . $cocktailObj->juice1->name . ' ' . $cocktailObj->juice1->price . '$</option>';
                                     }else{
                                         echo '<option value="" selected>Juice</option>';
                                     }
@@ -249,7 +249,7 @@
                                         </span>
                                         <?php
                                         if (!empty($_GET["id"])) {
-                                            echo '<input type="number" name="juiceOneAmount" class="form-control input-number"value="'.$cocktailObj->juice1_amount.'" min="0" max="200">';
+                                            echo '<input type="number" name="juiceOneAmount" class="form-control input-number"value="'.$cocktailObj->juice1_amount.'" min="0" max="200" data-for="juiceOne" >';
                                         }else{
                                             echo '<input type="number" name="juiceOneAmount" class="form-control input-number"value="0" min="0" max="200">';
                                         }
@@ -268,7 +268,7 @@
 
                                     <?php
                                     if (!empty($_GET["id"])) {
-                                        echo '<option data-color="'.$cocktailObj->juice2->color.'" value="' . $cocktailObj->juice2->juice_id . ' ">' . $cocktailObj->juice2->name . ' ' . $cocktailObj->juice2->price . '$</option>';
+                                        echo '<option data-color="'.$cocktailObj->juice2->color.'" value="' . $cocktailObj->juice2->juice_id . ' ">' . $cocktailObj->juice2->name . ' ' . $cocktailObj->juice2->price . '$</option> ';
                                     }else{
                                         echo '<option value="" selected>Juice</option>';
                                     }
@@ -287,7 +287,7 @@
                                         </span>
                                         <?php
                                         if (!empty($_GET["id"])) {
-                                            echo '<input type="number" name="juiceTwoAmount" class="form-control input-number"value="'.$cocktailObj->juice2_amount.'" min="0" max="200">';
+                                            echo '<input type="number" name="juiceTwoAmount" class="form-control input-number"value="'.$cocktailObj->juice2_amount.'" min="0" max="200" data-for="juiceTwo"  >';
                                         }else{
                                             echo '<input type="number" name="juiceTwoAmount" class="form-control input-number"value="0" min="0" max="200">';
                                         }

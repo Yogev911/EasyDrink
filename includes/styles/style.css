@@ -265,13 +265,13 @@ footer .rights{
 
 .customize select{
     float: left;
-    width: 150px;
+    width: 200px;
     margin-bottom: 5px;
 }
 
 .amountInput{
     float: right;
-    width: 150px;
+    width: 140px;
 }
 
 .amountInput input[type=number]::-webkit-inner-spin-button,
@@ -329,7 +329,7 @@ footer .rights{
 .tube section div{
 
     width: 100%;
-    height: 30px;
+    height: 15px;
     background-color:yellow ;
 }
 
@@ -356,19 +356,28 @@ footer .rights{
 /*MOBILE*/
 
 @media only screen and (max-width: 480px) {
-    .sidenav{
-        width:100%;
+    .sidenav {
+        width: 100%;
     }
 
-    .scroll{
+    .scroll {
         margin: auto;
         width: 90%;
     }
 
-    .tube{
+    .tube {
         display: none;
     }
+
+    .amountInput {
+        width: 50%;
+    }
+
+    .customize select{
+        width: 40%;
+    }
 }
+
 
 /*MOBILE END*/
 
