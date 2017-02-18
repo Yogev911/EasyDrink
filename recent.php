@@ -41,7 +41,7 @@
             </section>
             <ul>
                 <li><a href="favorites.php"><span class="glyphicon glyphicon-star"></span> Favorites</a></li>
-                <li class="active"><a href="recent.php"><i class="fa fa-history"></i> Recent</a></li>
+                <li><a class="active" href="recent.php"><i class="fa fa-history"></i> Recent</a></li>
                 <li><a href="MakeYourOwn.php"><i class="fa fa-flask"></i> Customize</a></li>
                 <li><a href="foryou.php"><i class="fa fa-user"></i> For you</a></li>
                 <li><a href="ourpicks.php"><span class="glyphicon glyphicon-glass" ></span> Our picks</a></li>

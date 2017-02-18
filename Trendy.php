@@ -48,7 +48,7 @@
         <li><a href="MakeYourOwn.php"><i class="fa fa-flask"></i> Customize</a></li>
         <li><a href="foryou.php"><i class="fa fa-user"></i> For you</a></li>
         <li><a href="ourpicks.php"><span class="glyphicon glyphicon-glass" ></span> Our picks</a></li>
-        <li class="active"><a href="Trendy.php"><span class="glyphicon glyphicon-sunglasses" ></span> Trendy</a></li>
+        <li><a class="active" href="Trendy.php"><span class="glyphicon glyphicon-sunglasses" ></span> Trendy</a></li>
     </ul>
 </div>
 <!-- END Side Nav -->
