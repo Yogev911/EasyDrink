@@ -88,14 +88,6 @@ if (!empty($_GET["id"])) {
     echo '<h1><i class="fa fa-edit" aria-hidden="true"></i> Edit '.$cocktailObj->name.'</h1>';
     ?>
 </header>
-<div class="alert alert-warning alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <strong><span class="glyphicon glyphicon-star"></span> </strong> Cocktail saved !
-</div>
-<div class="alert alert-danger alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <strong><span class="glyphicon glyphicon-warning-sign"></span> </strong> Cocktail already on favorites
-</div>
 <div class="wrapper customize">
     <main>
 
@@ -103,9 +95,6 @@ if (!empty($_GET["id"])) {
             <img src="images/measureCup.svg">
         </section>
         <form action="favorites.php" class="form_makeyourown">
-
-
-
             <section class="scroll">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <div class="panel panel-default">
