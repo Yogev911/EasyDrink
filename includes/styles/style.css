@@ -355,6 +355,15 @@ footer .rights{
     display: block;
 }
 
+.modal-title{
+    color: black;
+}
+
+.modal input{
+    max-width: 400px;
+    margin-bottom: 20px ;
+}
+
 
 /*MOBILE*/
 

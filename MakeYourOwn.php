@@ -342,19 +342,38 @@
                                         echo '<label class="btn btn-primary"><input type="radio" name="ice" id="option3" autocomplete="off" value="2" > Crashed!</label>';
                                     }
                                     ?>
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Name Your Cocktail</h4>
+                        </div>
+                        <div class="modal-body">
+                            <input class="form-control" type="text" name="name" value="" placeholder="Cocktail Name">
+                            <input class="form-control" type="text" name="description" value="" placeholder="Description">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-warning saveMakeYourOwn" >Save</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
             <div class="clear"></div>
             <section class="customizeBtnSection">
-                <button class="btn btn-sm btn-warning saveMakeYourOwn"><span class="glyphicon glyphicon-star"></span> Save</button>
-
+                <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-star"></span> save</button>
                 <button type="submit" value="Submit" class="btn btn-primary">Pay</button>
-
             </section>
 
             <?php

@@ -5,9 +5,8 @@
         $cocktailId = $_POST['id'];
         echo addToFavorites($cocktailId);
     }else{
-
         $query = "INSERT INTO  auxstudDB6c.tbl_219_cocktail (
-                                name ,
+                                name,
                                 alcohol_id1 ,
                                 alcohol1_amount ,
                                 alcohol_id2 ,
@@ -17,19 +16,21 @@
                                 juice_id1 ,
                                 juice1_amount ,
                                 juice_id2 ,
-                                juice2_amount 
+                                juice2_amount,
+                                description
                                 )
-                                VALUES (
-                                   'cocktail".rand(1,100)."',".$_POST["alcoholOne"].",".$_POST["alcoholOneAmount"].",".$_POST['alcoholTwo'].",".$_POST['alcoholTwoAmount'].","
+                                VALUES ('"
+                                    .$_POST["name"]."',".$_POST["alcoholOne"].",".$_POST["alcoholOneAmount"].",".$_POST['alcoholTwo'].",".$_POST['alcoholTwoAmount'].","
                                     .$_POST['ice'] . ",".$_POST['glassId'].","
-                                    .$_POST['juiceOne'].",".$_POST['juiceOneAmount'].",".$_POST['juiceTwo'].",".$_POST['juiceTwoAmount'].")";
+                                    .$_POST['juiceOne'].",".$_POST['juiceOneAmount'].",".$_POST['juiceTwo'].",".$_POST['juiceTwoAmount'].",'"
+                                    .$_POST['description']."')";
 
             if ( ($result = $connection->query($query)) === TRUE) {
                 $lastId = $connection->insert_id;
                 addToFavorites($lastId);
                 echo $lastId;
             } else {
-                echo $connection->error." error";
+                echo $connection->error."error";
             }
     }
     disconnect();

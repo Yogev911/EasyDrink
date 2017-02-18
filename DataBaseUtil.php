@@ -544,7 +544,7 @@ function addToFavorites($cocktailId){
     if ( $connection->query($query) === TRUE) {
         return "1";
     } else {
-        return $connection->error;
+        return $connection->error." error";
     }
 
 }
@@ -591,5 +591,7 @@ function addToRecent($cocktailId){
         return $connection->error;
     }
 }
+
+
 
 ?>

@@ -7,7 +7,11 @@ $( document ).ready(function () {
     $(".sidenav .closebtn").click(closeNav);
     $(".btn-number").click(plusMinusBtn);
     $(".saveBtn").click(saveDrinkToFav);
-    $(".saveMakeYourOwn").click(saveMakeYourOwn);
+    $(".saveMakeYourOwn").click(function () {
+        saveMakeYourOwn();
+        $('#myModal').modal('hide');
+    });
+
     initContainer();
 });
 
@@ -129,26 +133,20 @@ function removeBlock($btn) {
 }
 
 function saveMakeYourOwn(){
-    // this is the id of the form
-    $("#form").submit(function(e) {
-
-        var url = "saveDrink.php"; // the script where you handle the form input.
-
         $.ajax({
-            type: "POST",
-            url: url,
-            data: $("#form").serialize(), // serializes the form's elements.
-            success: function(data)
-            {
+            type:"POST",
+            url: "saveDrink.php",
+            data: $("#form").serialize(),
+            cache: true,
+            success: function (data) {
                 if(!data.includes("error")) {
                     $("#idHidden").val(data);
                     showSaveDialog()
                 }else {
+                    console.log(data);
                     showDuplicateDialog();
                 }
             }
-        });
+        })
 
-        e.preventDefault(); // avoid to execute the actual submit of the form.
-    });
 }
