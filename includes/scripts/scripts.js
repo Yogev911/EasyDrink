@@ -7,6 +7,7 @@ $( document ).ready(function () {
     $(".sidenav .closebtn").click(closeNav);
     $(".btn-number").click(plusMinusBtn);
     $(".saveBtn").click(saveDrinkToFav);
+    $(".saveMakeYourOwn").click(saveMakeYourOwn);
     initContainer();
 });
 
@@ -36,22 +37,27 @@ function saveDrinkToFav() {
         success: function (data) {
             console.log(data);
             if(!data.localeCompare("1")) {
-                $(".alert-warning").slideToggle(300);
-                setTimeout(function () {
-                    $(".alert-warning").slideUp(300);
-                }, 3000)
-            }else if (data.includes("Duplicate")){
-                debugger;
-                $(".alert,.alert-danger").slideToggle(300);
-                setTimeout(function () {
-                    $(".alert-danger").slideUp(300);
-                }, 3000)
+                showSaveDialog()
+            }else if (data.includes("error")){
+                showDuplicateDialog()
             }
         }
     })
 
 }
 
+function showSaveDialog() {
+    $(".alert-warning").slideToggle(300);
+    setTimeout(function () {
+        $(".alert-warning").slideUp(300);
+    }, 3000)
+}
+function showDuplicateDialog() {
+    $(".alert,.alert-danger").slideToggle(300);
+    setTimeout(function () {
+        $(".alert-danger").slideUp(300);
+    }, 3000)
+}
 /**
  * Setting the plus and minus btns in the customize form
  */
@@ -120,4 +126,29 @@ function removeBlock($btn) {
         $tubeContainer.append(newDiv);
 
     }
+}
+
+function saveMakeYourOwn(){
+    // this is the id of the form
+    $("#form").submit(function(e) {
+
+        var url = "saveDrink.php"; // the script where you handle the form input.
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: $("#form").serialize(), // serializes the form's elements.
+            success: function(data)
+            {
+                if(!data.includes("error")) {
+                    $("#idHidden").val(data);
+                    showSaveDialog()
+                }else {
+                    showDuplicateDialog();
+                }
+            }
+        });
+
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+    });
 }

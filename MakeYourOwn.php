@@ -69,7 +69,8 @@
             <section>
             </section>
         </section>
-        <form action="CheckOut.php" class="form_makeyourown">
+        <form id="form" action="CheckOut.php" class="form_makeyourown">
+            <input id="idHidden" type="hidden" name="id" value="">
             <?php
             if (!empty($_GET["id"])) {
                 $glassArr = getGlassObjArray();
@@ -350,7 +351,7 @@
             </section>
             <div class="clear"></div>
             <section class="customizeBtnSection">
-                <button class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-star"></span> Save</button>
+                <button class="btn btn-sm btn-warning saveMakeYourOwn"><span class="glyphicon glyphicon-star"></span> Save</button>
 
                 <button type="submit" value="Submit" class="btn btn-primary">Pay</button>
 
