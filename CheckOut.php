@@ -71,16 +71,6 @@
 <header>
     <h1><i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>Check Out</h1>
 </header>
-<div class="alert alert-warning alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
-    </button>
-    <strong><span class="glyphicon glyphicon-star"></span> </strong> Cocktail saved !
-</div>
-<div class="alert alert-danger alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
-    </button>
-    <strong><span class="glyphicon glyphicon-warning-sign"></span> </strong> Cocktail already on favorites
-</div>
 <main class="wrapper">
     <div class="panel panel-default">
         <!-- Default panel contents -->

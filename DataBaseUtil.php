@@ -627,5 +627,16 @@ function addToRecentByParams($glassId,$alcoholOne,$alcoholOneAmount,$alcoholTwo,
     }
 }
 
+function deleteFromFavorites($id){
+    global $connection;
+    global $defaultUserId;
+    $query = "DELETE FROM tbl_219_favorits WHERE cocktail_id = ".$id;
+    if ( $connection->query($query) === TRUE) {
+        return "1";
+    } else {
+        return $connection->error."error";
+    }
+}
+
 
 ?>
