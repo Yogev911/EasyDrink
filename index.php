@@ -34,12 +34,18 @@
         <div id="mySidenav" class="sidenav">
             <button class="btn closebtn">&times;</button>
             <section class="sideNavUser">
-                <h3><span class="glyphicon glyphicon-user"> Shaul Gueta</h3>
+                <?php
+                include "DataBaseUtil.php";
+                connect();
+                $userConnected = getUserObj(305166860);
+                echo '<h3><img class="userImg" src="'.$userConnected->pic.'">  '.$userConnected->name.'</h3>';
+                ?>
                 <a class="btn logInOutBtn"><span class="glyphicon glyphicon-log-out"></span></a>
             </section>
             <ul>
                 <li><a href="favorites.php"><span class="glyphicon glyphicon-star"></span> Favorites</a></li>
                 <li><a href="recent.php"><i class="fa fa-history"></i> Recent</a></li>
+                <li><a href="MakeYourOwn.php"><i class="fa fa-flask"></i> Customize</a></li>
                 <li><a href="foryou.php"><i class="fa fa-user"></i> For you</a></li>
                 <li><a href="ourpicks.php"><span class="glyphicon glyphicon-glass" ></span> Our picks</a></li>
                 <li><a href="Trendy.php"><span class="glyphicon glyphicon-sunglasses" ></span> Trendy</a></li>
@@ -64,10 +70,8 @@
             <section class="slogan">
                 <h2>IT WAS NEVER THAT EASY TO GET A DRINK</h2>
             </section>
-            <ul id="og-grid" class="og-grid">        <?php
-                include "DataBaseUtil.php";
-                connect();
-
+            <ul id="og-grid" class="og-grid">
+                <?php
                 $drinkArr = getThinCocktailObjArray();
                 $arrSize = count($drinkArr);
                 for ($i = 0;  ($i < 10) && ($i < $arrSize) ;  $i++) { //There are 10 drinks in index page

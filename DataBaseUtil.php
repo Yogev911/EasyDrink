@@ -56,6 +56,14 @@ class Glass
     public $img_src;
 }
 
+class User
+{
+    public $user_id;
+    public $pin_code;
+    public $name;
+    public $email;
+    public $pic;
+}
 
 function connect(){
     global $connection;
@@ -504,6 +512,25 @@ function updateSavedCocktail($id,$glassId,$alcoholOne,$alcoholOneAmount,$alcohol
         return $connection->error;
     }
 }
+
+function getUserObj($userId){
+    global $connection;
+    $userObj = new User();
+    $query = "SELECT * FROM tbl_219_users WHERE user_id = " . $userId . " ";
+    $result = mysqli_query($connection, $query);
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $userObj->email = $row["email"];
+        $userObj->name = $row["name"];
+        $userObj->pic = $row["pic"];
+        $userObj->pin_code = $row["pin_code"];
+        $userObj->user_id = $row["user_id"];
+        return $userObj;
+    } else {
+        return null;
+    }
+}
+
 
 /**
  * @param cocktailId $ The cocktail id which would like to add to favorites

@@ -223,6 +223,9 @@ footer .rights{
     margin: 40px 20px;
     padding: 10px;
 }
+.userImg{
+    border-radius: 50%;
+}
 .sidenav .sideNavUser h3{
     display: inline-block;
 }
