@@ -53,7 +53,7 @@
 </div>
 <!-- END Side Nav -->
 <header>
-    <h1><span class="glyphicon glyphicon-glass"> Our picks</h1>
+    <h1><span class="glyphicon glyphicon-glass"> OurPicks</h1>
     <p>Posting Drinks selected by our team</p>
 </header>
 <div class="alert alert-warning alert-dismissible notify" role="alert">

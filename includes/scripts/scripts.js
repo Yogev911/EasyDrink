@@ -2,6 +2,7 @@
  * Created by Yogev Heskia on 04/01/2017.
  */
 
+
 $( document ).ready(function () {
     $(".hamburger").click(openNav);
     $(".sidenav .closebtn").click(closeNav);
@@ -17,22 +18,26 @@ $( document ).ready(function () {
 });
 
 
-/* Set the width of the side navigation to 250px */
+/**
+ * Open up the sideNav
+ */
 function openNav() {
     $(".sidenav").slideToggle(300);
 }
 
-/* Set the width of the side navigation to 0 */
+/**
+ * Closing the sideNav
+ */
 function closeNav() {
     $(".sidenav").slideUp(300);
 }
 
-
+/**
+ * using AJAX saving the drink to Favorites tbl
+ */
 function saveDrinkToFav() {
 
     var idVal = $(this).data("id");
-
-    console.log("called");
 
     $.ajax({
         type:"POST",
@@ -40,7 +45,6 @@ function saveDrinkToFav() {
         data: "id="+idVal,
         cache: true,
         success: function (data) {
-            console.log(data);
             if(!data.localeCompare("1")) {
                 showSaveDialog()
             }else if (data.includes("error")){
@@ -51,6 +55,49 @@ function saveDrinkToFav() {
 
 }
 
+/**
+ * using AJAX saving the drink to Favorites tbl using params
+ */
+function saveMakeYourOwn(){
+    $.ajax({
+        type:"POST",
+        url: "saveDrink.php",
+        data: $("#form").serialize(),
+        cache: true,
+        success: function (data) {
+            if(!data.includes("error")) {
+                $("#idHidden").val(data);
+                showSaveDialog()
+            }else {
+                showDuplicateDialog();
+            }
+        }
+    })
+
+}
+
+/**
+ * Deleting cocktail from favorites
+ */
+function deleteCocktail() {
+    var id = $(this).data("id");
+    $.ajax({
+        type: "POST",
+        url: "deleteFavorite.php",
+        data: "id=" + id,
+        cache: true,
+        success: function (data) {
+            if (!data.includes("error")) {
+                showDeletedDialog();
+                $("[data-id=" + id + "]").parentsUntil("li").parent().remove();
+            }
+        }
+    })
+}
+
+/**
+ * Showing user notification about Deleting an item
+ */
 function showDeletedDialog() {
     $(".alert-danger").slideToggle(300);
     setTimeout(function () {
@@ -58,6 +105,9 @@ function showDeletedDialog() {
     }, 3000)
 }
 
+/**
+ * Showing user notification about Saving an item
+ */
 function showSaveDialog() {
     $(".alert-warning").slideToggle(300);
     setTimeout(function () {
@@ -70,6 +120,8 @@ function showDuplicateDialog() {
         $(".alert-danger").slideUp(300);
     }, 3000)
 }
+
+
 /**
  * Setting the plus and minus btns in the customize form
  */
@@ -86,11 +138,13 @@ function plusMinusBtn() {
         val = parseInt($inpObj.val())
         if(val - jumps >=  minValue )
             $inpObj.val(val - jumps);
-        addBlock($(this));
     }
 
 }
 
+/**
+ * init the MakeYourOwn MeasureCup
+ */
 function initContainer() {
     if($(".tube").css("display") != "none"  ) {
         var $inputs = $("input[type=number]");
@@ -140,39 +194,3 @@ function removeBlock($btn) {
     }
 }
 
-function saveMakeYourOwn(){
-        $.ajax({
-            type:"POST",
-            url: "saveDrink.php",
-            data: $("#form").serialize(),
-            cache: true,
-            success: function (data) {
-                if(!data.includes("error")) {
-                    $("#idHidden").val(data);
-                    showSaveDialog()
-                }else {
-                    console.log(data);
-                    showDuplicateDialog();
-                }
-            }
-        })
-
-}
-
-function deleteCocktail() {
-    var id = $(this).data("id");
-    $.ajax({
-        type:"POST",
-        url: "deleteFavorite.php",
-        data: "id="+ id ,
-        cache: true,
-        success: function (data) {
-            if(!data.includes("error")) {
-                showDeletedDialog();
-                $("[data-id="+id+"]").parentsUntil("li").parent().remove();
-            }else {
-                console.log(data);
-            }
-        }
-    })
-}

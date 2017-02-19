@@ -65,6 +65,9 @@ class User
     public $pic;
 }
 
+/**
+ * Connecting to DB, need to connect before calling any of the data related function
+ */
 function connect(){
     global $connection;
     $dbhost = "182.50.133.146";
@@ -463,12 +466,14 @@ function createCocktailObjFromParams($cocktail_id, $name, $alcohol1, $alcohol1_a
     $cocktailObj->our_picks = $our_picks;
     $cocktailObj->price = $price;
 }
+
 class DrinkPay
 {
     public $name;
     public $price;
     public $amount;
 }
+
 function getCocktailPrices($alcohol1=1, $alcohol2=1, $juice1=1, $juice2=1){
 
 
@@ -491,24 +496,10 @@ SELECT name,price FROM tbl_219_juice WHERE juice_id = ".$juice1." or juice_id = 
         return null;
     }
 }
-//$row = mysqli_fetch_assoc($result);
-//$cocktailObj->alcohol1->name = $row["name"];
-//$cocktailObj->alcohol1->price = $row["price"];
-//$row = mysqli_fetch_assoc($result);
-//$cocktailObj->alcohol2->name = $row["name"];
-//$cocktailObj->alcohol2->price = $row["price"];
-//$row = mysqli_fetch_assoc($result);
-//$cocktailObj->juice1->name = $row["name"];
-//$cocktailObj->juice1->price = $row["price"];
-//$row = mysqli_fetch_assoc($result);
-//$cocktailObj->juice2->name = $row["name"];
-//$cocktailObj->juice2->price = $row["price"];
+
+
 function updateSavedCocktail($id,$glassId,$alcoholOne,$alcoholOneAmount,$alcoholTwo,$alcoholTwoAmount,$juiceOne,$juiceOneAmount,$juiceTwo,$juiceTwoAmount,$ice){
     global $connection;
-//    $query = "INSERT INTO  auxstudDB6c.tbl_219_cocktail (user_id ,cocktail_id) VALUES (".$defaultUserId.",".$cocktailId.")";
-//    $query = "UPDATE auxstudDB6c.tbl_219_cocktail
-//              SET glass_id='.$glassId.' ,alcohol_id1='.$alcoholOne.' ,alcohol1_amount='.$alcoholOneAmount.' ,alcohol_id2='.$alcoholTwo.' ,alcohol2_amount='.$alcoholTwoAmount.' ,juice_id1='.$juiceOne.' ,juice1_amount='.$juiceOneAmount.' ,juice_id2='.$juiceTwo.' ,juice2_amount='.$juiceTwoAmount.' ,ice='.$ice.'
-//              WHERE cocktail_id='.$id.' ";
     $query = "UPDATE auxstudDB6c.tbl_219_cocktail
               SET glass_id=".$glassId." ,alcohol_id1=".$alcoholOne." ,alcohol1_amount=".$alcoholOneAmount." ,alcohol_id2=".$alcoholTwo." ,alcohol2_amount=".$alcoholTwoAmount." ,juice_id1=".$juiceOne." ,juice1_amount=".$juiceOneAmount." ,juice_id2=".$juiceTwo." ,juice2_amount=".$juiceTwoAmount." ,ice=".$ice."
               WHERE cocktail_id=".$id." ";
@@ -597,6 +588,7 @@ function addToRecent($cocktailId){
         return $connection->error;
     }
 }
+
 function addToRecentByParams($glassId,$alcoholOne,$alcoholOneAmount,$alcoholTwo,$alcoholTwoAmount,$juiceOne,$juiceOneAmount,$juiceTwo,$juiceTwoAmount,$ice){
     global $connection;
     $nothing ="null";

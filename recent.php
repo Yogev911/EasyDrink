@@ -71,7 +71,7 @@
                 for ($i = 0;  $i < $arrSize ;  $i++) {
                     echo '
                             <li class="list-group-item">
-                                <img src="images/Glass1.jpg"  alt="glass">
+                                <img src="images/Glass'.$drinkArr[$i]->glass.'.jpg"  alt="glass">
                                 <label class="drinkName">' . substr($drinkArr[$i]->name,0,20) . '</label>
                                 <label class="drinkDescription">' . substr($drinkArr[$i]->description,0,50) . '...</label>
                                 <section class="drinkLiBtnGroup">
@@ -103,11 +103,3 @@
     </body>
 </html>
 
-
-<?php
-/**
- * Created by PhpStorm.
- * User: Ori
- * Date: 2/13/2017
- * Time: 7:21 PM
- */?>

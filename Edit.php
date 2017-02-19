@@ -93,6 +93,8 @@ if (!empty($_GET["id"])) {
 
         <section class="tube">
             <img src="images/measureCup.svg">
+            <section>
+            </section>
         </section>
         <form action="favorites.php" class="form_makeyourown">
             <section class="scroll">
@@ -140,13 +142,13 @@ if (!empty($_GET["id"])) {
                                 <select class="form-control" name="alcoholOne">
                                     <?php
                                     if (!empty($_GET["id"])) {
-                                        echo '<option value="' . $cocktailObj->alcohol1->alcohol_id . '">' . $cocktailObj->alcohol1->name . ' ' . $cocktailObj->alcohol1->price . '$</option>';
+                                        echo '<option value="'.$cocktailObj->alcohol1->alcohol_id.'" data-color="'.$cocktailObj->alcohol1->color.'" >' . $cocktailObj->alcohol1->name . ' ' . $cocktailObj->alcohol1->price . '$</option>';
                                     }else{
                                         echo '<option value="" selected>Alcohol</option>';
                                     }
 
                                     foreach ($alcoholArr as $alcohol) {
-                                        echo '<option value="' . $alcohol->alcohol_id . '">' . $alcohol->name . ' ' . $alcohol->price . '$</option>';
+                                        echo '<option value="' . $alcohol->alcohol_id . '" data-color="'.$alcohol->color.'" >' . $alcohol->name . ' ' . $alcohol->price . '$</option>';
                                     }
                                     ?>
                                 </select>
@@ -160,14 +162,14 @@ if (!empty($_GET["id"])) {
                                         </span>
                                         <?php
                                         if (!empty($_GET["id"])) {
-                                            echo '<input type="number" name="alcoholOneAmount" class="form-control input-number"value="'.$cocktailObj->alcohol1_amount.'" min="0" max="200">';
+                                            echo '<input type="number" name="alcoholOneAmount" class="form-control input-number"value="'.$cocktailObj->alcohol1_amount.'" min="0" max="200" data-for="alcoholOne" readonly>';
                                         }else{
-                                            echo '<input type="number" name="alcoholOneAmount" class="form-control input-number"value="0" min="0" max="200">';
+                                            echo '<input type="number" name="alcoholOneAmount" class="form-control input-number"value="0" min="0" max="200" readonly>';
                                         }
                                         ?>
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number" data-type="plus"
-                                                    data-field="alcoholOneAmount">
+                                                    data-field="alcoholOneAmount" data-for="alcoholOne">
                                                 <span class="glyphicon glyphicon-plus"></span>
                                             </button>
                                         </span>
@@ -178,12 +180,12 @@ if (!empty($_GET["id"])) {
                                 <select class="form-control" name="alcoholTwo">
                                     <?php
                                     if (!empty($_GET["id"])) {
-                                        echo '<option value="' . $cocktailObj->alcohol2->alcohol_id . '">' . $cocktailObj->alcohol2->name . ' ' . $cocktailObj->alcohol2->price . '$</option>';
+                                        echo '<option value="' . $cocktailObj->alcohol2->alcohol_id . '" data-color="'.$cocktailObj->alcohol2->color.'" >' . $cocktailObj->alcohol2->name . ' ' . $cocktailObj->alcohol2->price . '$</option>';
                                     }else{
                                         echo '<option value="" selected>Alcohol</option>';
                                     }
                                     foreach ($alcoholArr as $alcohol) {
-                                        echo '<option value="' . $alcohol->alcohol_id . '">' . $alcohol->name . ' ' . $alcohol->price . '$</option>';
+                                        echo '<option value="' . $alcohol->alcohol_id . '" data-color="'.$alcohol->color.'" >' . $alcohol->name . ' ' . $alcohol->price . '$</option>';
                                     }
                                     ?>
                                 </select>
@@ -197,14 +199,14 @@ if (!empty($_GET["id"])) {
                                         </span>
                                         <?php
                                         if (!empty($_GET["id"])) {
-                                            echo '<input type="number" name="alcoholTwoAmount" class="form-control input-number"value="'.$cocktailObj->alcohol2_amount.'" min="0" max="200">';
+                                            echo '<input type="number" name="alcoholTwoAmount" class="form-control input-number"value="'.$cocktailObj->alcohol2_amount.'" min="0" max="200" data-for="alcoholTwo" readonly>';
                                         }else{
-                                            echo '<input type="number" name="alcoholTwoAmount" class="form-control input-number"value="0" min="0" max="200">';
+                                            echo '<input type="number" name="alcoholTwoAmount" class="form-control input-number"value="0" min="0" max="200"  readonly>';
                                         }
                                         ?>
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number" data-type="plus"
-                                                    data-field="alcoholTwoAmount">
+                                                    data-field="alcoholTwoAmount" data-for="alcoholTwo">
                                                 <span class="glyphicon glyphicon-plus"></span>
                                             </button>
                                         </span>
@@ -231,12 +233,12 @@ if (!empty($_GET["id"])) {
 
                                     <?php
                                     if (!empty($_GET["id"])) {
-                                        echo '<option value="' . $cocktailObj->juice1->juice_id . '">' . $cocktailObj->juice1->name . ' ' . $cocktailObj->juice1->price . '$</option>';
+                                        echo '<option value="' . $cocktailObj->juice1->juice_id . '" data-color="'.$cocktailObj->juice1->color.'" >' . $cocktailObj->juice1->name . ' ' . $cocktailObj->juice1->price . '$</option>';
                                     }else{
                                         echo '<option value="" selected>Juice</option>';
                                     }
                                     foreach ($juiceArr as $juice) {
-                                        echo '<option value="' . $juice->juice_id . '">' . $juice->name . ' ' . $juice->price . '$</option>';
+                                        echo '<option value="' . $juice->juice_id . '" data-color="'.$juice->color.'" >' . $juice->name . ' ' . $juice->price . '$</option>';
                                     }
                                     ?>
                                 </select>
@@ -250,14 +252,14 @@ if (!empty($_GET["id"])) {
                                         </span>
                                         <?php
                                         if (!empty($_GET["id"])) {
-                                            echo '<input type="number" name="juiceOneAmount" class="form-control input-number"value="'.$cocktailObj->juice1_amount.'" min="0" max="200">';
+                                            echo '<input type="number" name="juiceOneAmount" class="form-control input-number"value="'.$cocktailObj->juice1_amount.'" min="0" max="200" data-for="juiceOne" readonly>';
                                         }else{
-                                            echo '<input type="number" name="juiceOneAmount" class="form-control input-number"value="0" min="0" max="200">';
+                                            echo '<input type="number" name="juiceOneAmount" class="form-control input-number"value="0" min="0" max="200" readonly>';
                                         }
                                         ?>
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number" data-type="plus"
-                                                    data-field="juiceOneAmount">
+                                                    data-field="juiceOneAmount" data-for="juiceOne">
                                                 <span class="glyphicon glyphicon-plus"></span>
                                             </button>
                                         </span>
@@ -269,12 +271,12 @@ if (!empty($_GET["id"])) {
 
                                     <?php
                                     if (!empty($_GET["id"])) {
-                                        echo '<option value="' . $cocktailObj->juice2->juice_id . '">' . $cocktailObj->juice2->name . ' ' . $cocktailObj->juice2->price . '$</option>';
+                                        echo '<option value="' . $cocktailObj->juice2->juice_id . '" data-color="'.$cocktailObj->juice2->color.'" >' . $cocktailObj->juice2->name . ' ' . $cocktailObj->juice2->price . '$</option>';
                                     }else{
                                         echo '<option value="" selected>Juice</option>';
                                     }
                                     foreach ($juiceArr as $juice) {
-                                        echo '<option value="' . $juice->juice_id . '">' . $juice->name . ' ' . $juice->price . '$</option>';
+                                        echo '<option value="' . $juice->juice_id . '" data-color="'.$juice->color.'" >' . $juice->name . ' ' . $juice->price . '$</option>';
                                     }
                                     ?>
                                 </select>
@@ -288,14 +290,14 @@ if (!empty($_GET["id"])) {
                                         </span>
                                         <?php
                                         if (!empty($_GET["id"])) {
-                                            echo '<input type="number" name="juiceTwoAmount" class="form-control input-number"value="'.$cocktailObj->juice2_amount.'" min="0" max="200">';
+                                            echo '<input type="number" name="juiceTwoAmount" class="form-control input-number"value="'.$cocktailObj->juice2_amount.'" min="0" max="200" data-for="juiceTwo" readonly>';
                                         }else{
-                                            echo '<input type="number" name="juiceTwoAmount" class="form-control input-number"value="0" min="0" max="200">';
+                                            echo '<input type="number" name="juiceTwoAmount" class="form-control input-number"value="0" min="0" max="200" readonly>';
                                         }
                                         ?>
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number" data-type="plus"
-                                                    data-field="juiceTwoAmount">
+                                                    data-field="juiceTwoAmount" data-for="juiceTwo">
                                                 <span class="glyphicon glyphicon-plus"></span>
                                             </button>
                                         </span>
@@ -351,7 +353,6 @@ if (!empty($_GET["id"])) {
             <div class="clear"></div>
             <section class="customizeBtnSection">
                 <button button type="submit" value="Submit" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-star"></span> Save</button>
-
             </section>
 
             <?php

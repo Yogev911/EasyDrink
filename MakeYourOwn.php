@@ -163,9 +163,9 @@
                                         </span>
                                         <?php
                                         if (!empty($_GET["id"])) {
-                                            echo '<input type="number" name="alcoholOneAmount" class="form-control input-number"value="'.$cocktailObj->alcohol1_amount.'" min="0" max="200" data-for="alcoholOne">';
+                                            echo '<input type="number" name="alcoholOneAmount" class="form-control input-number"value="'.$cocktailObj->alcohol1_amount.'" min="0" max="200" data-for="alcoholOne" readonly>';
                                         }else{
-                                            echo '<input type="number" name="alcoholOneAmount" class="form-control input-number"value="0" min="0" max="200">';
+                                            echo '<input type="number" name="alcoholOneAmount" class="form-control input-number"value="0" min="0" max="200" readonly>';
                                         }
                                         ?>
                                         <span class="input-group-btn">
@@ -200,9 +200,9 @@
                                         </span>
                                         <?php
                                         if (!empty($_GET["id"])) {
-                                            echo '<input type="number" name="alcoholTwoAmount" class="form-control input-number"value="'.$cocktailObj->alcohol2_amount.'" min="0" max="200" data-for="alcoholTwo" >';
+                                            echo '<input type="number" name="alcoholTwoAmount" class="form-control input-number"value="'.$cocktailObj->alcohol2_amount.'" min="0" max="200" data-for="alcoholTwo" readonly>';
                                         }else{
-                                            echo '<input type="number" name="alcoholTwoAmount" class="form-control input-number"value="0" min="0" max="200">';
+                                            echo '<input type="number" name="alcoholTwoAmount" class="form-control input-number"value="0" min="0" max="200" readonly>';
                                         }
                                         ?>
                                         <span class="input-group-btn">
@@ -252,9 +252,9 @@
                                         </span>
                                         <?php
                                         if (!empty($_GET["id"])) {
-                                            echo '<input type="number" name="juiceOneAmount" class="form-control input-number"value="'.$cocktailObj->juice1_amount.'" min="0" max="200" data-for="juiceOne" >';
+                                            echo '<input type="number" name="juiceOneAmount" class="form-control input-number"value="'.$cocktailObj->juice1_amount.'" min="0" max="200" data-for="juiceOne" readonly>';
                                         }else{
-                                            echo '<input type="number" name="juiceOneAmount" class="form-control input-number"value="0" min="0" max="200">';
+                                            echo '<input type="number" name="juiceOneAmount" class="form-control input-number"value="0" min="0" max="200" readonly>';
                                         }
                                         ?>
                                         <span class="input-group-btn">
@@ -289,9 +289,9 @@
                                         </span>
                                         <?php
                                         if (!empty($_GET["id"])) {
-                                            echo '<input type="number" name="juiceTwoAmount" class="form-control input-number"value="'.$cocktailObj->juice2_amount.'" min="0" max="200" data-for="juiceTwo"  >';
+                                            echo '<input type="number" name="juiceTwoAmount" class="form-control input-number"value="'.$cocktailObj->juice2_amount.'" min="0" max="200" data-for="juiceTwo" readonly >';
                                         }else{
-                                            echo '<input type="number" name="juiceTwoAmount" class="form-control input-number"value="0" min="0" max="200">';
+                                            echo '<input type="number" name="juiceTwoAmount" class="form-control input-number"value="0" min="0" max="200" readonly>';
                                         }
                                         ?>
                                         <span class="input-group-btn">

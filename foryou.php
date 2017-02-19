@@ -54,7 +54,7 @@
 <!-- END Side Nav -->
 <header>
     <h1><i class="glyphicon glyphicon-sunglasses" aria-hidden="true"></i> For You</h1>
-    <p>Drink most recommended four specially for you</p>
+    <p>Drink most recommended specially for you</p>
 </header>
 <div class="alert alert-warning alert-dismissible notify" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>

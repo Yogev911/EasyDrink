@@ -20,6 +20,7 @@
     connect();
     if (!empty($_GET["id"])) {
         $val = updateSavedCocktail($_GET["id"], $_GET["glassId"],$_GET["alcoholOne"],$_GET["alcoholOneAmount"],$_GET["alcoholTwo"],$_GET["alcoholTwoAmount"],$_GET["juiceOne"],$_GET["juiceOneAmount"],$_GET["juiceTwo"],$_GET["juiceTwoAmount"],$_GET["ice"]);
+
     }
     ?>
     <!-- Nav -->
