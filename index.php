@@ -65,7 +65,7 @@
             <section class="customize-poster" href="MakeYourOwn.html">
                 <h2><i class="fa fa-flask" aria-hidden="true"></i>CREATE YOUR POISON</h2>
                 <p>Customize your drink just the way you like it .</p>
-                <a class="btn btn-info" href="MakeYourOwn.php">Create Now</a>
+                <a class="btn btn-info btn-lg" href="MakeYourOwn.php">Create Now</a>
             </section>
             <section class="slogan">
                 <h2>IT WAS NEVER THAT EASY TO GET A DRINK</h2>
