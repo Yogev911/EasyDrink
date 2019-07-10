@@ -1,0 +1,60 @@
+.drinkList li{
+    color: #222222;
+    position: relative;
+}
+.drinkList img{
+    float: left;
+    margin-top: 10px;
+    width: 30px;
+}
+.drinkList label{
+    position: absolute;
+    top: 25px;
+}
+
+.drinkList .drinkName{
+    left: 60px;
+}
+
+.drinkList .drinkDescription{
+    left: 230px;
+}
+
+.drinkList .drinkPrice{
+    right: 280px;
+}
+
+.drinkList .drinkLiBtnGroup{
+    float: right;
+}
+
+@media only screen and (max-width:930px){
+    .drinkList .drinkPrice{
+        position: absolute;
+        right: 10px;
+    }
+
+    .drinkList .drinkLiBtnGroup{
+        width: 100%;
+        float: left;
+        margin-top: 10px;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width:700px){
+    .drinkList .drinkDescription{
+        width: 100%;
+        float: left;
+        left: 10px;
+        top: 10px;
+        margin-top: 10px;
+        position: relative;
+    }
+    /*
+    .drinkList .drinkLiBtnGroup{
+        width: 100%;
+        float: left;
+        text-align: center;
+    }*/
+}

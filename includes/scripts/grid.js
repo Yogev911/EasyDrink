@@ -8,6 +8,8 @@
  * Licensed under the MIT license.
  */
 
+
+
 $(document).ready(function () {
     Grid.init();
 });
@@ -315,6 +317,7 @@ var Grid = (function() {
             // same row
             else {
                 preview.update( $item );
+                $(".saveBtn").click(saveDrinkToFav);
                 return false;
             }
 
@@ -326,6 +329,8 @@ var Grid = (function() {
         preview = $.data( this, 'preview', new Preview( $item ) );
         // expand preview overlay
         preview.open();
+
+        $(".saveBtn").click(saveDrinkToFav);
 
     }
 
@@ -348,9 +353,9 @@ var Grid = (function() {
         create : function() {
             // create Preview structure:
             //this.$title = $( '<h3></h3>' );
-            this.$description = $( '<div class=".description"></div>' );
+            this.$description = $( '<div class=".thumbnail-description"></div>' );
             //this.$href = $( '<a href="#">Visit website</a>' );
-            //this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$description, this.$href );
+            //this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$thumbnail-description, this.$href );
             this.$details = $( '<div class="og-details"></div>' ).append( this.$description);
             this.$loading = $( '<div class="og-loading"></div>' );
             this.$fullimage = $( '<div class="og-fullimg"></div>' ).append( this.$loading );
@@ -382,14 +387,14 @@ var Grid = (function() {
             // update current value
             current = this.$item.index();
 
-            // update preview´s content
+            // update preview´s thumbnail-content
             var $itemEl = this.$item.children( 'a' ),
                 eldata = {
                     href : $itemEl.attr( 'href' ),
                     largesrc : $itemEl.data( 'largesrc' ),
                     title : $itemEl.data( 'title' ),
-                    //description : $itemEl.data( 'description' )
-                    description : $itemEl.parent().children(".content").html()
+                    //thumbnail-description : $itemEl.data( 'thumbnail-description' )
+                    description : $itemEl.parent().children(".thumbnail-content").html()
                 };
 
 
@@ -521,3 +526,4 @@ var Grid = (function() {
     };
 
 })();
+
